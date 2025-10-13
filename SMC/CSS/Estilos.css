@@ -1,0 +1,73 @@
+/*Creamos el css*/
+body {
+    display: grid;
+    /*Ajusta el contenido de manera horizontal*/
+    justify-content: center;
+    /*Ajusta el contenido verticalmente*/
+    align-items: center;
+    height: 100vh;
+    /*Establece la familia de letras*/
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/*indicamos la seccion q vamos a ocupar*/
+main {
+     /*Centra el tex*/
+    text-align: center;
+    /*Pone un espaciado a los lados*/
+    padding: 30px;
+    /*Rendondea los bordes*/
+    border-radius: 10px;
+    /*Le ponemos sombras*/
+    box-shadow: -1px 1px 7px 0 black;
+}
+
+/*Cuadro de fondo*/
+form {
+    /*Lo hacemos flexible*/
+    display: flex;
+    /*Indicamos que tiene que ser acomodado como columna*/
+    flex-direction: column;
+    /*Coloca un espaciado entre los datos*/
+    gap: 15px;
+   
+}
+
+/*Titulo*/
+h1 {
+    font-size: 30px;
+}
+
+/*Etiquetas*/
+label {
+    /*Alineamos el texto a la derecha*/
+    text-align: left;
+    font-size: 14px;
+}
+
+/*Cajas para ingresar datos*/
+.inputs {
+    /*Espaciado*/
+    padding: 10px;
+    /*Ponemos bordes*/
+    border: 1px solid;
+    /*Redondeamos*/
+    border-radius: 5px;
+    /*Tamanio de la fuente*/
+    font-size: 14px;
+}
+
+.botones {
+    /*Espaciado*/
+    padding: 10px;
+    /*Quitamos el borde*/
+    border-style: none;
+    /*Redondeamos*/
+    border-radius: 5px;
+    /*Tamnio de la fuente*/
+    font-size: 16px;
+}
+
+.links {
+    color: blue;
+}
