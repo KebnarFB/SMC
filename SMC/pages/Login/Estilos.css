@@ -6,6 +6,8 @@ body {
     /*Ajusta el contenido verticalmente*/
     align-items: center;
     height: 100vh;
+    /*Le ponemos color*/
+    background-color: #B1FCB3;
     /*Establece la familia de letras*/
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -20,6 +22,7 @@ main {
     border-radius: 10px;
     /*Le ponemos sombras*/
     box-shadow: -1px 1px 7px 0 black;
+    background-color: #E9FCCF;
 }
 
 /*Cuadro de fondo*/
@@ -40,7 +43,7 @@ h1 {
 
 /*Etiquetas*/
 label {
-    /*Alineamos el texto a la derecha*/
+    /*Alineamos el texto a la izquierda*/
     text-align: left;
     font-size: 14px;
 }
@@ -66,8 +69,12 @@ label {
     border-radius: 5px;
     /*Tamnio de la fuente*/
     font-size: 16px;
+    /*Color*/
+    background-color: #B1FCB3;
+    /*Le pone disenio al cursor*/
+    cursor:pointer;
 }
 
 .links {
-    color: blue;
+    color: darkgreen;
 }

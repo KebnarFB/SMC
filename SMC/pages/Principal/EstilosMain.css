@@ -45,38 +45,39 @@ body {
 /*Encabezado*/
 .header{
     grid-area: header;
+    background-color: #B1FCB3;
   
 }
 
 /*Menu*/
 .menu{
     grid-area: menu;
-   
+    background-color: #B1FCB3;
     display: block  ;
 }
 
 /*Barra izquierda*/
 .left_bar{
     grid-area: left_bar;
-    
+    background-color: #E9FCCF;
 }
 
 /*Barra derecha*/
 .right_bar{
     grid-area: right_bar;
-    
+    background-color: #E9FCCF;
 }
 
 /*El apartado principal*/
 .main{
     grid-area: main;
-
+    background-color: #E9FCCF;
 }
 
 /*Pie de pagina*/
 .footer{
     grid-area: footer;
-
+    background-color: #B1FCB3;
 }
 
 
@@ -119,16 +120,18 @@ body {
 
 /*Computadora*/
 @media(min-width: 900px){
-    
-    .Design{
-        /*Tamanio personalizados*/
-        grid-template-columns: 200px auto 200px;
-        /*min-content establece el menor espacio posible para mostrar algo*/
-        grid-template-rows: 100px min-content auto 100px;
-        grid-template-areas: 
-        "header header header"
-        "menu menu menu"
-        "left_bar main right_bar"
-        "footer footer footer";
+    .left_bar {
+            display: none;
+        }
+   
+    .Design {
+    display: grid;
+    grid-template-columns: auto 200px;
+    grid-template-rows: 100px min-content auto 100px;
+    grid-template-areas: 
+      "header header"
+      "menu menu"
+      "main right_bar"
+      "footer footer";
     }
 }
