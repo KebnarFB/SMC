@@ -46,19 +46,71 @@ body {
 .header{
     grid-area: header;
     background-color: #B1FCB3;
-  
+    display: grid;
+    grid-template-columns: 0.5fr 4fr 0.2fr;
+    width: 100%;
+}
+
+.perfilContenedor{
+    display: grid;
+    gap: 20px; /* Espacio entre formularios */
+    /*Le indicamos que los perfiles se deben de acomodar de 3 en 3*/
+    grid-template-columns: repeat(3,1fr);
+    padding: 20px;
+   
+}
+
+.perfil {
+    text-align: center;
+    /*Espaciado entre el contenedor y el texto*/
+    padding: 60px;
+    border-radius: 10px;
+    box-shadow: -1px 2px 5px 0px black;
+    background-color: #E9FCCF;
+    flex: 1;
+}
+
+
+.pictures {
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    width: auto;
+    height: auto;
+    display: flex;             
+    justify-content: center;   
+    align-items: center;        
 }
 
 /*Menu*/
 .menu{
     grid-area: menu;
     background-color: #B1FCB3;
-    display: block  ;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    width: 100%;
+}
+
+#MandV {
+    grid-area: footer;
+    background-color: #B1FCB3;
+    display: grid;
+    justify-content: left;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+
+}
+
+.options {
+    border: 1px solid black;
+    text-decoration: none;
+    color: black;
+    
 }
 
 /*Barra izquierda*/
 .left_bar{
     grid-area: left_bar;
+
     background-color: #E9FCCF;
 }
 
@@ -72,6 +124,8 @@ body {
 .main{
     grid-area: main;
     background-color: #E9FCCF;
+    display: grid;
+    padding: 25px 25px;
 }
 
 /*Pie de pagina*/
@@ -82,8 +136,6 @@ body {
 
 
 /*Establecemos el disenio para cada vista*/
-
-
 
 /*Celular*/
 @media(max-width: 599px){
@@ -127,7 +179,7 @@ body {
     .Design {
     display: grid;
     grid-template-columns: auto 200px;
-    grid-template-rows: 100px min-content auto 100px;
+    grid-template-rows: min-content min-content auto 100px;
     grid-template-areas: 
       "header header"
       "menu menu"
