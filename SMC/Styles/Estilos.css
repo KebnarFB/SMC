@@ -1,3 +1,10 @@
+* {
+    /*Elimina los margenes y los espacios de los elementos*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /*Creamos el css*/
 body {
     display: grid;
@@ -14,7 +21,7 @@ body {
 
 /*indicamos la seccion q vamos a ocupar*/
 main {
-     /*Centra el tex*/
+    /*Centra el tex*/
     text-align: center;
     /*Pone un espaciado a los lados*/
     padding: 30px;
@@ -32,7 +39,6 @@ main {
     flex-direction: column;
     /*Coloca un espaciado entre los datos*/
     gap: 15px;
-   
 }
 
 /*Titulo*/

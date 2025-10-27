@@ -30,130 +30,73 @@ body {
 /*Creamos el disenio*/
 .Design {
     display: grid;
-    /*Creamos las areas que usaremos*/
-    grid-template-areas: 
-    "header"
-    "menu"
-    "left_bar"
-    "right_bar"
-    "main"
-    "footer";
 }
 
-/*Relacionamos las areas con las secciones*/
+/* TODO: Maquetacion START */
 
 /*Encabezado*/
 .header{
     grid-area: header;
-    background-color: #B1FCB3;
-    display: grid;
+    background: linear-gradient(50deg, #e5fcb1, #6e8cf1);
     grid-template-columns: 0.5fr 4fr 0.2fr;
     width: 100%;
-}
-
-.perfilContenedor{
-    display: grid;
-    gap: 20px; /* Espacio entre formularios */
-    /*Le indicamos que los perfiles se deben de acomodar de 3 en 3*/
-    grid-template-columns: repeat(3,1fr);
-    padding: 20px;
-   
-}
-
-.perfil {
-    text-align: center;
-    /*Espaciado entre el contenedor y el texto*/
-    padding: 60px;
-    border-radius: 10px;
-    box-shadow: -1px 2px 5px 0px black;
-    background-color: #E9FCCF;
-    flex: 1;
-}
-
-
-.pictures {
-    border-left: 2px solid black;
-    border-right: 2px solid black;
-    width: auto;
-    height: auto;
-    display: flex;             
-    justify-content: center;   
-    align-items: center;        
 }
 
 /*Menu*/
 .menu{
     grid-area: menu;
-    background-color: #B1FCB3;
-    display: grid;
     grid-template-columns: 25% 25% 25% 25%;
     width: 100%;
-}
-
-#MandV {
-    grid-area: footer;
-    background-color: #B1FCB3;
-    display: grid;
-    justify-content: left;
-    grid-template-columns: 1fr 1fr;
-    width: 100%;
-
-}
-
-.options {
-    border: 1px solid black;
-    text-decoration: none;
-    color: black;
-    
 }
 
 /*Barra izquierda*/
 .left_bar{
     grid-area: left_bar;
-
-    background-color: #E9FCCF;
 }
 
 /*Barra derecha*/
 .right_bar{
     grid-area: right_bar;
-    background-color: #E9FCCF;
 }
 
 /*El apartado principal*/
 .main{
     grid-area: main;
-    background-color: #E9FCCF;
-    display: grid;
     padding: 25px 25px;
 }
 
 /*Pie de pagina*/
 .footer{
     grid-area: footer;
-    background-color: #B1FCB3;
 }
 
+/** Views Devices */
 
-/*Establecemos el disenio para cada vista*/
-
-/*Celular*/
+/* !Celular */
 @media(max-width: 599px){
-
     .Design{
-        /*Tamanio personalizados*/
-        grid-template-columns: 100px auto;
-        /*min-content establece el menor espacio posible para mostrar algo*/
-        grid-template-rows: 70px min-content auto 70px;
+        /*Tamaños personalizados*/
+        grid-template-rows: 50px 70px auto 50px 50px 50px;
         grid-template-areas: 
-        "header right_bar"
-        "menu menu"
-        "left_bar main"
-        "footer footer";
+        "header"
+        "menu"
+        "main"
+        "left_bar"
+        "right_bar"
+        "footer";
+    }
+
+    #title {
+        display: flex;
+        align-items: left;
+    }
+
+    .pictures img {
+        display: none;
     }
 }
 
-/*Tablet*/
+/*! Tablet */
 @media (min-width: 600px) and (max-width: 899px){
 
     .Design{
@@ -168,22 +111,80 @@ body {
         "right_bar right_bar"
         "footer footer";
     }
+
+    .pictures img {
+        display: none;
+    }
 }
 
-/*Computadora*/
+/*! Computadora */
 @media(min-width: 900px){
     .left_bar {
-            display: none;
-        }
-   
+        display: none;
+    }
+
     .Design {
     display: grid;
     grid-template-columns: auto 200px;
     grid-template-rows: min-content min-content auto 100px;
     grid-template-areas: 
-      "header header"
-      "menu menu"
-      "main right_bar"
-      "footer footer";
+    "header header"
+    "menu menu"
+    "main right_bar"
+    "footer footer";
     }
+
+    .pictures img {
+        display: none;
+    }
+}
+
+/* TODO: Maquetacion END  */
+
+/**  Diseño de la pagina */
+
+/*Relacionamos las areas con las secciones*/
+
+.perfil {
+    text-align: center;
+    /*Espaciado entre el contenedor y el texto*/
+    padding: 60px;
+    border-radius: 10px;
+    box-shadow: -1px 2px 5px 0px black;
+    flex: 1;
+}
+
+
+.pictures {
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    width: auto;
+    height: auto;
+    display: flex;             
+    justify-content: center;   
+    align-items: center;        
+}
+
+
+
+#MandV {
+    grid-area: footer;
+    display: grid;
+    justify-content: left;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+
+}
+
+.options {
+    border: 1px solid black;
+    text-decoration: none;
+    color: black;
+    
+}
+
+.options:hover {
+    background-color: aqua;
+    color: black;
+    font-weight: bold;
 }
