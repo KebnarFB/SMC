@@ -18,7 +18,10 @@ body {
     /*Rem son unidades relativas = 16 px*/
     font-size: 1.2rem;
     /*Se complementa con el heigt del html*/
-    min-height: 100%;
+background: #43C6AC;  
+background: -webkit-linear-gradient(to right, #F8FFAE, #43C6AC);  
+background: linear-gradient(to right, #F8FFAE, #43C6AC);
+
 }
 
 /*Indicamos que la clase .Design heredara los atributos de la clase * */
@@ -45,7 +48,6 @@ body {
 /*Encabezado*/
 .header{
     grid-area: header;
-    background-color: #B1FCB3;
     display: grid;
     grid-template-columns: 0.5fr 4fr 0.2fr;
     width: 100%;
@@ -53,21 +55,21 @@ body {
 
 .perfilContenedor{
     display: grid;
-    gap: 20px; /* Espacio entre formularios */
-    /*Le indicamos que los perfiles se deben de acomodar de 3 en 3*/
-    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
     padding: 20px;
    
 }
 
 .perfil {
     text-align: center;
-    /*Espaciado entre el contenedor y el texto*/
     padding: 60px;
-    border-radius: 10px;
-    box-shadow: -1px 2px 5px 0px black;
-    background-color: #E9FCCF;
-    flex: 1;
+    border-radius: 12px;
+    background: #baf3e6; /* color más claro para resaltar */
+    color: #083a31; /* texto verde bosque */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-weight: 500;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 
@@ -84,7 +86,6 @@ body {
 /*Menu*/
 .menu{
     grid-area: menu;
-    background-color: #B1FCB3;
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
     width: 100%;
@@ -92,7 +93,6 @@ body {
 
 #MandV {
     grid-area: footer;
-    background-color: #B1FCB3;
     display: grid;
     justify-content: left;
     grid-template-columns: 1fr 1fr;
@@ -110,28 +110,29 @@ body {
 /*Barra izquierda*/
 .left_bar{
     grid-area: left_bar;
-
-    background-color: #E9FCCF;
 }
 
 /*Barra derecha*/
 .right_bar{
     grid-area: right_bar;
-    background-color: #E9FCCF;
 }
 
 /*El apartado principal*/
 .main{
     grid-area: main;
-    background-color: #E9FCCF;
+    background: linear-gradient(180deg, #7ef0c3 0%, #43c5b5 100%);
     display: grid;
-    padding: 25px 25px;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
 }
 
 /*Pie de pagina*/
 .footer{
     grid-area: footer;
     background-color: #B1FCB3;
+    font-weight: bold;
+    color: #083a31;
 }
 
 
@@ -187,3 +188,5 @@ body {
       "footer footer";
     }
 }
+
+

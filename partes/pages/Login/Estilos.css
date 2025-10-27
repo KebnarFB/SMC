@@ -25,7 +25,8 @@ main {
     background-color: #E9FCCF;
 }
 
-.contenido {
+/*Cuadro de fondo*/
+form {
     /*Lo hacemos flexible*/
     display: flex;
     /*Indicamos que tiene que ser acomodado como columna*/
