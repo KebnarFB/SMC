@@ -1,0 +1,330 @@
+/*Usamos esto para quitar estilos base*/
+* {
+  /*Evita desbordamiento*/
+  box-sizing: border-box;
+  /*Quita margenes*/
+  margin: 0;
+  /*Quita el espaciado*/
+  padding: 0;
+}
+
+html {
+  /*Sirve para indicar que las estructuras ocupen el maximo de tamanio*/
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  /*Rem son unidades relativas = 16 px*/
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  /*Se complementa con el heigt del html*/
+  min-height: 100%;
+}
+
+/*Indicamos que la clase .Design heredara los atributos de la clase * */
+.Design > * {
+  border: 1px solid black;
+  text-align: center;
+}
+
+/*Creamos el disenio*/
+.Design {
+  display: grid;
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 60px;
+}
+
+/* TODO: Maquetacion START */
+
+/*Encabezado*/
+.header {
+  grid-area: header;
+  background: linear-gradient(50deg, #e5fcb1, #6e8cf1);
+  grid-template-columns: 0.5fr 4fr 0.2fr;
+  width: 100%;
+}
+
+/*Menu*/
+.menu {
+  grid-area: menu;
+  width: 100%;
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+}
+
+.options {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  gap: 8px;
+}
+
+.menu-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+/*Barra izquierda*/
+.left_bar {
+  grid-area: left_bar;
+}
+
+/*Barra derecha*/
+.right_bar {
+  grid-area: right_bar;
+}
+
+/*El apartado principal*/
+.main {
+  grid-area: main;
+  padding: 25px 25px;
+}
+
+/*Pie de pagina*/
+.footer {
+  grid-area: footer;
+}
+
+/** Views Devices */
+
+/* !Celular */
+@media (max-width: 599px) {
+    .Design {
+        /*Tamaños personalizados*/
+        grid-template-rows: 50px min-content auto 50px 50px;
+        grid-template-areas:
+            "header"
+            "menu"
+            "main"
+            "right_bar"
+            "footer";
+    }
+
+    .menu {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: white;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .main-container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 60px;
+    }
+
+    .options{
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      padding: 5px 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .menu-icon {
+        width: 35px;
+        height: 35px;
+        filter: grayscale(100%);
+        transition: transform 0.3s ease;
+    }
+
+    .options.active::after {
+      content: '';
+      position: absolute;
+      bottom: -25px;
+      width: 70px;
+      height: 55px;
+      border-radius: 10px;
+      background: linear-gradient(350deg, #e5fcb1, #6e8cf1);
+      transform: translateY(-20px);
+      box-shadow: 0 5px 15px rgba(60, 66, 46, 0.8);
+      transition: all 0.5s ease-in-out;
+      z-index: -1;
+    }
+
+    .options:active .menu-icon {
+        filter: grayscale(0%);
+        transform: translate(-5px);
+    }
+
+    .menu-text {
+        display: none;
+    }
+
+    #title {
+        display: flex;
+        justify-content: center;
+    }
+
+    .perfilContenedor {
+        display: flex;
+        flex-direction: column;;
+        gap: 10px;
+    }
+
+    .perfil {
+      background-color: whitesmoke;
+      color: #000;
+    }
+
+    .perfil:active {
+        background-color: rgb(100, 100, 100);
+    }
+
+    .pictures img {
+        display: none;
+    }
+
+    .left_bar {
+        display: none;
+    }
+
+    .right_bar{
+      background-color: #1e1e1e;
+      color: #fff
+    }
+
+    .main {
+        overflow-y: auto;
+        padding-bottom: 70px; /* Espacio extra para evitar que el contenido quede bajo el menú */
+        background-color: #1e1e1e;
+        color: #fff
+    }
+
+    .footer {
+        margin-top: auto;
+        padding-bottom: 70px; /* Espacio para el menú fijo */
+        background-color: #1e1e1e;
+        color: #fff
+    }
+}
+
+/* !Tablet */
+@media (min-width: 600px) and (max-width: 899px) {
+    .Design {
+    /*Tamanio personalizados*/
+    grid-template-columns: 100px auto;
+    /*min-content establece el menor espacio posible para mostrar algo*/
+    grid-template-rows: 70px min-content auto 70px 70px;
+    grid-template-areas:
+        "header header"
+        "menu menu"
+        "left_bar main"
+        "right_bar right_bar"
+        "footer footer";
+    }
+
+    .pictures img {
+    display: none;
+    }
+
+    /* Mostrar texto y ocultar iconos en tablet */
+
+    .menu {
+      position: relative;
+      width: 100%;
+      background-color: white;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .main-container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 60px;
+    }
+
+    .menu-icon {
+      display: none;
+    }
+
+    .menu-text {
+      width: 100%;
+      height: 25px;
+      filter: grayscale(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .options.active::after {
+      content: '';
+      position: absolute;
+      bottom: -25px;
+      width: 100%;
+      height: 55px;
+      border-radius: 10px;
+      background: linear-gradient(350deg, #e5fcb1, #6e8cf1);
+      transform: translateY(-20px);
+      box-shadow: 0 5px 15px rgba(60, 66, 46, 0.8);
+      transition: all 0.5s ease-in-out;
+      z-index: -1;
+    }
+}
+
+/*! Computadora */
+@media (min-width: 900px) {
+    .Design {
+    display: grid;
+    grid-template-columns: auto 200px;
+    grid-template-rows: min-content min-content auto 100px;
+    grid-template-areas:
+        "header header"
+        "menu menu"
+        "main right_bar"
+        "footer footer";
+    }
+
+    .pictures img {
+    display: none;
+    }
+
+    .left_bar {
+    display: none;
+    }
+
+    .menu-icon {
+    display: none;
+    }
+
+    .menu-text {
+    display: block;
+    }
+}
+
+/* TODO: Maquetacion END  */
+
+/*Relacionamos las areas con las secciones*/
+.perfil {
+    text-align: center;
+    /*Espaciado entre el contenedor y el texto*/
+    padding: 60px;
+    border-radius: 10px;
+    box-shadow: -1px 2px 5px 0px black;
+    flex: 1;
+}
+
+#MandV {
+    grid-area: footer;
+    display: grid;
+    justify-content: left;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+}
+
+
+
