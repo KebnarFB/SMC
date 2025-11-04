@@ -37,7 +37,6 @@ body {
   display: grid;
   min-height: 100vh;
   position: relative;
-  padding-bottom: 60px;
 }
 
 /* TODO: Maquetacion START */
@@ -45,7 +44,7 @@ body {
 /*Encabezado*/
 .header {
   grid-area: header;
-  background: linear-gradient(50deg, #e5fcb1, #6e8cf1);
+  background: linear-gradient(50deg, #1bcf48, #6e8cf1);
   grid-template-columns: 0.5fr 4fr 0.2fr;
   width: 100%;
 }
@@ -110,6 +109,7 @@ body {
             "main"
             "right_bar"
             "footer";
+        padding-bottom: 60px;
     }
 
     .menu {
@@ -151,9 +151,9 @@ body {
       width: 70px;
       height: 55px;
       border-radius: 10px;
-      background: linear-gradient(350deg, #e5fcb1, #6e8cf1);
+      background: linear-gradient(50deg, #6e8cf1, #1bcf48);
       transform: translateY(-20px);
-      box-shadow: 0 5px 15px rgba(60, 66, 46, 0.8);
+      box-shadow: 0 5px 15px rgba(93, 64, 255, 0.4);
       transition: all 0.5s ease-in-out;
       z-index: -1;
     }
@@ -218,16 +218,17 @@ body {
 /* !Tablet */
 @media (min-width: 600px) and (max-width: 899px) {
     .Design {
-    /*Tamanio personalizados*/
-    grid-template-columns: 100px auto;
-    /*min-content establece el menor espacio posible para mostrar algo*/
-    grid-template-rows: 70px min-content auto 70px 70px;
-    grid-template-areas:
-        "header header"
-        "menu menu"
-        "left_bar main"
-        "right_bar right_bar"
-        "footer footer";
+      /*Tamanio personalizados*/
+      grid-template-columns: 150px auto;
+      /*min-content establece el menor espacio posible para mostrar algo*/
+      grid-template-rows: 70px min-content auto 70px 70px;
+      grid-template-areas:
+          "header header"
+          "menu menu"
+          "left_bar main"
+          "right_bar right_bar"
+          "footer footer";
+      padding-bottom: 60px;
     }
 
     .pictures img {
@@ -237,7 +238,8 @@ body {
     /* Mostrar texto y ocultar iconos en tablet */
 
     .menu {
-      position: relative;
+      position: fixed;
+      bottom: 0;
       width: 100%;
       background-color: white;
       box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
@@ -251,7 +253,10 @@ body {
     }
 
     .menu-icon {
-      display: none;
+      width: 100%;
+      height: 25px;
+      filter: grayscale(100%);
+      transition: transform 0.3s ease;
     }
 
     .menu-text {
@@ -264,15 +269,70 @@ body {
     .options.active::after {
       content: '';
       position: absolute;
-      bottom: -25px;
+      bottom: -20px;
       width: 100%;
       height: 55px;
       border-radius: 10px;
-      background: linear-gradient(350deg, #e5fcb1, #6e8cf1);
+      background: linear-gradient(50deg, #6e8cf1, #1bcf48);
       transform: translateY(-20px);
-      box-shadow: 0 5px 15px rgba(60, 66, 46, 0.8);
+      box-shadow: 0 5px 15px rgba(93, 64, 255, 0.4);
       transition: all 0.5s ease-in-out;
       z-index: -1;
+    }
+
+    .options {
+        position: relative;
+        padding: 15px 25px;
+        color: #333;
+    }
+
+    .options.active {
+        color: #000;
+        font-weight: 500;
+    }
+
+    a {
+      text-decoration: none;
+      color: #000;
+    }
+
+    .perfilContenedor {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .perfil {
+      background-color: whitesmoke;
+      color: #000;
+    }
+
+    .perfil:active {
+        background-color: rgb(100, 100, 100);
+    }
+
+    .left_bar {
+      background-color: #1e1e1e;
+        color: #fff
+    }
+
+    .right_bar {
+      background-color: #1e1e1e;
+        color: #fff
+    }
+
+    .main {
+        overflow-y: auto;
+        padding-bottom: 70px; /* Espacio extra para evitar que el contenido quede bajo el menú */
+        background-color: #1e1e1e;
+        color: #fff
+    }
+
+    .footer {
+        margin-top: auto;
+        padding-bottom: 70px; /* Espacio para el menú fijo */
+        background-color: #1e1e1e;
+        color: #fff
     }
 }
 
@@ -297,12 +357,99 @@ body {
     display: none;
     }
 
+    .menu {
+      position: relative;
+      width: 100%;
+      background-color: white;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .main-container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 60px;
+    }
+
+    .options.active::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      width: 100%;
+      height: 55px;
+      border-radius: 10px;
+      background: linear-gradient(50deg, #6e8cf1, #1bcf48);
+      transform: translateY(-20px);
+      box-shadow: 0 5px 15px rgba(93, 64, 255, 0.4);
+      transition: all 0.5s ease-in-out;
+      z-index: -1;
+    }
+
+    .options {
+        position: relative;
+        padding: 15px 25px;
+        color: #333;
+    }
+
+    a {
+      text-decoration: none;
+      color: #000;
+    }
+
     .menu-icon {
     display: none;
     }
 
     .menu-text {
-    display: block;
+      display: block;
+      text-decoration: none;
+    }
+
+    .perfilContenedor {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        /*/*/
+        gap: 10px;
+        color: black;
+        font-weight: bold;
+    }
+
+    .perfil {
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: -7px 3px 10px 0px rgba(0, 0, 0, 0.75);
+      padding: 15px 0;
+      flex-basis: calc(33.33% - 14px); 
+    }
+
+    .user4{
+      flex-basis: 100%;
+    }
+
+    .perfil:hover {
+        background-color: rgb(100, 100, 100);
+    }
+
+
+    .right_bar{
+      background-color: #1e1e1e;
+      color: #fff
+    }
+
+    .main {
+        overflow-y: auto;
+        padding-bottom: 70px; /* Espacio extra para evitar que el contenido quede bajo el menú */
+        background-color: #1e1e1e;
+        color: #fff
+    }
+
+    .footer {
+        margin-top: auto;
+        padding-bottom: 70px; /* Espacio para el menú fijo */
+        background-color: #1e1e1e;
+        color: #fff
     }
 }
 

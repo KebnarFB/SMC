@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-
 function animateOptions() {
     const options = document.querySelectorAll('.options');
     options.forEach(option => {
