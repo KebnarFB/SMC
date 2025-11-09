@@ -1,17 +1,12 @@
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "smc_clientes";
+<?php 
+$host = "100.113.115.21";
+$user = "remote";
+$pwd= "";
+$db = "smc";
 
-// Creamos una conexión
-$conn = new mysqli($servername, $username, $password, $database);
+$conn = mysqli_connect($host, $user, $pwd, $db);
 
-// Verificamos la conexión
-if ($conn->connect_error) {
-    die("Error en la conexión: " . $conn->connect_error);
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
-
-//Mostramos un mensaje para checar que se haya hecho la conexion
-echo "Conexión exitosa";
 ?>

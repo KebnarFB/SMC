@@ -1,85 +1,58 @@
 * {
-    /*Elimina los margenes y los espacios de los elementos*/
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/*Creamos el css*/
 body {
-    display: grid;
-    /*Ajusta el contenido de manera horizontal*/
-    justify-content: center;
-    /*Ajusta el contenido verticalmente*/
-    align-items: center;
-    height: 100vh;
-    /*Le ponemos color*/
-    background-color: #B1FCB3;
-    /*Establece la familia de letras*/
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(50deg, #1bcf48, #6e8cf1);
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-/*indicamos la seccion q vamos a ocupar*/
 main {
-    /*Centra el tex*/
-    text-align: center;
-    /*Pone un espaciado a los lados*/
-    padding: 30px;
-    /*Rendondea los bordes*/
-    border-radius: 10px;
-    /*Le ponemos sombras*/
-    box-shadow: -1px 1px 7px 0 black;
-    background-color: #E9FCCF;
+  text-align: center;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: -1px 1px 7px 0 black;
+  background-color: #e9fccf;
 }
 
 .contenido {
-    /*Lo hacemos flexible*/
-    display: flex;
-    /*Indicamos que tiene que ser acomodado como columna*/
-    flex-direction: column;
-    /*Coloca un espaciado entre los datos*/
-    gap: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-/*Titulo*/
 h1 {
-    font-size: 30px;
+  font-size: 30px;
 }
 
-/*Etiquetas*/
 label {
-    /*Alineamos el texto a la izquierda*/
-    text-align: left;
-    font-size: 14px;
+  text-align: left;
+  font-size: 14px;
 }
 
-/*Cajas para ingresar datos*/
 .inputs {
-    /*Espaciado*/
-    padding: 10px;
-    /*Ponemos bordes*/
-    border: 1px solid;
-    /*Redondeamos*/
-    border-radius: 5px;
-    /*Tamanio de la fuente*/
-    font-size: 14px;
+  padding: 10px;
+  border: 1px solid;
+  border-radius: 5px;
+  font-size: 14px;
 }
 
 .botones {
-    /*Espaciado*/
-    padding: 10px;
-    /*Quitamos el borde*/
-    border-style: none;
-    /*Redondeamos*/
-    border-radius: 5px;
-    /*Tamnio de la fuente*/
-    font-size: 16px;
-    /*Color*/
-    background-color: #B1FCB3;
-    /*Le pone disenio al cursor*/
-    cursor:pointer;
+  padding: 10px;
+  border-style: none;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #b1fcb3;
+  cursor: pointer;
 }
 
 .links {
-    color: darkgreen;
+  color: darkgreen;
 }
