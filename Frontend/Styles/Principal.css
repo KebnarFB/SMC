@@ -39,7 +39,6 @@ body {
   position: relative;
 }
 
-/* TODO: Maquetacion START */
 
 /*Encabezado*/
 .header {
@@ -89,15 +88,13 @@ body {
 /*El apartado principal*/
 .main {
   grid-area: main;
-  padding: 25px 25px;
+  padding: 25px 25px
 }
 
 /*Pie de pagina*/
 .footer {
   grid-area: footer;
 }
-
-/** Views Devices */
 
 /* !Celular */
 @media (max-width: 599px) {
@@ -233,10 +230,6 @@ body {
     padding-bottom: 60px;
   }
 
-  .pictures img {
-    display: none;
-  }
-
   /* Mostrar texto y ocultar iconos en tablet */
 
   .menu {
@@ -351,9 +344,7 @@ body {
       "footer footer";
   }
 
-  .pictures img {
-    display: none;
-  }
+
 
   .left_bar {
     display: none;
@@ -362,7 +353,7 @@ body {
   .menu {
     position: relative;
     width: 100%;
-    background-color: white;
+    background-color: #F5F7FA;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
   }
 
@@ -435,22 +426,21 @@ body {
   }
 
   .right_bar {
-    background-color: #fff;
+    background-color: #F5F7FA;
     color: #000;
   }
 
   .main {
     overflow-y: auto;
     padding-bottom: 70px; /* Espacio extra para evitar que el contenido quede bajo el menú */
-    background-color: #fff;
     border-color: #000;
-    color: #000;
+     background-color: #F5F7FA;
   }
 
   .footer {
     margin-top: auto;
     padding-bottom: 70px; /* Espacio para el menú fijo */
-    background-color: #fff;
+    background-color: #F5F7FA;
     color: #000;
   }
 }
