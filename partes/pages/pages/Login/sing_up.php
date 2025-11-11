@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $correo = trim($_POST['correo']);
     $clave = trim($_POST['clave']);
 
-    // Verificar si la empresa existe
+    // Verificamos  si la empresa existe
     $stmt = $conn->prepare("SELECT id_empresa FROM Empresa WHERE nombre_empresa = ?");
     $stmt->bind_param("s", $nombre_empresa);
     $stmt->execute();
@@ -26,16 +26,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     $stmt->close();
 
-    // Insertar cliente
+    // Insertarmos el  cliente
     $stmt_cliente = $conn->prepare("INSERT INTO Cliente (id_empresa, nombre_cliente, correo, direccion)
-                                   VALUES (?, ?, ?, ?)");
+    VALUES (?, ?, ?, ?)");
     $direccion = "Sin dirección"; 
     $stmt_cliente->bind_param("isss", $id_empresa, $nombre_cliente, $correo, $direccion);
 
     if ($stmt_cliente->execute()) {
-        echo "<script>alert('Cuenta creada correctamente'); window.location='login.html';</script>";
+        echo "<script>alerta('Cuenta creada correctamente'); window.location='login.html';</script>";
     } else {
-        echo "<script>alert('Error al crear la cuenta');</script>";
+        echo "<script>alerta('Error al crear la cuenta');</script>";
     }
 
     $stmt_cliente->close();
