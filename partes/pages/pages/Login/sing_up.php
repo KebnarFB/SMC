@@ -81,6 +81,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label>Contraseña</label>
             <input class="inputs" type="password" name="clave" required>
 
+            <!-- Confirmar Contraseña -->
+            <label>Confirmar contraseña</label>
+            <input class="inputs" type="password" name="confirmar_clave" id="confirmar_clave" required>
+
+
             <!-- Botón -->
             <button class="botones" type="submit">Crear cuenta</button>
 
