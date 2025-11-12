@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Asignamos un titulo para esta pagina-->
+    <title>Crear cuenta</title>
+    <!--Agregamos un logo a la pagina-->
+    <link rel="icon" type="image/x-icon" href="../Img/Logo.png">
+
+    <!--Ponemos estilos externos-->
+    <link rel="stylesheet" href="../styles/Estilos.css">
+    <link rel="stylesheet" href="../styles/Toast.css">
+</head>
+
+<body>
+  <main>
+    <h1>Creacion de cuenta</h1>
+    <form  id="form" class="contenido" action="../../Backend/registro.php" method="post">
+      
+      <label for="">Ingrese su nombre</label>
+      <input class="inputs" name="nombre" type="text" required>
+      <!-- br -->
+      <label for="">Cree un usuario</label>
+      <input class="inputs" name="usuario" type="text" required>
+      <!-- br -->
+      <label for="">Ingrese un correo</label>
+      <input class="inputs" name="correo" type="email" required>
+      <!-- br -->
+      <label for="">Contraseña</label>
+      <input class="inputs" name="pwd" type="password" required>
+      <!-- br -->
+      <button class="botones" type="submit" data-tipo="Exito">Crear cuenta</button>
+
+      <p>Ya tienes cuenta?, <a href="login.php" class = "links">Inicia sesion</a></p>
+    </form>
+  </main>
+
+  <div class="content-toast" id="content-toast">
+  </div>
+
+  <script src="../scripts/Toast.js"></script>
+</body>
+
+</html>
