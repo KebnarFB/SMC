@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Asignamos un titulo para esta pagina-->
+    <title>SMC | Gestión de Clientes</title>
+    <!--Agregamos un logo a la pagina-->
+    <link rel="icon" type="image/x-icon" href="../Img/Logo.png" alt="logo" />
+    <!--Ponemos estilos externos-->
+    <link rel="stylesheet" href="../styles/Homepage.css" />
+    <link rel="stylesheet" href="../styles/Principal.css" />
+  </head>
+  <body class="homepage">
+    <!-- Encabezado de la pagina -->
+    <header class="header">
+      <div class="icono">
+        <img src="../Img/Logo.png" alt="logo" id="Logo" />
+      </div>
+
+      <div class="Title"><h1>SMC</h1></div>
+
+      <div class="botones">
+        <button class="register">
+          <a href="../pages/sing_up.html">Registrarse</a>
+        </button>
+        <button class="login">
+          <a href="../pages/login.php">Iniciar Sesión</a>
+        </button>
+      </div>
+    </header>
+
+    <nav class="menu">
+      <div class="main-container">
+        <a href="../pages/Homepage.html" class="options" id="home">
+          <img src="../Img/Tabs/Menu.png" alt="Inicio" class="menu-icon" />
+          <span class="menu-text">Inicio</span>
+        </a>
+
+        <a href="../pages/Tabs/clientes.html" class="options" id="clients">
+          <img src="../Img/Tabs/Clients.png" alt="Clientes" class="menu-icon" />
+          <span class="menu-text">Clientes</span>
+        </a>
+
+        <a href="../pages/Tabs/Recommends.html" class="options" id="recommend">
+          <img
+            src="../Img/Tabs/Recommends.png"
+            alt="Recomendaciones"
+            class="menu-icon"
+          />
+          <span class="menu-text">Recomendaciones</span>
+        </a>
+
+        <a href="../pages/Tabs/Comments.html" class="options" id="comments">
+          <img
+            src="../Img/Tabs/Comments.png"
+            alt="Comentarios"
+            class="menu-icon"
+          />
+          <span class="menu-text">Comentarios</span>
+        </a>
+      </div>
+    </nav>
+
+    <main class="main">
+      <div class="perfilContenedor">
+        <div class="card">
+          <h2>Centraliza tu Gestión de Clientes</h2>
+          <br />
+          <p>
+            El objetivo principal de SMC es
+            <strong>centralizar y organizar</strong>
+            la información de los clientes que han realizado compras en tu
+            empresa. Permitiendo un acceso rápido y seguro a sus datos.
+          </p>
+          <br />
+
+          <div class="card-1">
+            <img src="../Img/requisitos.png" alt="" />
+            <h5>Requisitos Clave</h5>
+            <ul>
+              <li>Nombre de la empresa</li>
+              <li>Datos de contacto</li>
+              <li>Historial de compras</li>
+              <li>Comentarios del cliente</li>
+            </ul>
+          </div>
+
+          <div class="card-1">
+            <img src="../Img/ventajas.png" alt="" />
+            <h5>Ventajas</h5>
+            <p>
+              Elimina la dispersión de archivos y la pérdida de información.
+              Tendrás un único punto de verdad para todos tus datos de cliente.
+            </p>
+          </div>
+          <button>
+            <a href="../pages/sing_up.html">!Empieza Gratis Ahora!</a>
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <script src="../scripts/Principal.js"></script>
+  </body>
+</html>

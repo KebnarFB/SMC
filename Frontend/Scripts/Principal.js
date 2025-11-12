@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     tabs.forEach(tab => {
         tab.addEventListener('click', (e) => {
             e.preventDefault();
-
+            
             const activeTab = document.querySelector('.options.active');
             if (activeTab) {
                 activeTab.classList.remove('active');
@@ -18,17 +18,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-function animateOptions() {
-    const options = document.querySelectorAll('.options');
-    options.forEach(option => {
-        option.addEventListener('mouseover', () => {
-            option.style.transform = 'scale(1.05)';
-            option.style.transition = 'transform 0.3s ease';
-        });
-        option.addEventListener('mouseout', () => {
-            option.style.transform = 'scale(1)';
-            option.style.transition = 'transform 0.3s ease';
-        });
-    });
-}
-window.onload = animateOptions;

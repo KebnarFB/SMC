@@ -10,8 +10,9 @@ if(isset($_GET['usuario']) && isset($_GET['pwd'])) {
     $resultado = mysqli_query($conn, $sql);
 
     if($resultado){
+        $usuario = TRUE;
         while($fila = mysqli_fetch_assoc($resultado)){
-            header("Location: Principal.html");
+            header("Location: Principal.php");
             exit(); 
         }
         echo "<p style='color: red; text-align: center;'>Usuario o contraseña incorrectos</p>";
