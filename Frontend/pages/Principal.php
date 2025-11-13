@@ -1,14 +1,20 @@
+<?php 
+include "../../Backend/conexion.php";
+
+if (!isset($_SESSION['id_cliente'])) {
+    header("Location: login.php");
+    exit(); 
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SMC</title>
-    <!-- Carpeta base de las imagenes -->
-    <base href="../Img/" />
-    <base href="../Scripts/" />
     <!--Agregamos un logo a la pagina-->
-    <link rel="icon" type="image/x-icon" href="Logo.png" alt="logo" />
+    <link rel="icon" type="image/x-icon" href="../Img/Logo.png" alt="logo" />
     <!-- Ponemos estilos externos -->
     <link rel="stylesheet" href="../styles/Principal.css" />
   </head>
@@ -20,9 +26,11 @@
         <h1>SMC</h1>
       </div>
 
-      <button class="profileSection" id="profile">
-        <div>Iniciar sesion</div>
-      </button>
+      <div class="botones">
+        <button class="log-out">
+          <a href="../../Backend/logout.php">Cerrar sesion</a>
+        </button>
+      </div>
     </header>
 
     <!---Creamos el menu de seleccion-->

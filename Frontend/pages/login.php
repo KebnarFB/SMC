@@ -1,22 +1,30 @@
-<?php 
+<?php
 include "../../Backend/conexion.php";
 
-// Verificamos si se enviaron los datos del formulario
-if(isset($_GET['usuario']) && isset($_GET['pwd'])) {
-    $usuario = $_GET['usuario'];
-    $contraseña = $_GET['pwd'];
-
-    $sql = "SELECT * FROM registro WHERE usuario = '$usuario' AND pass = '$contraseña'";
+if (isset($_POST['usuario']) && isset($_POST['pwd'])) {
+    
+    $usuario_ingresado = mysqli_real_escape_string($conn, $_POST['usuario']);
+    $contrasena_plana = $_POST['pwd'];
+    $sql = "SELECT id_cliente, username, contrasena FROM usuarios WHERE username = '$usuario_ingresado'";
     $resultado = mysqli_query($conn, $sql);
 
-    if($resultado){
-        $usuario = TRUE;
-        while($fila = mysqli_fetch_assoc($resultado)){
+    // Verificar si se encontró un usuario con ese nombre
+    if ($resultado && mysqli_num_rows($resultado) == 1) {
+        $fila = mysqli_fetch_assoc($resultado);
+        $hash_almacenado = $fila['contrasena'];
+
+        if (password_verify($contrasena_plana, $hash_almacenado)) {
+        
+            $_SESSION['id_cliente'] = $fila['id_cliente'];
+            $_SESSION['username'] = $fila['username'];
+            $_SESSION['loggedin'] = TRUE;
+            
             header("Location: Principal.php");
-            exit(); 
+            exit();
         }
-        echo "<p style='color: red; text-align: center;'>Usuario o contraseña incorrectos</p>";
     }
+    
+    echo "<p style='color: red; text-align: center;'>Usuario o contraseña incorrectos</p>";
 }
 ?>
 
@@ -27,29 +35,41 @@ if(isset($_GET['usuario']) && isset($_GET['pwd'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Asignamos un titulo para esta pagina-->
     <title>Inicio de sesion</title>
-
     <!--Agregamos un logo a la pagina-->
     <link rel="icon" type="image/x-icon" href="../Img/Logo.png">
-
     <!--Ponemos estilos externos-->
     <link rel="stylesheet" href="../styles/Estilos.css">
 </head>
 <body>
-    <!--Creamos la seccion para el login-->
-    <main>
-        <!--Titulo-->
-        <h1>Inicio de sesion</h1>
-        <!--Creamos un contenedor-->
-        <form class="contenido" method="get">
-        <label>Ingrese su usuario</label>
-        <input class ="inputs" type="text" name="usuario">
+    <main class="signup-container">
+        <div class="signup-header">
+            <h1>Inicio de sesion</h1>
+        </div>
+        
+        <form id="form" class="form-content" method="post">
 
-        <label>Contraseña</label>
-        <input class ="inputs" type="password" name="pwd">
+            <div class="input-group">
+                <label for="usuario">Ingrese su usuario</label>
+                <input 
+                    class ="inputs" 
+                    type="text" 
+                    name="usuario" 
+                    placeholder="Usuario">
 
-        <button class="botones" type="submit">Ingresar</button>
-        <!--Creamos un parrafo para el caso de que no tenga cuenta-->
-        <p>No tienes cuenta?, <a href="sing_up.html" class = "links">pulsa aqui para crear una</a></p>
+                <label for="pwd">Contraseña</label>
+                <input 
+                    class ="inputs" 
+                    type="password" 
+                    name="pwd" 
+                    placeholder="Contraseña">
+            </div>
+
+            <button class="botones crear" type="submit">Ingresar</button>
+
+            <p class="login-link">
+                No tienes cuenta?, 
+                <a href="sing_up.html" class = "links">pulsa aqui para crear una</a>
+            </p>
         </form>
     </main>
 </body>

@@ -344,7 +344,42 @@ body {
       "footer footer";
   }
 
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 
+  .Botones {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    transition: transform 0.3s ease;
+  }
+
+  button {
+    width: 100px;
+    height: 35px;
+    border-style: none;
+    border-radius: 5px;
+    margin-top: auto;
+    margin-right: 7px;
+    font-size: 14px;
+  }
+
+  .log-out {
+    background-color: #4caf50;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .log-out:hover {
+    border-color: #4caf50;
+    color: #fff;
+    box-shadow: 0 0 5px rgba(54, 54, 54, 0.9);
+  }
 
   .left_bar {
     display: none;

@@ -39,6 +39,10 @@
   background: #559c43;
 }
 
+.toast.error {
+  background: #b43636;
+}
+
 .toast .btn_close {
   background: rgba(0, 0, 0, 0.1);
   border: none;
@@ -60,6 +64,13 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
+}
+
+.toast .descripcion {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  font-size: 14px;
+  max-width: 100%;
 }
 
 @keyframes apertura {
@@ -160,7 +171,7 @@
   .content-toast {
     pointer-events: none;
   }
-  
+
   .toast {
     pointer-events: auto;
   }

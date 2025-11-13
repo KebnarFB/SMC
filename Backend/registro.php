@@ -1,21 +1,34 @@
 <?php
 include "conexion.php";
 
-$nombre = $_POST['nombre'];
-$usuario = $_POST['usuario'];
+$nombre = $_POST['nombres'];
+$usuario = $_POST['username'];
 $correo = $_POST['correo'];
-$contraseña = $_POST['pwd'];
+$contrasena = password_hash($_POST['pwd'], PASSWORD_DEFAULT);
 
-$sql = "INSERT INTO registro (nombre, usuario, email, pass) VALUES 
-        ('$nombre', '$usuario', '$correo', '$contraseña')";
+$sql = "INSERT INTO usuarios (nombres, username, correo, contrasena) VALUES (?, ?, ?, ?)";
 
-if($conn -> query($sql) === TRUE){
-    http_response_code(200); // Éxito
-}else{
-    http_response_code(500); // Error
-    echo "Error: " . $sql . "<br>" . $conn -> error;
+$stmt = $conn->prepare($sql);
+
+if ($stmt === false) {
+    http_response_code(500); 
+    echo "Error interno del servidor: " . $conn->error;
+    $conn->close();
+    exit;
 }
 
-$conn -> close();
+$stmt->bind_param("ssss", $nombre, $usuario, $correo, $contrasena);
 
+if ($stmt->execute()) {
+    // Éxito
+    http_response_code(200); 
+    echo "Tu cuenta ha sido creada.";
+} else {
+    // Error
+    http_response_code(400); 
+    echo  $stmt->error;
+}
+
+$stmt->close();
+$conn->close();
 ?>

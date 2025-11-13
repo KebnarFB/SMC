@@ -11,19 +11,33 @@ Boton.addEventListener("submit", async (e) => {
             method: 'POST',
             body: formData
         });
+
+        const Text = await response.text();
+        const isFatalError = Text.includes('Fatal error') || Text.includes('Uncaught') || Text.includes('error:');
         
-        if (response.ok) {
+        if (response.ok && !isFatalError) {
             agregarToast({
                 tipo: "Exito",
                 titulo: "Registro Exitoso",
-                descripcion: "Tu cuenta ha sido creada correctamente.",
+                descripcion: Text,
                 autoClose: true
             });
         } else {
-            throw new Error('Error en el registro');
+            agregarToast({
+                tipo: "Error",
+                titulo: "Error en el registro",
+                descripcion: Text, 
+                autoClose: false
+            });
         }
     } catch (error) {
         console.error('Error:', error);
+        agregarToast({
+            tipo: "Error",
+            titulo: "Error de Conexión",
+            descripcion: "No se pudo conectar con el servidor o hubo un problema de red.",
+            autoClose: false
+        });
     }
 })
 
@@ -33,9 +47,19 @@ const agregarToast = ({ tipo, titulo, descripcion, autoClose }) => {
 
     // agregar clases correspondientes
     Toast.classList.add("toast");
-    Toast.classList.add("exito");
+
+    if (tipo === "Exito" || tipo === "Error") {
+        Toast.classList.add(tipo.toLowerCase());
+    }
+
     if(autoClose){
         Toast.classList.add("auto_close");
+        setTimeout(() => {
+            closeToast(toastId);
+            if(tipo === "Exito"){
+                window.location.href = '../pages/login.php';
+            } 
+        }, 2000);
     }
 
     //agregar ID del toast
@@ -46,23 +70,24 @@ const agregarToast = ({ tipo, titulo, descripcion, autoClose }) => {
 
     //Iconos
     const iconos = {
-        Exito: '<img src="../Img/success.png" class="img-icon">'
+        Exito: '<img src="../Img/success.png" class="img-icon">',
+        Error: '<img src="../Img/error.png" class="img-icon">'
     };
 
     //Plantilla
     const toast = `
     <div class="content-info">
-        <!-- icono -->
+        
         <div class="icono">
             ${iconos[tipo]}
         </div>
-        <!-- texto -->
+        
         <div class="texto">
             <p class="titulo">${titulo}</p>
             <p class="descripcion">${descripcion}</p>
         </div>
     </div>
-    <!-- cerrar -->
+    
     <button class="btn_close"> 
         <div class="icono">
             <img src="../Img/close.png" class="img-btn">
@@ -83,12 +108,7 @@ const agregarToast = ({ tipo, titulo, descripcion, autoClose }) => {
         }
     }
 
-    if(autoClose){
-        setTimeout(() => {
-            closeToast(toastId);
-            window.location.href = '../pages/login.php';
-        }, 2000);
-    }
+   
 
     //Agregamos un Evento de escuhar para dectectar cuando termine la animacion
     Toast.addEventListener("animationend", AnimacionCierre);

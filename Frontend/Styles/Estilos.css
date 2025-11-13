@@ -5,54 +5,102 @@
 }
 
 body {
-  display: grid;
+  background: linear-gradient(50deg, #1bcf48, #6e8cf1);
+  display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background: linear-gradient(50deg, #1bcf48, #6e8cf1);
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  margin: 0;
 }
 
-main {
+.signup-container {
+  max-width: 450px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.signup-header {
   text-align: center;
-  padding: 30px; 
-  border-radius: 10px;
-  box-shadow: -1px 1px 7px 0 black;
-  background-color: #e9fccf;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 15px;
 }
 
-.contenido {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+.signup-header h1 {
+  font-size: 1.8em;
+  color: #333;
+  margin-bottom: 5px;
 }
 
-h1 {
-  font-size: 30px;
+.signup-header p {
+  font-size: 0.9em;
+  color: #666;
 }
 
-label {
-  text-align: left;
-  font-size: 14px;
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+  font-size: 0.9em;
 }
 
 .inputs {
-  padding: 10px;
-  border: 1px solid;
-  border-radius: 5px;
-  font-size: 14px;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 1em;
+  transition: border-color 0.3s ease;
 }
 
-.botones {
-  padding: 10px;
-  border-style: none;
-  border-radius: 5px;
-  font-size: 16px;
-  background-color: #b1fcb3;
+.inputs:focus {
+  border-color: #4caf50;
+  outline: none;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+.crear {
+  width: 100%;
+  padding: 15px;
+  background-color: #4caf50;
+  color: white;
+  font-size: 1.1em;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s;
+  margin-top: 10px;
+}
+
+.crear:hover {
+  background-color: #45a049;
+  transform: translateY(-1px);
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9em;
+  color: #777;
 }
 
 .links {
-  color: darkgreen;
+  color: #4caf50;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.links:hover {
+  text-decoration: underline;
 }

@@ -1,48 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--Asignamos un titulo para esta pagina-->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Crear cuenta</title>
-    <!--Agregamos un logo a la pagina-->
-    <link rel="icon" type="image/x-icon" href="../Img/Logo.png">
+    <link rel="icon" type="image/x-icon" href="../Img/Logo.png" />
 
-    <!--Ponemos estilos externos-->
-    <link rel="stylesheet" href="../styles/Estilos.css">
-    <link rel="stylesheet" href="../styles/Toast.css">
-</head>
+    <link rel="stylesheet" href="../styles/Toast.css" />
+    <link rel="stylesheet" href="../styles/Estilos.css" />
+  </head>
 
-<body>
-  <main>
-    <h1>Creacion de cuenta</h1>
-    <form  id="form" class="contenido" action="../../Backend/registro.php" method="post">
-      
-      <label for="">Ingrese su nombre</label>
-      <input class="inputs" name="nombre" type="text" required>
-      <!-- br -->
-      <label for="">Cree un usuario</label>
-      <input class="inputs" name="usuario" type="text" required>
-      <!-- br -->
-      <label for="">Ingrese un correo</label>
-      <input class="inputs" name="correo" type="email" required>
-      <!-- br -->
-      <label for="">Contraseña</label>
-      <input class="inputs" name="pwd" type="password" required>
-      <!-- br -->
-      <label for="">Confirmar contraseña</label>
-      <input class="inputs"type="password" required>
-      <!-- br -->
-      <button class="botones" type="submit" data-tipo="Exito">Crear cuenta</button>
+  <body>
+    <div class="signup-container">
+      <div class="signup-header">
+        <h1>Creación de Cuenta</h1>
+        <p>Regístrate para comenzar a utilizar la plataforma.</p>
+      </div>
 
-      <p>Ya tienes cuenta?, <a href="login.php" class = "links">Inicia sesion</a></p>
-    </form>
-  </main>
+      <form
+        id="form"
+        class="form-content"
+        action="../../Backend/registro.php"
+        method="post"
+      >
+        <div class="input-group">
+          <label for="nombres">Nombres</label>
+          <input
+            id="nombres"
+            class="inputs"
+            name="nombres"
+            type="text"
+            placeholder="Ej: Juan Antonio Pérez"
+            required
+          />
 
-  <div class="content-toast" id="content-toast">
-  </div>
+          <label for="username">Nombre de usuario</label>
+          <input
+            id="username"
+            class="inputs"
+            name="username"
+            type="text"
+            placeholder="Máx 10 caracteres"
+            required
+          />
 
-  <script src="../scripts/Toast.js"></script>
-</body>
+          <label for="correo">Correo Electrónico</label>
+          <input
+            id="correo"
+            class="inputs"
+            name="correo"
+            type="email"
+            placeholder="ejemplo@dominio.com"
+            required
+          />
 
+          <label for="pwd">Contraseña</label>
+          <input
+            id="pwd"
+            class="inputs"
+            name="pwd"
+            type="password"
+            placeholder="Debe ser segura"
+            required
+          />
+
+          <label for="confirmar_clave">Confirmar Contraseña</label>
+          <input
+            id="confirmar_clave"
+            class="inputs"
+            type="password"
+            placeholder="Confirmar"
+            name="confirmar_pwd"
+            required
+          />
+        </div>
+
+        <button class="botones crear" type="submit">
+          Crear cuenta
+        </button>
+
+        <p class="login-link">
+          ¿Ya tienes cuenta? <a href="login.php" class="links">Inicia sesión</a>
+        </p>
+      </form>
+    </div>
+
+    <div class="content-toast" id="content-toast"></div>
+    <script src="../scripts/Toast.js"></script>
+  </body>
 </html>
