@@ -107,9 +107,7 @@ const agregarToast = ({ tipo, titulo, descripcion, autoClose }) => {
             Toast.remove();
         }
     }
-
-   
-
+    
     //Agregamos un Evento de escuhar para dectectar cuando termine la animacion
     Toast.addEventListener("animationend", AnimacionCierre);
 }
