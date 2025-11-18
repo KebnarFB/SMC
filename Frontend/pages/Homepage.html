@@ -1,82 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--Asignamos un titulo para esta pagina-->
     <title>SMC | Gestión de Clientes</title>
-    <!--Agregamos un logo a la pagina-->
-    <link rel="icon" type="image/x-icon" href="../Img/Logo.png" alt="logo" />
-    <!--Ponemos estilos externos-->
+    <link rel="icon" type="image/x-icon" href="../Img/Logo.png" />
+
+    <!-- Estilos externos -->
     <link rel="stylesheet" href="../styles/Homepage.css" />
     <link rel="stylesheet" href="../styles/Principal.css" />
+
+    <!-- Tipografía moderna -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"> 
+
+    <!-- Animaciones -->
+    <style>
+  /* Animaciones conservadas, colores eliminados para respetar tu diseño original */
+  body {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .card {
+    animation: fadeIn 1s ease;
+  }
+
+  .card-1 {
+    transition: 0.3s;
+  }
+
+  .card-1:hover {
+    transform: scale(1.03);
+  }
+
+  .botones button:hover,
+  .card button:hover {
+    transform: scale(1.1);
+  }
+</style>
   </head>
-  <body class="homepage">
-    <!-- Encabezado de la pagina -->
+
+  <body>
+    <!-- Encabezado -->
     <header class="header">
       <div class="icono">
-        <img src="../Img/Logo.png" alt="logo" id="Logo" />
+        <img src="../Img/Logo.png" alt="logo" id="Logo" width="60" />
       </div>
-
-      <div class="Title"><h1>SMC</h1></div>
-
+      <div class="Title" style="flex:1; text-align:center;"><h1>SMC</h1></div>
       <div class="botones">
-        <button class="register">
-          <a href="../pages/sing_up.html">Registrarse</a>
-        </button>
-        <button class="login">
-          <a href="../pages/login.php">Iniciar Sesión</a>
-        </button>
+        <button class="register"><a href="../pages/sing_up.html">Registrarse</a></button>
+        <button class="login"><a href="../pages/login.php">Iniciar Sesión</a></button>
       </div>
     </header>
 
+    <!-- Menú lateral -->
     <nav class="menu">
-      <div class="main-container">
-        <a href="../pages/Homepage.html" class="options" id="home">
-          <img src="../Img/Tabs/Menu.png" alt="Inicio" class="menu-icon" />
-          <span class="menu-text">Inicio</span>
-        </a>
-
-        <a href="../pages/Tabs/clientes.html" class="options" id="clients">
-          <img src="../Img/Tabs/Clients.png" alt="Clientes" class="menu-icon" />
-          <span class="menu-text">Clientes</span>
-        </a>
-
-        <a href="../pages/Tabs/Recommends.html" class="options" id="recommend">
-          <img
-            src="../Img/Tabs/Recommends.png"
-            alt="Recomendaciones"
-            class="menu-icon"
-          />
-          <span class="menu-text">Recomendaciones</span>
-        </a>
-
-        <a href="../pages/Tabs/Comments.html" class="options" id="comments">
-          <img
-            src="../Img/Tabs/Comments.png"
-            alt="Comentarios"
-            class="menu-icon"
-          />
-          <span class="menu-text">Comentarios</span>
-        </a>
-      </div>
+      <a href="../pages/Homepage.html" class="options"><img src="../Img/Tabs/Menu.png" alt="Inicio" class="menu-icon" /></a>
+      <a href="../pages/Tabs/clientes.html" class="options"><img src="../Img/Tabs/Clients.png" alt="Clientes" class="menu-icon" /></a>
+      <a href="../pages/Tabs/Recommends.html" class="options"><img src="../Img/Tabs/Recommends.png" alt="Recomendaciones" class="menu-icon" /></a>
+      <a href="../pages/Tabs/Comments.html" class="options"><img src="../Img/Tabs/Comments.png" alt="Comentarios" class="menu-icon" /></a>
     </nav>
 
-    <main class="main">
+    <!-- Contenido principal -->
+    <main class="main" style="display:flex; justify-content:center; align-items:flex-start; padding:50px;" class="main">
       <div class="perfilContenedor">
         <div class="card">
           <h2>Centraliza tu Gestión de Clientes</h2>
-          <br />
           <p>
-            El objetivo principal de SMC es
-            <strong>centralizar y organizar</strong>
-            la información de los clientes que han realizado compras en tu
-            empresa. Permitiendo un acceso rápido y seguro a sus datos.
+            El objetivo de <strong>SMC</strong> es optimizar la información de tus clientes, ofreciendo una plataforma segura, moderna y eficiente.
           </p>
-          <br />
 
           <div class="card-1">
-            <img src="../Img/requisitos.png" alt="" />
+            <img src="../Img/requisitos.png" alt="Requisitos" width="60" />
             <h5>Requisitos Clave</h5>
             <ul>
               <li>Nombre de la empresa</li>
@@ -87,16 +86,12 @@
           </div>
 
           <div class="card-1">
-            <img src="../Img/ventajas.png" alt="" />
+            <img src="../Img/ventajas.png" alt="Ventajas" width="60" />
             <h5>Ventajas</h5>
-            <p>
-              Elimina la dispersión de archivos y la pérdida de información.
-              Tendrás un único punto de verdad para todos tus datos de cliente.
-            </p>
+            <p>Centraliza y protege la información clave, evitando pérdida de datos y mejorando la experiencia.</p>
           </div>
-          <button>
-            <a href="../pages/sing_up.html">!Empieza Gratis Ahora!</a>
-          </button>
+
+          <button><a href="../pages/sing_up.html">¡Empieza Gratis Ahora!</a></button>
         </div>
       </div>
     </main>
