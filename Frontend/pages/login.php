@@ -1,11 +1,15 @@
 <?php
 include "../../Backend/conexion.php";
 
+$error_login = false;
+
 if (isset($_POST['usuario']) && isset($_POST['pwd'])) {
     
     $usuario_ingresado = mysqli_real_escape_string($conn, $_POST['usuario']);
     $contrasena_plana = $_POST['pwd'];
+
     $sql = "SELECT id_cliente, username, contrasena FROM usuarios WHERE username = '$usuario_ingresado'";
+
     $resultado = mysqli_query($conn, $sql);
 
     // Verificar si se encontró un usuario con ese nombre
@@ -21,10 +25,12 @@ if (isset($_POST['usuario']) && isset($_POST['pwd'])) {
             
             header("Location: Principal.php");
             exit();
+        } else {
+            $error_login = true;
         }
+    } else {
+        $error_login = true;
     }
-    
-    echo "<p style='color: red; text-align: center;'>Usuario o contraseña incorrectos</p>";
 }
 ?>
 
@@ -45,9 +51,14 @@ if (isset($_POST['usuario']) && isset($_POST['pwd'])) {
         <div class="signup-header">
             <h1>Inicio de sesion</h1>
         </div>
-        
-        <form id="form" class="form-content" method="post">
 
+        <?php 
+            if (isset($error_login) && $error_login) {
+                echo "<p class='message-error'>Usuario o contraseña incorrectos</p>"; 
+            }
+        ?>
+
+        <form id="form" class="form-content" method="post">
             <div class="input-group">
                 <label for="usuario">Ingrese su usuario</label>
                 <input 
