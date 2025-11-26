@@ -1,6 +1,6 @@
 <?php 
-$host = "100.113.115.21";
-$user = "remote";
+$host = "127.0.0.1";
+$user = "root";
 $pwd= "";
 $db = "smc_db";
 

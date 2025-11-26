@@ -1,0 +1,55 @@
+/* --- Recommends.css (solo para esta página) --- */
+
+/* Ocupa toda la pantalla */
+body.Design {
+    display: block !important;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* MAIN full */
+.main {
+    width: 100% !important;
+    min-height: 100vh !important;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+/* Ocultar la barra derecha SOLO en esta página */
+.right_bar {
+    display: none !important;
+}
+
+/* Tus tarjetas de recomendación */
+.reco-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    width: 90%;
+    margin: auto;
+}
+
+.reco-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: 0.3s;
+}
+
+.reco-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+.reco-card h3 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.reco-card p {
+    margin: 8px 0;
+    line-height: 1.4;
+}

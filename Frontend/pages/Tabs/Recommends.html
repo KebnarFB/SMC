@@ -5,82 +5,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SMC</title>
-    <!-- Carpeta base de las imagenes -->
-    <base href="../Img/">
-    <base href="../Scripts/">
-    <!--Agregamos un logo a la pagina-->
-    <link rel="icon" type="image/x-icon" href="Logo.png" alt="logo"/>
-    <!-- Ponemos estilos externos -->
-    <link rel="stylesheet" href="../../styles/Principal.css">
+    <link rel="stylesheet" href="../../styles/recommends.css">
+    <link rel="stylesheet" href="../../Principal.css">
+
+    <style>
+        /* Centramos título */
+        h2 {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 25px;
+        }
+
+        /* Botón regresar */
+        .back-btn {
+            display: inline-block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #2c3e50;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: 0.2s ease-in-out;
+        }
+
+        .back-btn:hover {
+            background-color: #1a252f;
+        }
+
+        .back-container {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+    </style>
 </head>
 
 <body class="Design">
-    <!--Creamos el encabezado-->
-    <header class="header">
 
-        <div class="item" id="title">
-                <H1 >SMC</H1>
-        </div>
+    <!-- BOTÓN REGRESAR -->
+    <div class="back-container">
+        <a href="../Homepage.html" class="back-btn">⬅ Regresar a la Página Principal</a>
+    </div>
 
-        <button class="profileSection" id="profile" >
-
-                <div>
-                    Iniciar sesion
-                </div>
-        </button>
-    </header>
-
-    <!---Creamos el menu de seleccion-->
-    <nav class="menu">
-        <div class="main-container">
-            <a href="Home.html" class="options" id="home">
-                <img src="../Img/Tabs/Menu.png" alt="Inicio" class="menu-icon">
-                <span class="menu-text">Inicio</span>
-            </a>
-
-            <a href="clientes.html" class="options" id="clients">
-                <img src="../Img/Tabs/Clients.png" alt="Clientes" class="menu-icon">
-                <span class="menu-text">Clientes</span>
-            </a>
-            
-            <a href="Recommends.html" class="options" id="recommend">
-                <img src="../Img/Tabs/Recommends.png" alt="Recomendaciones" class="menu-icon">
-                <span class="menu-text">Recomendaciones</span>
-            </a>
-
-            <a href="Comments.html" class="options" id="comments">
-                <img src="../Img/Tabs/Comments.png" alt="Comentarios" class="menu-icon">
-                <span class="menu-text">Comentarios</span>
-            </a>
-        </div>
-    </nav>
-
-    <!--Barra de el lado derecho-->
-    <aside class="right_bar">
-        Contactos
-    </aside>
-
-    <!--Barra de el lado izquierdo-->
-    <aside class="left_bar">
-        Sidebar izquierdo
-    </aside>
-
-    <!--Lo principal-->
+    <!-- CONTENIDO PRINCIPAL -->
     <article class="main">
-        <h2>Perfiles de usuario</h2>
-        <div class="perfilContenedor">
-                <!--Aqui pondremos los campos que nos serviran para insertar informacion-->
-               
+        <h2>Recomendaciones de Clientes</h2>
+
+        <div class="reco-container">
+
+            <div class="reco-card">
+                <h3>Juan Pérez</h3>
+                <p><strong>Compra:</strong> 15 bolsas de cemento CEMEX 50kg</p>
+                <p><strong>Recomendación:</strong> “El producto llegó rápido y en buen estado. Ideal para construcción ligera. Muy satisfecho.”</p>
+            </div>
+
+            <div class="reco-card">
+                <h3>María López</h3>
+                <p><strong>Compra:</strong> 20 bloques huecos de concreto</p>
+                <p><strong>Recomendación:</strong> “Excelente calidad y buena atención. Perfecto para ampliaciones en el hogar.”</p>
+            </div>
+
+            <div class="reco-card">
+                <h3>Carlos Herrera</h3>
+                <p><strong>Compra:</strong> 10 láminas galvanizadas</p>
+                <p><strong>Recomendación:</strong> “Muy resistentes y al mejor precio. Definitivamente volveré a comprar.”</p>
+            </div>
+
+            <div class="reco-card">
+                <h3>Ana Rodríguez</h3>
+                <p><strong>Compra:</strong> Cableado eléctrico THW calibre 12</p>
+                <p><strong>Recomendación:</strong> “El cable funciona perfecto y cumple con normas. Recomendado para instalaciones domésticas.”</p>
+            </div>
+
         </div>
     </article>
-    <!--La parte de abajo-->
-    <footer class="footer">
-        <div id="MandV">
-            <h2>Mision</h2>
-            <h2>Vision</h2>
-        </div>
-    </footer>
 
-    <script src="../scripts/Principal.js"></script>
 </body>
 </html>

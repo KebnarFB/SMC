@@ -46,13 +46,9 @@ if (!isset($_SESSION['id_cliente'])) {
           <span class="menu-text">Clientes</span>
         </a>
 
-        <a href="#" class="options" id="recommend">
-          <img
-            src="../Img/Tabs/Recommends.png"
-            alt="Recomendaciones"
-            class="menu-icon"
-          />
-          <span class="menu-text">Recomendaciones</span>
+        <a href="../pages/Tabs/Recommends.html" class="options" id="recommend">
+        <img src="../Img/Tabs/Recommends.png" alt="Recomendaciones" class="menu-icon">
+        <span class="menu-text">Recomendaciones</span>
         </a>
 
         <a href="#" class="options" id="comments">
