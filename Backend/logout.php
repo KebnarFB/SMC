@@ -1,5 +1,6 @@
 <?php 
-include "conexion.php";
+require_once "connection.php";
+$conexion = new Conexion();
 
 $_SESSION = array(); 
 

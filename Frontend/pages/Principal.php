@@ -1,5 +1,6 @@
 <?php 
-include "../../Backend/conexion.php";
+require_once "../../Backend/connection.php";
+$conexion = new Conexion();
 
 if (!isset($_SESSION['id_cliente'])) {
     header("Location: login.php");
@@ -14,57 +15,54 @@ if (!isset($_SESSION['id_cliente'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SMC</title>
     <!--Agregamos un logo a la pagina-->
-    <link rel="icon" type="image/x-icon" href="../Img/Logo.png" alt="logo" />
+    <link rel="icon" type="image/png" href="../public/icons/desktop.png" alt="logo" />
     <!-- Ponemos estilos externos -->
     <link rel="stylesheet" href="../styles/Principal.css" />
+    <!-- Estilos de los tabs -->
+    <link rel="stylesheet" href="../Styles/Tabs/Tab1.css">
+    <link rel="stylesheet" href="../Styles/Tabs/Tab2.css">
+    <link rel="stylesheet" href="../Styles/Tabs/Tab3.css">
+    <link rel="stylesheet" href="../Styles/Tabs/Tab4.css">
   </head>
 
   <body class="Design">
     <!--Creamos el encabezado-->
     <header class="header">
-      <div class="item" id="title">
-        <h1>SMC</h1>
-      </div>
+      <h1>SMC</h1>
 
-      <div class="botones">
-        <button class="log-out">
-          <a href="../../Backend/logout.php">Cerrar sesion</a>
-        </button>
-      </div>
+      <button class="log-out">
+        <a href="../../Backend/logout.php">Cerrar sesion</a>
+      </button>
     </header>
 
-    <!---Creamos el menu de seleccion-->
+    <!-- menu -->
     <nav class="menu">
       <div class="main-container">
-        <a href="#" class="options" id="home">
-          <img src="../Img/Tabs/Menu.png" alt="Inicio" class="menu-icon" />
+        <!-- Tab1 -->
+        <a href="#" class="options" id="home" data-tab="Tabs/Tab1.html">
+          <img src="../assets/tabs/Menu.png" class="menu-icon" />
           <span class="menu-text">Inicio</span>
         </a>
-
-        <a href="#" class="options" id="clients">
-          <img src="../Img/Tabs/Clients.png" alt="Clientes" class="menu-icon" />
+        <!-- Tab2 -->
+        <a href="#" class="options" id="clients" data-tab="Tabs/Tab2.html">
+          <img src="../assets/tabs/Clients.png" class="menu-icon" />
           <span class="menu-text">Clientes</span>
         </a>
-
-        <a href="#" class="options" id="recommend">
-          <img
-            src="../Img/Tabs/Recommends.png"
-            alt="Recomendaciones"
-            class="menu-icon"
-          />
+        <!-- Tab3 -->
+        <a href="#" class="options" id="recommend" data-tab="Tabs/Tab3.html">
+          <img src="../assets/tabs/Recommends.png"  class="menu-icon"/>
           <span class="menu-text">Recomendaciones</span>
         </a>
-
-        <a href="#" class="options" id="comments">
-          <img
-            src="../Img/Tabs/Comments.png"
-            alt="Comentarios"
-            class="menu-icon"
-          />
+        <!-- Tab4-->
+        <a href="#" class="options" id="comments" data-tab="Tabs/Tab4.html">
+          <img src="../assets/tabs/Comments.png" alt="Comentarios" class="menu-icon"/>
           <span class="menu-text">Comentarios</span>
         </a>
       </div>
     </nav>
+
+    <!-- articulo -->
+    <article class="main" id="main-content-area"></article>
 
     <!--Barra de el lado derecho-->
     <aside class="right_bar">Contactos</aside>
@@ -72,48 +70,16 @@ if (!isset($_SESSION['id_cliente'])) {
     <!--Barra de el lado izquierdo-->
     <aside class="left_bar">Sidebar izquierdo</aside>
 
-    <!--Lo principal-->
-    <article class="main">
-      <h2>Perfiles de usuario</h2>
-      <div class="perfilContenedor">
-        <!--Aqui pondremos los campos que nos serviran para insertar informacion-->
-        <div class="perfil">
-          <label>usuario 1</label>
-        </div>
-        <div class="perfil">
-          <label>usuario 2</label>
-        </div>
-        <div class="perfil">
-          <label>usuario 3</label>
-        </div>
-        <div class="perfil">
-          <label class="user4">usuario 4</label>
-        </div>
-        <div class="perfil">
-          <label>usuario 5</label>
-        </div>
-        <div class="perfil">
-          <label> usuario 6</label>
-        </div>
-        <div class="perfil">
-          <label> usuario 7</label>
-        </div>
-        <div class="perfil">
-          <label> usuario 8</label>
-        </div>
-        <div class="perfil">
-          <label> usuario 9</label>
-        </div>
-      </div>
-    </article>
-    <!--La parte de abajo-->
+    <!-- Footer -->
     <footer class="footer">
-      <div id="MandV">
+      <div class="footer-content">
         <h2>Mision</h2>
         <h2>Vision</h2>
       </div>
     </footer>
 
+    <!--  JavaScripts -->
     <script src="../scripts/Principal.js"></script>
   </body>
 </html>
+

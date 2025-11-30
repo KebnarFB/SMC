@@ -1,101 +1,392 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SMC | Gestión de Clientes</title>
-    <link rel="icon" type="image/x-icon" href="../Img/Logo.png" />
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>SMC - Sistema de Gestión de Clientes</title>
+        <!-- Iconos para android -->
+        <link rel="manifest" href="../public/manifest.json" />
 
-    <!-- Estilos externos -->
-    <link rel="stylesheet" href="../styles/Homepage.css" />
-    <link rel="stylesheet" href="../styles/Principal.css" />
+        <!-- Icono para IOS -->
+        <link rel="apple-touch-icon" href="../public/icons/ios.png" />
 
-    <!-- Tipografía moderna -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"> 
+        <!-- Icono para WEB -->
+        <link rel="shortcut icon" type="image/png" href="../public/icons/desktop.png" />
 
-    <!-- Animaciones -->
-    <style>
-  /* Animaciones conservadas, colores eliminados para respetar tu diseño original */
-  body {
-    font-family: 'Poppins', sans-serif;
-  }
+        <!-- add to homescreen for ios -->
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-title" content="SMC" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <!-- Estilos CSS -->
+        <link rel="stylesheet" href="../Styles/Homepage.css" />
+        <!-- Lucide Icons CDN -->
+        <script src="https://unpkg.com/lucide@latest"></script>
+    </head>
+    <body>
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo-section">
+                        <div class="logo-box">
+                        <span class="logo-text">SMC</span>
+                        </div>
+                        <span class="brand-name">SMC</span>
+                    </div>
+                    <div class="nav-buttons">
+                        <a href="login.php" class="btn btn-ghost">Iniciar Sesión</a>
+                        <a href="sing_up.html" class="btn btn-primary">Registrarse</a>
+                    </div>
+                </div>
+            </div>
+        </header>
 
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        Gestiona tus clientes con
+                        <span class="gradient-text"> inteligencia y simplicidad</span>
+                    </h1>
+                    <p class="hero-description">
+                        Centraliza, organiza y accede a la información de tus clientes de
+                        manera rápida y segura. La solución perfecta para empresas que
+                        valoran la eficiencia.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="sing_up.html" class="btn btn-primary btn-lg">Comenzar Ahora</a>
+                        <a href="login.php" class="btn btn-outline btn-lg">Iniciar Sesión</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  .card {
-    animation: fadeIn 1s ease;
-  }
+        <!-- Features Section -->
+        <section class="features-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Características principales</h2>
+                    <p class="section-description">
+                        Todo lo que necesitas para gestionar tus clientes de forma
+                        profesional
+                    </p>
+                </div>
 
-  .card-1 {
-    transition: 0.3s;
-  }
+                <div class="features-grid">
+                    <!-- Feature 1 -->
+                    <div class="feature-card">
+                        <div class="feature-icon bg-emerald">
+                        <i data-lucide="users"></i>
+                        </div>
+                        <h3 class="feature-title">Gestión centralizada</h3>
+                        <p class="feature-description">
+                        Toda la información de tus clientes en un solo lugar, fácilmente
+                        accesible
+                        </p>
+                    </div>
 
-  .card-1:hover {
-    transform: scale(1.03);
-  }
+                    <!-- Feature 2 -->
+                    <div class="feature-card">
+                        <div class="feature-icon bg-cyan">
+                        <i data-lucide="lock"></i>
+                        </div>
+                        <h3 class="feature-title">Seguridad avanzada</h3>
+                        <p class="feature-description">
+                        Protección de datos con los más altos estándares de seguridad y
+                        encriptación
+                        </p>
+                    </div>
 
-  .botones button:hover,
-  .card button:hover {
-    transform: scale(1.1);
-  }
-</style>
-  </head>
+                    <!-- Feature 3 -->
+                    <div class="feature-card">
+                        <div class="feature-icon bg-emerald">
+                        <i data-lucide="search"></i>
+                        </div>
+                        <h3 class="feature-title">Búsqueda rápida</h3>
+                        <p class="feature-description">
+                        Encuentra cualquier cliente en segundos con nuestra potente
+                        búsqueda
+                        </p>
+                    </div>
 
-  <body>
-    <!-- Encabezado -->
-    <header class="header">
-      <div class="icono">
-        <img src="../Img/Logo.png" alt="logo" id="Logo" width="60" />
-      </div>
-      <div class="Title" style="flex:1; text-align:center;"><h1>SMC</h1></div>
-      <div class="botones">
-        <button class="register"><a href="../pages/sing_up.html">Registrarse</a></button>
-        <button class="login"><a href="../pages/login.php">Iniciar Sesión</a></button>
-      </div>
-    </header>
+                    <!-- Feature 4 -->
+                    <div class="feature-card">
+                        <div class="feature-icon bg-cyan">
+                        <i data-lucide="bar-chart-3"></i>
+                        </div>
+                        <h3 class="feature-title">Reportes detallados</h3>
+                        <p class="feature-description">
+                        Analiza el comportamiento de compra y genera reportes
+                        personalizados
+                        </p>
+                    </div>
 
-    <!-- Menú lateral -->
-    <nav class="menu">
-      <a href="../pages/Homepage.html" class="options"><img src="../Img/Tabs/Menu.png" alt="Inicio" class="menu-icon" /></a>
-      <a href="../pages/Tabs/clientes.html" class="options"><img src="../Img/Tabs/Clients.png" alt="Clientes" class="menu-icon" /></a>
-      <a href="../pages/Tabs/Recommends.html" class="options"><img src="../Img/Tabs/Recommends.png" alt="Recomendaciones" class="menu-icon" /></a>
-      <a href="../pages/Tabs/Comments.html" class="options"><img src="../Img/Tabs/Comments.png" alt="Comentarios" class="menu-icon" /></a>
-    </nav>
+                    <!-- Feature 5 -->
+                    <div class="feature-card">
+                        <div class="feature-icon bg-emerald">
+                        <i data-lucide="clock"></i>
+                        </div>
+                        <h3 class="feature-title">Acceso 24/7</h3>
+                        <p class="feature-description">
+                        Consulta información de tus clientes en cualquier momento y lugar
+                        </p>
+                    </div>
 
-    <!-- Contenido principal -->
-    <main class="main" style="display:flex; justify-content:center; align-items:flex-start; padding:50px;" class="main">
-      <div class="perfilContenedor">
-        <div class="card">
-          <h2>Centraliza tu Gestión de Clientes</h2>
-          <p>
-            El objetivo de <strong>SMC</strong> es optimizar la información de tus clientes, ofreciendo una plataforma segura, moderna y eficiente.
-          </p>
+                    <!-- Feature 6 -->
+                    <div class="feature-card">
+                        <div class="feature-icon bg-cyan">
+                        <i data-lucide="shield"></i>
+                        </div>
+                        <h3 class="feature-title">Respaldo automático</h3>
+                        <p class="feature-description">
+                        Tus datos siempre seguros con copias de seguridad automáticas
+                        diarias
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-          <div class="card-1">
-            <img src="../Img/requisitos.png" alt="Requisitos" width="60" />
-            <h5>Requisitos Clave</h5>
-            <ul>
-              <li>Nombre de la empresa</li>
-              <li>Datos de contacto</li>
-              <li>Historial de compras</li>
-              <li>Comentarios del cliente</li>
-            </ul>
-          </div>
+        <!-- Seccion de  Ventajas de SMC-->
+        <section class="advantages-section">
+            <div class="container">
+                <div class="section-header">
+                <h2 class="section-title">Ventajas de usar SMC</h2>
+                <p class="section-description">
+                    Descubre por qué las empresas confían en nosotros
+                </p>
+                </div>
+                <div class="advantages-list">
+                <!-- Ventaja 1 -->
+                <div class="advantage-item">
+                    <i data-lucide="check-circle-2" class="advantage-icon"></i>
+                    <div class="advantage-content">
+                    <h3 class="advantage-title">Ahorro de tiempo significativo</h3>
+                    <p class="advantage-description">
+                        Reduce hasta un 70% el tiempo dedicado a la gestión manual de
+                        clientes
+                    </p>
+                    </div>
+                </div>
 
-          <div class="card-1">
-            <img src="../Img/ventajas.png" alt="Ventajas" width="60" />
-            <h5>Ventajas</h5>
-            <p>Centraliza y protege la información clave, evitando pérdida de datos y mejorando la experiencia.</p>
-          </div>
+                <!-- Ventaja  2 -->
+                <div class="advantage-item">
+                    <i data-lucide="check-circle-2" class="advantage-icon"></i>
+                    <div class="advantage-content">
+                    <h3 class="advantage-title">Mejora en la atención al cliente</h3>
+                    <p class="advantage-description">
+                        Acceso instantáneo al historial completo de compras y
+                        preferencias
+                    </p>
+                    </div>
+                </div>
 
-          <button><a href="../pages/sing_up.html">¡Empieza Gratis Ahora!</a></button>
-        </div>
-      </div>
-    </main>
+                <!-- Ventaja 3 -->
+                <div class="advantage-item">
+                    <i data-lucide="check-circle-2" class="advantage-icon"></i>
+                    <div class="advantage-content">
+                    <h3 class="advantage-title">
+                        Interfaz intuitiva y fácil de usar
+                    </h3>
+                    <p class="advantage-description">
+                        No requiere capacitación extensa, tu equipo puede empezar a
+                        usarlo de inmediato
+                    </p>
+                    </div>
+                </div>
 
-    <script src="../scripts/Principal.js"></script>
-  </body>
+                <!-- Ventaja 4 -->
+                <div class="advantage-item">
+                    <i data-lucide="check-circle-2" class="advantage-icon"></i>
+                    <div class="advantage-content">
+                    <h3 class="advantage-title">Escalabilidad garantizada</h3>
+                    <p class="advantage-description">
+                        Crece con tu negocio sin preocuparte por limitaciones técnicas
+                    </p>
+                    </div>
+                </div>
+
+                <!-- Ventaja 5 -->
+                <div class="advantage-item">
+                    <i data-lucide="check-circle-2" class="advantage-icon"></i>
+                    <div class="advantage-content">
+                    <h3 class="advantage-title">Soporte técnico dedicado</h3>
+                    <p class="advantage-description">
+                        Nuestro equipo está disponible para ayudarte cuando lo necesites
+                    </p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seccion de desventajas de SMC -->
+        <section class="disadvantages-section">
+            <div class="container">
+                <div class="section-header">
+                <h2 class="section-title">Consideraciones importantes</h2>
+                <p class="section-description">
+                    Queremos ser transparentes contigo sobre algunos aspectos a
+                    considerar
+                </p>
+                </div>
+                <div class="disadvantages-list">
+                <!-- Desvantaja 1 -->
+                <div class="disadvantage-item">
+                    <i data-lucide="x-circle" class="disadvantage-icon"></i>
+                    <div class="disadvantage-content">
+                    <h3 class="disadvantage-title">Requiere conexión a internet</h3>
+                    <p class="disadvantage-description">
+                        El sistema necesita acceso a internet para funcionar
+                        correctamente
+                    </p>
+                    </div>
+                </div>
+
+                <!-- Desventaja 2 -->
+                <div class="disadvantage-item">
+                    <i data-lucide="x-circle" class="disadvantage-icon"></i>
+                    <div class="disadvantage-content">
+                    <h3 class="disadvantage-title">Curva de aprendizaje inicial</h3>
+                    <p class="disadvantage-description">
+                        Aunque es intuitivo, puede tomar algunos días familiarizarse con
+                        todas las funciones
+                    </p>
+                    </div>
+                </div>
+
+                <!-- Desventaja 3 -->
+                <div class="disadvantage-item">
+                    <i data-lucide="x-circle" class="disadvantage-icon"></i>
+                    <div class="disadvantage-content">
+                    <h3 class="disadvantage-title">Suscripción mensual requerida</h3>
+                    <p class="disadvantage-description">
+                        El servicio opera bajo modelo de suscripción para mantener
+                        actualizaciones continuas
+                    </p>
+                    </div>
+                </div>
+
+                <!-- Desventaja 4 -->
+                <div class="disadvantage-item">
+                    <i data-lucide="x-circle" class="disadvantage-icon"></i>
+                    <div class="disadvantage-content">
+                    <h3 class="disadvantage-title">Migración de datos existentes</h3>
+                    <p class="disadvantage-description">
+                        Si tienes datos previos, la migración puede requerir tiempo y
+                        planificación
+                    </p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                <h2 class="cta-title">
+                    ¿Listo para transformar tu gestión de clientes?
+                </h2>
+                <p class="cta-description">
+                    Únete a cientos de empresas que ya confían en SMC para gestionar sus
+                    clientes
+                </p>
+                <a href="sing_up.html" class="btn btn-white btn-lg"
+                    >Crear cuenta gratis</a
+                >
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-grid">
+                <!-- Brand -->
+                <div class="footer-column">
+                    <div class="footer-brand">
+                    <div class="logo-box">
+                        <span class="logo-text">SMC</span>
+                    </div>
+                    <span class="brand-name">SMC</span>
+                    </div>
+                    <p class="footer-description">
+                    Sistema de gestión de clientes para empresas modernas que buscan
+                    eficiencia y seguridad.
+                    </p>
+                </div>
+
+                <!-- Contact -->
+                <div class="footer-column">
+                    <h3 class="footer-title">Contacto</h3>
+                    <div class="footer-links">
+                    <div class="footer-link">
+                        <i data-lucide="mail"></i>
+                        <span>contacto@smc.com</span>
+                    </div>
+                    <div class="footer-link">
+                        <i data-lucide="phone"></i>
+                        <span>+1 (555) 123-4567</span>
+                    </div>
+                    <div class="footer-link">
+                        <i data-lucide="map-pin"></i>
+                        <span>Av. Principal 123, Ciudad</span>
+                    </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-column">
+                    <h3 class="footer-title">Enlaces rápidos</h3>
+                    <div class="footer-links">
+                    <a href="#" class="footer-link-item">Sobre nosotros</a>
+                    <a href="#" class="footer-link-item">Características</a>
+                    <a href="#" class="footer-link-item">Precios</a>
+                    <a href="#" class="footer-link-item">Soporte</a>
+                    </div>
+                </div>
+
+                <!-- Social -->
+                <div class="footer-column">
+                    <h3 class="footer-title">Síguenos</h3>
+                    <div class="social-icons">
+                    <a href="#" class="social-icon">
+                        <i data-lucide="facebook"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i data-lucide="twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i data-lucide="linkedin"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i data-lucide="instagram"></i>
+                    </a>
+                    </div>
+                    <p class="footer-schedule">
+                    Horario de atención:<br />
+                    Lunes a Viernes: 9:00 - 18:00
+                    </p>
+                </div>
+                </div>
+
+                <div class="footer-divider"></div>
+
+                <div class="footer-bottom">
+                <p>
+                    &copy; 2025 SMC - Sistema de Gestión de Clientes. Todos los derechos
+                    reservados.
+                </p>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            // Crear todos los iconos de Lucide
+            lucide.createIcons();
+        </script>
+    </body>
 </html>
