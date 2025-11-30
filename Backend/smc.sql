@@ -39,3 +39,4 @@ CREATE TABLE compras (
     FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente)
 )AUTO_INCREMENT = 301;
 
+SELECT * FROM usuarios;

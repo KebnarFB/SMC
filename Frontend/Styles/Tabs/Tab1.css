@@ -1,0 +1,21 @@
+/* !Celular */
+@media (max-width: 599px) {
+    .perfilContenedor {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .perfil {
+        background-color: whitesmoke;
+        color: #000;
+    }
+
+    .perfil:active {
+        background-color: rgb(100, 100, 100);
+    }
+
+    .pictures img {
+        display: none;
+    }
+}
