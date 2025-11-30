@@ -7,7 +7,7 @@ Boton.addEventListener("submit", async (e) => {
     const formData = new FormData(Boton);
     
     try {
-        const response = await fetch('../../Backend/registro.php', {
+        const response = await fetch('../pages/sing_up.php', {
             method: 'POST',
             body: formData
         });
@@ -70,8 +70,8 @@ const agregarToast = ({ tipo, titulo, descripcion, autoClose }) => {
 
     //Iconos
     const iconos = {
-        Exito: '<img src="../Img/success.png" class="img-icon">',
-        Error: '<img src="../Img/error.png" class="img-icon">'
+        Exito: '<img src="../assets/img/success.png" class="img-icon">',
+        Error: '<img src="../assets/img/error.png" class="img-icon">'
     };
 
     //Plantilla
@@ -90,7 +90,7 @@ const agregarToast = ({ tipo, titulo, descripcion, autoClose }) => {
     
     <button class="btn_close"> 
         <div class="icono">
-            <img src="../Img/close.png" class="img-btn">
+            <img src="../assets/img/close.png" class="img-btn">
         </div>
     </button> `;
 

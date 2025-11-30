@@ -68,7 +68,7 @@ body {
   transition: border-color 0.3s ease;
 }
 
-.inputs:focus {
+.inputs:focus + label{
   border-color: #4caf50;
   outline: none;
   box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);

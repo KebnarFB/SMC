@@ -1,33 +1,24 @@
 <?php
-include "../../Backend/conexion.php";
+require_once "../../Backend/usuarios.php";
+$user = new Usuarios();
 
 $error_login = false;
 
 if (isset($_POST['usuario']) && isset($_POST['pwd'])) {
     
-    $usuario_ingresado = mysqli_real_escape_string($conn, $_POST['usuario']);
+    $usuario_ingresado = $_POST['usuario'];
     $contrasena_plana = $_POST['pwd'];
 
-    $sql = "SELECT id_cliente, username, contrasena FROM usuarios WHERE username = '$usuario_ingresado'";
-
-    $resultado = mysqli_query($conn, $sql);
+    $datos_usuarios = $user -> login($usuario_ingresado, $contrasena_plana);
 
     // Verificar si se encontró un usuario con ese nombre
-    if ($resultado && mysqli_num_rows($resultado) == 1) {
-        $fila = mysqli_fetch_assoc($resultado);
-        $hash_almacenado = $fila['contrasena'];
-
-        if (password_verify($contrasena_plana, $hash_almacenado)) {
+    if ($datos_usuarios) {
+        $_SESSION['id_cliente'] = $datos_usuarios['id_cliente'];
+        $_SESSION['username'] = $datos_usuarios['username'];
+        $_SESSION['loggedin'] = TRUE;
         
-            $_SESSION['id_cliente'] = $fila['id_cliente'];
-            $_SESSION['username'] = $fila['username'];
-            $_SESSION['loggedin'] = TRUE;
-            
-            header("Location: Principal.php");
-            exit();
-        } else {
-            $error_login = true;
-        }
+        header("Location: Principal.php");
+        exit();
     } else {
         $error_login = true;
     }
@@ -41,8 +32,19 @@ if (isset($_POST['usuario']) && isset($_POST['pwd'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Asignamos un titulo para esta pagina-->
     <title>Inicio de sesion</title>
-    <!--Agregamos un logo a la pagina-->
-    <link rel="icon" type="image/x-icon" href="../Img/Logo.png">
+    <!-- Iconos para android -->
+    <link rel="manifest" href="../public/manifest.json" />
+
+    <!-- Icono para IOS -->
+    <link rel="apple-touch-icon" href="../public/icons/ios.png">
+
+    <!-- Icono para WEB -->
+    <link rel="shortcut icon" type="image/png" href="../public/icons/desktop.png" />
+
+    <!-- add to homescreen for ios -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="SMC" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <!--Ponemos estilos externos-->
     <link rel="stylesheet" href="../styles/Estilos.css">
 </head>
@@ -79,7 +81,7 @@ if (isset($_POST['usuario']) && isset($_POST['pwd'])) {
 
             <p class="login-link">
                 No tienes cuenta?, 
-                <a href="sing_up.html" class = "links">pulsa aqui para crear una</a>
+                <a href="sing_up.php" class = "links">pulsa aqui para crear una</a>
             </p>
         </form>
     </main>
