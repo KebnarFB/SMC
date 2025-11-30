@@ -1,21 +1,80 @@
 /* !Celular */
 @media (max-width: 599px) {
-    .perfilContenedor {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
+  .perfilContenedor {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 
-    .perfil {
-        background-color: whitesmoke;
-        color: #000;
-    }
+  .perfil {
+    background-color: whitesmoke;
+    color: #000;
+  }
 
-    .perfil:active {
-        background-color: rgb(100, 100, 100);
-    }
+  .perfil:active {
+    background-color: rgb(100, 100, 100);
+  }
 
-    .pictures img {
-        display: none;
-    }
+  .pictures img {
+    display: none;
+  }
+}
+
+/* !Tablet */
+@media (min-width: 600px) and (max-width: 899px) {
+  .perfilContenedor {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .perfil {
+    background-color: whitesmoke;
+    color: #000;
+  }
+
+  .perfil:active {
+    background-color: rgb(100, 100, 100);
+  }
+
+  .pictures img {
+    display: none;
+  }
+}
+
+/*! Computadora */
+@media (min-width: 900px) {
+  .perfilContenedor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    color: black;
+    font-weight: bold;
+  }
+
+  .perfil {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: -7px 3px 10px 0px rgba(0, 0, 0, 0.75);
+    padding: 15px 0;
+    flex-basis: calc(33.33% - 14px);
+  }
+
+  .user4 {
+    flex-basis: 100%;
+  }
+
+  .perfil:hover {
+    background-color: rgb(100, 100, 100);
+  }
+}
+
+.perfil {
+  text-align: center;
+  padding: 60px;
+  border-radius: 10px;
+  box-shadow: -1px 2px 5px 0px black;
+  flex: 1;
 }
