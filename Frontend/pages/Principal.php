@@ -41,7 +41,7 @@ if (!isset($_SESSION['id_cliente'])) {
           <span class="menu-text">Inicio</span>
         </a>
 
-        <a href="#" class="options" id="clients">
+        <a href="../pages/Tabs/clientes.php" class="options" id="clients">
           <img src="../Img/Tabs/Clients.png" alt="Clientes" class="menu-icon" />
           <span class="menu-text">Clientes</span>
         </a>

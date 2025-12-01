@@ -129,7 +129,40 @@
         </div>
     </footer>
 
+    <script>
+const input = document.getElementById("buscar");
+const contenedor = document.getElementById("resultados");
+
+input.addEventListener("input", async () => {
+    const q = input.value.trim();
+
+    const res = await fetch("buscar_clientes.php?q=" + encodeURIComponent(q));
+    const data = await res.json();
+
+    mostrar(data);
+});
+
+function mostrar(lista) {
+    contenedor.innerHTML = "";
+
+    lista.forEach(c => {
+        const card = document.createElement("div");
+        card.className = "tarjeta";
+        card.innerHTML = `
+            <h3>${c.nombre_cliente}</h3>
+            <p>Teléfono: ${c.telefono || ""}</p>
+            <p>Correo: ${c.correo || ""}</p>
+            <p>Dirección: ${c.direccion || ""}</p>
+        `;
+        contenedor.appendChild(card);
+    });
+}
+</script>
+
+
     <script src="../scripts/Principal.js"></script>
 </body>
 
 </html>
+
+
