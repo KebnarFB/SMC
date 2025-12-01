@@ -39,22 +39,22 @@ if (!isset($_SESSION['id_cliente'])) {
     <nav class="menu">
       <div class="main-container">
         <!-- Tab1 -->
-        <a href="#" class="options" id="home" data-tab="Tabs/Tab1.html">
+        <a href="#home" class="options" id="home" data-tab="Tabs/Tab1.html">
           <img src="../assets/tabs/Menu.png" class="menu-icon" />
           <span class="menu-text">Inicio</span>
         </a>
         <!-- Tab2 -->
-        <a href="#" class="options" id="clients" data-tab="Tabs/Tab2.html">
+        <a href="#clients" class="options" id="clients" data-tab="Tabs/Tab2.html">
           <img src="../assets/tabs/Clients.png" class="menu-icon" />
           <span class="menu-text">Clientes</span>
         </a>
         <!-- Tab3 -->
-        <a href="#" class="options" id="recommend" data-tab="Tabs/Tab3.html">
+        <a href="#recommend" class="options" id="recommend" data-tab="Tabs/Tab3.html">
           <img src="../assets/tabs/Recommends.png"  class="menu-icon"/>
           <span class="menu-text">Recomendaciones</span>
         </a>
         <!-- Tab4-->
-        <a href="#" class="options" id="comments" data-tab="Tabs/Tab4.html">
+        <a href="#comments" class="options" id="comments" data-tab="Tabs/Tab4.html">
           <img src="../assets/tabs/Comments.png" alt="Comentarios" class="menu-icon"/>
           <span class="menu-text">Comentarios</span>
         </a>
@@ -69,14 +69,6 @@ if (!isset($_SESSION['id_cliente'])) {
 
     <!--Barra de el lado izquierdo-->
     <aside class="left_bar">Sidebar izquierdo</aside>
-
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="footer-content">
-        <h2>Mision</h2>
-        <h2>Vision</h2>
-      </div>
-    </footer>
 
     <!--  JavaScripts -->
     <script src="../scripts/Principal.js"></script>
