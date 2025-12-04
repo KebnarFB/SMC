@@ -1,8 +1,7 @@
-<?php
-session_start(); 
+<?php 
 class Conexion {
-    private $host = "100.113.115.21";
-    private $user = "remote";
+    private $host = "127.0.0.1";
+    private $user = "root";
     private $pwd = "";
     private $db = "smc_db";
     public $pdo;

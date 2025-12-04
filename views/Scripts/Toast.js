@@ -7,7 +7,7 @@ Boton.addEventListener("submit", async (e) => {
     const formData = new FormData(Boton);
     
     try {
-        const response = await fetch('../pages/sing_up.php', {
+        const response = await fetch('../../controllers/usersControllers.php', {
             method: 'POST',
             body: formData
         });

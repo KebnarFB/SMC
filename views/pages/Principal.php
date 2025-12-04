@@ -1,10 +1,10 @@
-<?php 
-require_once "../../Backend/connection.php";
-$conexion = new Conexion();
+<?php
+require_once "../../models/usuarios.php";
+$user = new Usuarios();
 
 if (!isset($_SESSION['id_cliente'])) {
-    header("Location: login.php");
-    exit(); 
+  header("Location: login.php");
+  exit; 
 }
 ?>
 
@@ -17,7 +17,7 @@ if (!isset($_SESSION['id_cliente'])) {
     <!--Agregamos un logo a la pagina-->
     <link rel="icon" type="image/png" href="../public/icons/desktop.png" alt="logo" />
     <!-- Ponemos estilos externos -->
-    <link rel="stylesheet" href="../styles/Principal.css" />
+    <link rel="stylesheet" href="../Styles/Principal.css" />
     <!-- Estilos de los tabs -->
     <link rel="stylesheet" href="../Styles/Tabs/Tab1.css">
     <link rel="stylesheet" href="../Styles/Tabs/Tab2.css">
@@ -31,7 +31,7 @@ if (!isset($_SESSION['id_cliente'])) {
       <h1>SMC</h1>
 
       <button class="log-out">
-        <a href="../../Backend/logout.php">Cerrar sesion</a>
+        <a href="../../controllers/logout.php">Cerrar sesion</a>
       </button>
     </header>
 

@@ -1,5 +1,5 @@
 <?php 
-require_once "connection.php";
+require_once "../models/connection.php";
 $conexion = new Conexion();
 
 $_SESSION = array(); 
@@ -14,6 +14,6 @@ if (ini_get("session.use_cookies")) {
 
 session_destroy();
 
-header("Location: ../Frontend/pages/login.php");
-exit();
+header("Location: ../views/pages/login.php");
+exit;
 ?>

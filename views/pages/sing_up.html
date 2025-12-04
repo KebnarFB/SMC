@@ -1,45 +1,10 @@
-<?php 
-require_once "../../Backend/usuarios.php";
-$user = new Usuarios();
-
-if (isset($_POST['username'])) { 
-  $nombre = $_POST['nombres'];
-  $usuario = $_POST['username'];
-  $correo = $_POST['correo'];
-  $pwd = $_POST['pwd'];
-  $confirm_pwd = $_POST['pwd_confirm'];
-
-  if($confirm_pwd !== $pwd) {
-    http_response_code(400);
-    echo "Las contraseñas no coinciden.";
-    exit;
-  }else {
-    $registro = $user->registro($nombre, $usuario, $correo, $pwd);
-    
-    if ($registro) {
-        // Éxito:
-        //http_response_code(200);
-        echo "Tu cuenta ha sido creada exitosamente.";
-        exit;
-    } else {
-        // Error de base de datos
-        http_response_code(500);
-        echo "No se pudo crear tu cuenta. </br> Intenta con otro nombre de usuario/correo.";
-        exit;
-    }
-  }
-}
-?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Crear cuenta</title>
-    <link rel="icon" type="image/png" href="../public/icons/desktop.png" />
+    <link rel="icon" type="image/png" href="../assets/img/logo.png" />
 
     <link rel="stylesheet" href="../styles/Toast.css" />
     <link rel="stylesheet" href="../styles/Estilos.css" />
@@ -52,7 +17,7 @@ if (isset($_POST['username'])) {
         <p>Regístrate para comenzar a utilizar la plataforma.</p>
       </div>
 
-      <form id="form" class="form-content" method="post">
+      <form id="form" class="form-content" method="POST" action="../../controllers/usersControllers.php">
         <div class="input-group">
           <label for="nombres">Nombres</label>
           <input
@@ -61,8 +26,7 @@ if (isset($_POST['username'])) {
             name="nombres"
             type="text"
             placeholder="Ej: Juan Antonio Pérez"
-            required
-          />
+            required/>
 
           <label for="username">Nombre de usuario</label>
           <input
@@ -71,8 +35,7 @@ if (isset($_POST['username'])) {
             name="username"
             type="text"
             placeholder="Máx 10 caracteres"
-            required
-          />
+            required/>
 
           <label for="correo">Correo Electrónico</label>
           <input
@@ -81,8 +44,7 @@ if (isset($_POST['username'])) {
             name="correo"
             type="email"
             placeholder="ejemplo@dominio.com"
-            required
-          />
+            required/>
 
           <label for="pwd">Contraseña</label>
           <input
@@ -91,8 +53,7 @@ if (isset($_POST['username'])) {
             type="password"
             name="pwd"
             placeholder="Debe ser segura"
-            required
-          />
+            required/>
 
           <label for="confirmar_clave">Confirmar Contraseña</label>
           <input
@@ -102,8 +63,7 @@ if (isset($_POST['username'])) {
             name="pwd_confirm"
             placeholder="Confirmar"
             name="confirmar_pwd"
-            required
-          />
+            required/>
         </div>
 
         <button class="botones crear" type="submit">Crear cuenta</button>
@@ -115,6 +75,6 @@ if (isset($_POST['username'])) {
     </div>
 
     <div class="content-toast" id="content-toast"></div>
-    <script src="../scripts/Toast.js"></script>
+    <script src="../Scripts/Toast.js"></script>
   </body>
 </html>
