@@ -1,10 +1,10 @@
-<?php 
-require_once "../../Backend/connection.php";
-$conexion = new Conexion();
+<?php
+require_once "../../models/usuarios.php";
+$user = new Usuarios();
 
 if (!isset($_SESSION['id_cliente'])) {
-    header("Location: login.php");
-    exit(); 
+  header("Location: login.php");
+  exit; 
 }
 ?>
 
@@ -17,7 +17,7 @@ if (!isset($_SESSION['id_cliente'])) {
     <!--Agregamos un logo a la pagina-->
     <link rel="icon" type="image/png" href="../public/icons/desktop.png" alt="logo" />
     <!-- Ponemos estilos externos -->
-    <link rel="stylesheet" href="../styles/Principal.css" />
+    <link rel="stylesheet" href="../Styles/Principal.css" />
     <!-- Estilos de los tabs -->
     <link rel="stylesheet" href="../Styles/Tabs/Tab1.css">
     <link rel="stylesheet" href="../Styles/Tabs/Tab2.css">
@@ -30,8 +30,8 @@ if (!isset($_SESSION['id_cliente'])) {
     <header class="header">
       <h1>SMC</h1>
 
-      <button class="log-out">
-        <a href="../../Backend/logout.php">Cerrar sesion</a>
+      <button class="buttons" id="profile">
+        <a href="profile.html">Ver perfil</a>
       </button>
     </header>
 
@@ -65,7 +65,23 @@ if (!isset($_SESSION['id_cliente'])) {
     <article class="main" id="main-content-area"></article>
 
     <!--Barra de el lado derecho-->
-    <aside class="right_bar">Contactos</aside>
+    <aside class="right_bar">Contactos
+
+
+      <button class="buttons" id="add">
+        <a href="../../controllers/logout.php">Agregar cliente</a>
+      </button>
+
+      <button class="buttons" id="edit">
+        <a href="../../controllers/logout.php">Editar cliente</a>
+      </button>
+
+
+      <button class="buttons" id="delete">
+        <a href="../../controllers/logout.php">Eliminar cliente</a>
+      </button>
+      
+    </aside>
 
     <!--Barra de el lado izquierdo-->
     <aside class="left_bar">Sidebar izquierdo</aside>

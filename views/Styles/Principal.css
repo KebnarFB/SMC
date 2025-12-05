@@ -28,6 +28,38 @@ body {
   position: relative;
 }
 
+.buttons {
+    border: none;
+    padding: 12px 30px;
+    font-size: 13px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    padding: 20px;
+    gap: 20px;
+}
+
+#delete {
+    background-color: whitesmoke;
+}
+
+#edit {
+    background-color: whitesmoke;
+}
+
+#add {
+    background-color: whitesmoke;
+}
+
+#profile {
+  background-color: whitesmoke;
+}
+
+.buttons:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
 /* Ponemos las area seccion del maquetado */
 .header {
   grid-area: header;
@@ -91,30 +123,9 @@ body {
     z-index: 1000;
   }
 
-  .log-out {
-    text-decoration: none;
-    background-color: #d1fae5;
-    margin: auto 10px auto 0px;
-    padding: 10px 10px;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: none;
-    text-align: center;
-  }
 
-  .log-out:active {
-    background: linear-gradient(to right, #059669, #0e7490);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-    transform: scale(1.05);
-  }
 
-  .header .log-out a {
-    text-decoration: none;
-    font-weight: bold;
-    color: #000;
-  }
+
 
   /* Estilos Tabs en vista Mobile */
   .menu {
@@ -220,24 +231,7 @@ body {
     z-index: 1000;
   }
 
-  .log-out {
-    text-decoration: none;
-    background-color: #d1fae5;
-    margin: auto 10px auto 0px;
-    padding: 10px 10px;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: none;
-    text-align: center;
-  }
 
-  .log-out:hover {
-    background: linear-gradient(to right, #059669, #0e7490);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-    transform: scale(1.05);
-  }
 
   a {
     text-decoration: none;
@@ -338,24 +332,7 @@ body {
     z-index: 1000;
   }
 
-  .log-out {
-    text-decoration: none;
-    background-color: #d1fae5;
-    margin: auto 10px auto 0px;
-    padding: 10px 10px;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: none;
-    text-align: center;
-  }
 
-  .log-out:hover {
-    background: linear-gradient(to right, #059669, #0e7490);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-    transform: scale(1.05);
-  }
 
   a {
     text-decoration: none;

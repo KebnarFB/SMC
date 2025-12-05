@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    <title>Perfil de usuario</title>
+
+    <link rel = "icon" type = "image/x-icon" href = "../assets/img/logo.png" alt = "logo" />
+
+
+    <link rel = "stylesheet" href = "../Styles/profile.css">
+</head>
+
+<body class = "Design_P">
+<!--Aqui va todo el apartado del heaeder-->
+    <header class = "header">
+
+        <button class = "buttons" id = "go_back">Regresar</button>
+
+        <div class = "item" id = "title">
+            <h1>Perfil de (Aqui pongan el nombre de usuario)</h1>
+        </div>
+
+    </header>
+
+    <!--Aqui va todo lo que ira en el lado izquierdo-->
+    <aside class = "left_section">
+
+        <pre>Perfil de (aqui va el nombre del usuario)</pre>
+
+        <div class = "profile_section">
+
+            <div class = "container_image">
+
+                <div class = "user_image">
+
+                    <p>Aqui deberia de haber una imagen</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class = "form_section">
+
+            <label>
+                Nombre de empresa:
+            </label>
+
+            <input type = "text" id = "name_company" name = "company">
+
+            <label>
+                Correo:
+            </label>
+
+            <input type = "email" id = "user_email" name = "email">
+
+            <button class = "buttons" id="close">Ver comentarios</button>
+
+            <button class = "buttons" id="close">Dejar comentario</button>
+            
+        </div>
+
+    </aside>
+
+
+    <!--Aqui va todo lo que ira en el lado derecho-->
+    <aside class = "right_section">
+
+        <pre>Acerca de su empresa</pre>
+        
+        <div class = "description">
+
+            <label for = "descripcion">
+                Descripción:
+            </label>
+
+            <textarea id = "descripcion" name = "descripcion"></textarea>
+            
+        </div>
+
+        <div class = "tags">
+
+            <label for = "etiquetas">
+                Su empresa vende:
+            </label>
+
+            <textarea id = "etiquetas" name = "etiquetas"></textarea>
+
+        </div>
+
+    </aside>
+
+</body>
+
+</html>

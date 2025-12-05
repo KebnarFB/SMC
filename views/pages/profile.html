@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    <title>Perfil de usuario</title>
+
+    <link rel = "icon" type = "image/x-icon" href = "../assets/img/logo.png" alt = "logo" />
+
+
+    <link rel = "stylesheet" href = "../Styles/profile.css">
+</head>
+
+<body class = "Design_P">
+<!--Aqui va todo el apartado del heaeder-->
+    <header class = "header">
+
+        <button class = "buttons" id = "go_back"><a href="Principal.php">Regresar</a></button>
+
+        <div class = "item" id = "title">
+            <h1>Aqui puede configurar su perfil</h1>
+        </div>
+
+    </header>
+
+
+    <!--Aqui va todo lo que ira en el lado izquierdo-->
+    <aside class = "left_section">
+
+          <pre>Configura tu perfil</pre>
+
+        <div class = "profile_section">
+
+            <div class = "container_image">
+
+                <div class = "user_image">
+
+                    <p>Aqui deberia de haber una imagen</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--En esta parte se declara el form donde el usuario agrega sus datos-->
+        <div class = "form_section">
+
+            <label>
+                Nombre de usuario:
+            </label>
+
+            <input type = "text" id = "name_user" name = "username">
+
+            <label>
+                Nombre de empresa:
+            </label>
+
+            <input type = "text" id = "name_company" name = "company">
+
+            <label>
+                Correo:
+            </label>
+
+            <input type = "email" id = "user_email" name = "email">
+
+            <button class = "buttons" id="close">Cerrar la cuenta</button>
+            
+        </div>
+
+    </aside>
+
+
+    <!--Aqui va todo lo que ira en el lado derecho-->
+    <aside class = "right_section">
+
+        <pre>Acerca de tu empresa</pre>
+        
+        <div class = "description">
+
+            <label for = "descripcion">
+                Agrega una descripción:
+            </label>
+
+            <textarea id = "descripcion" name = "descripcion"></textarea>
+            
+        </div>
+
+        <div class = "tags">
+
+            <label for = "etiquetas">
+                Tu empresa vende:
+            </label>
+
+            <textarea id = "etiquetas" name = "etiquetas"></textarea>
+
+        </div>
+
+    </aside>
+
+</body>
+
+</html>
