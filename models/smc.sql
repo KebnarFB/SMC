@@ -21,8 +21,8 @@ ADD COLUMN descripcion VARCHAR(255) NULL;
 
 # Tabla clientes
 CREATE TABLE clientes (
+        id_empresa INT NOT NULL,
     id_cliente INT AUTO_INCREMENT PRIMARY KEY,
-    id_empresa INT NOT NULL,
     nombre_cliente VARCHAR(100) NOT NULL,
     telefono VARCHAR(20),
     correo VARCHAR(100),

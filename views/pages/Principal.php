@@ -62,13 +62,13 @@ if (!isset($_SESSION['id_user'])) {
           <span class="menu-text">Inicio</span>
         </a>
         <!-- Tab2 -->
-        <a href="#clients" class="options" id="clients" data-tab="/SMC/views/pages/Tabs/Tab2.html">
+        <a href="#clients" class="options" id="clients" data-tab="/SMC/views/pages/Tabs/Tab2.php">
           <img src="/SMC/views/assets/tabs/Clients.png" class="menu-icon" />
           <span class="menu-text">Clientes</span>
         </a>
         <!-- Tab3 -->
-        <a href="#recommend" class="options" id="recommend" data-tab="/SMC/views/pages/Tabs/Tab3.html">
-          <img src="/SMC/views/assets/tabs/Recommends.png"  class="menu-icon"/>
+        <a href="#recommend" class="options" id="recommend" data-tab="/SMC/views/pages/Tabs/Tab3.php">
+          <img src="/SMC/views/assets/tabs/Recommends.png" class="menu-icon"/>
           <span class="menu-text">Recomendaciones</span>
         </a>
         <!-- Tab4-->
@@ -83,7 +83,7 @@ if (!isset($_SESSION['id_user'])) {
     <article class="main" id="main-content-area"></article>
 
     <!-- modal -->
-   
+
 
     <!--Barra de el lado derecho-->
     <aside class="right_bar">Contactos</aside>
@@ -93,6 +93,8 @@ if (!isset($_SESSION['id_user'])) {
 
     <!--  JavaScripts -->
     <script src="/SMC/views/scripts/Principal.js"></script>
+    <script src="/SMC/views/scripts/Tab2.js"></script>
+
   </body>
 </html>
 
