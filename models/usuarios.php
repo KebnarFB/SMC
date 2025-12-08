@@ -63,5 +63,31 @@ class Usuarios{
         $stmt->execute([$id_user]);
         return $stmt->fetchColumn(); 
     }
+
+    // TAB2 - Obtener clientes
+public function obtenerRecomendaciones() {
+    $sql = "SELECT nombres, username, correo, img_perfil, descripcion
+            FROM usuarios";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
+    // TAB3
+    public function obtenerDatosTab3() {
+        $sql = "SELECT * FROM usuarios"; 
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    //tab2 - Obtener todos los clientes
+    public function getClientes() {
+    $sql = "SELECT * FROM clientes";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+} 
+
 ?>
