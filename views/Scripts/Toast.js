@@ -7,7 +7,7 @@ Boton.addEventListener("submit", async (e) => {
     const formData = new FormData(Boton);
     
     try {
-        const response = await fetch('../../controllers/usersControllers.php', {
+        const response = await fetch('index.php?page=user', {
             method: 'POST',
             body: formData
         });
@@ -57,7 +57,7 @@ const agregarToast = ({ tipo, titulo, descripcion, autoClose }) => {
         setTimeout(() => {
             closeToast(toastId);
             if(tipo === "Exito"){
-                window.location.href = '../pages/login.php';
+                window.location.href = 'index.php?page=login';
             } 
         }, 2000);
     }
@@ -70,8 +70,8 @@ const agregarToast = ({ tipo, titulo, descripcion, autoClose }) => {
 
     //Iconos
     const iconos = {
-        Exito: '<img src="../assets/img/success.png" class="img-icon">',
-        Error: '<img src="../assets/img/error.png" class="img-icon">'
+        Exito: '<img src="/SMC/views/assets/img/success.png" class="img-icon">',
+        Error: '<img src= "/SMC/views/assets/img/error.png" class="img-icon">'
     };
 
     //Plantilla
@@ -90,7 +90,7 @@ const agregarToast = ({ tipo, titulo, descripcion, autoClose }) => {
     
     <button class="btn_close"> 
         <div class="icono">
-            <img src="../assets/img/close.png" class="img-btn">
+            <img src="/SMC/views/assets/img/close.png" class="img-btn">
         </div>
     </button> `;
 

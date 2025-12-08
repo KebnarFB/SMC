@@ -60,6 +60,14 @@ body {
   object-fit: contain;
 }
 
+.profile-icon {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  object-fit: contain;
+}
+
 .options {
   display: flex;
   align-items: center;
@@ -67,7 +75,6 @@ body {
   padding: 10px;
   gap: 8px;
 }
-
 
 /* Maquetamos para las 3 vistas */
 /* !Celular */
@@ -91,11 +98,11 @@ body {
     z-index: 1000;
   }
 
-  .log-out {
+  .profile {
     text-decoration: none;
-    background-color: #d1fae5;
-    margin: auto 10px auto 0px;
-    padding: 10px 10px;
+    background-color: transparent;
+    margin: auto 5px auto auto;
+    padding: 5px 5px;
     border-radius: 8px;
     font-size: 16px;
     cursor: pointer;
@@ -104,10 +111,21 @@ body {
     text-align: center;
   }
 
-  .log-out:active {
+  .profile:hover {
     background: linear-gradient(to right, #059669, #0e7490);
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
     transform: scale(1.05);
+  }
+
+  .user-profile {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .user {
+    margin: auto 10px auto 0px;
+    font-weight: bold;
+    font-size: 16px;
   }
 
   .header .log-out a {
@@ -220,11 +238,11 @@ body {
     z-index: 1000;
   }
 
-  .log-out {
+  .profile {
     text-decoration: none;
     background-color: #d1fae5;
-    margin: auto 10px auto 0px;
-    padding: 10px 10px;
+    margin: auto 5px auto auto;
+    padding: 5px 5px;
     border-radius: 8px;
     font-size: 16px;
     cursor: pointer;
@@ -233,10 +251,21 @@ body {
     text-align: center;
   }
 
-  .log-out:hover {
+  .profile:hover {
     background: linear-gradient(to right, #059669, #0e7490);
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
     transform: scale(1.05);
+  }
+
+  .user-profile {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .user {
+    margin: auto 10px auto 0px;
+    font-weight: bold;
+    font-size: 16px;
   }
 
   a {
@@ -338,11 +367,10 @@ body {
     z-index: 1000;
   }
 
-  .log-out {
+  .profile {
     text-decoration: none;
-    background-color: #d1fae5;
     margin: auto 10px auto 0px;
-    padding: 10px 10px;
+    padding: 5px 5px;
     border-radius: 8px;
     font-size: 16px;
     cursor: pointer;
@@ -351,10 +379,21 @@ body {
     text-align: center;
   }
 
-  .log-out:hover {
+  .profile:hover  {
     background: linear-gradient(to right, #059669, #0e7490);
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
     transform: scale(1.05);
+  }
+
+  .user-profile {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .user {
+    margin: auto 10px auto 0px;
+    font-weight: bold;
+    font-size: 16px;
   }
 
   a {
@@ -423,7 +462,7 @@ body {
     text-decoration: none;
   }
   /* ------------------------------- */
-  
+
   .left_bar {
     display: none;
   }
@@ -439,4 +478,62 @@ body {
     border-color: #000;
     background-color: #f5f7fa;
   }
+}
+
+/* Estilos del Menu del perfil */
+.profile > ul {
+list-style: none;
+display: flex;
+justify-content: left;
+}
+
+.profile ul li {
+position: relative;
+}
+
+.profile > ul > li > a {
+display: block;
+padding: 15px 25px;
+color: #ecf0f1;
+text-decoration: none;
+transition: background 0.3s ease, color 0.3s ease;
+}
+
+.profile > ul > li > a:hover {
+background-color: #34495e;
+color: #1abc9c;
+}
+
+/* Submenús */
+.profile .submenu {
+position: absolute;
+top: 100%;
+right: 0;
+background-color: #34495e;
+list-style: none;
+overflow: hidden;
+max-height: 0;
+opacity: 0;
+transition: all 0.4s ease;
+pointer-events: none;
+}
+
+.profile .submenu li a {
+display: block;
+padding: 12px 20px;
+color: #ecf0f1;
+text-decoration: none;
+white-space: nowrap;
+transition: background 0.3s ease, color 0.3s ease;
+}
+
+.profile .submenu li a:hover {
+background-color: #1abc9c;
+color: #fff;
+}
+
+.profile li.has-submenu:hover .submenu {
+max-height: 500px;
+opacity: 1;
+pointer-events: auto;
 }

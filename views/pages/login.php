@@ -6,23 +6,18 @@
     <!--Asignamos un titulo para esta pagina-->
     <title>Inicio de sesion</title>
     <!-- Icono para WEB -->
-    <link rel="icon" type="image/png" href="../assets/img/logo.png" />
+    <link rel="icon" type="image/png" href="/SMC/views/assets/img/logo.png" />
     <!--Ponemos estilos externos-->
-    <link rel="stylesheet" href="../styles/Estilos.css">
+    <link rel="stylesheet" href="/SMC/views/styles/Estilos.css">
 </head>
 <body>
+    <a href="index.php?page=home" class="return">Regresar</a>
     <main class="signup-container">
-        <div class="signup-header">
+        <div class="signup-header ">
             <h1>Inicio de sesion</h1>
         </div>
 
-        <?php 
-            if (isset($error_login) && $error_login) {
-                echo "<p class='message-error'>Usuario o contraseña incorrectos</p>"; 
-            }
-        ?>
-
-        <form id="form" class="form-content" method="POST" action="../../controllers/usersControllers.php">
+        <form id="form" class="form-content" method="POST" action="index.php?page=user&action=click_Login">
             <div class="input-group">
                 <label for="usuario">Ingrese su usuario</label>
                 <input 
@@ -43,7 +38,7 @@
 
             <p class="login-link">
                 No tienes cuenta?, 
-                <a href="sing_up.html" class = "links">pulsa aqui para crear una</a>
+                <a href="index.php?page=register" class = "links">pulsa aqui para crear una</a>
             </p>
         </form>
     </main>

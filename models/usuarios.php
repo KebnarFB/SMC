@@ -1,6 +1,6 @@
 <?php
 require_once "connection.php";
-session_start();
+
 class Usuarios{
     private $pdo;
 
@@ -22,7 +22,7 @@ class Usuarios{
     }
 
     public function login($usuario, $password){
-        $sql = "SELECT id_cliente, username, contrasena FROM usuarios 
+        $sql = "SELECT id_user, username, contrasena FROM usuarios 
                 WHERE username = ? ";
         $stmt = $this -> pdo -> prepare($sql);
         $stmt -> execute([$usuario]);
@@ -36,6 +36,32 @@ class Usuarios{
             }
         }
         return false;
+    }  
+
+    public function deleteAccount($id_user){
+        $sql = "DELETE FROM usuarios WHERE id_user=?";
+        $stmt = $this -> pdo -> prepare($sql);
+        return $stmt -> execute([$id_user]);
+    }
+
+    public function updateProfile($id_user, $nombres,  $username, $email, $profile_image, $descripcion){
+        $sql = "UPDATE usuarios SET nombres=?, username=?, correo=?, img_perfil=?, descripcion=? WHERE id_user=?";
+        $stmt = $this -> pdo -> prepare($sql);
+        return $stmt->execute([
+            $nombres,         
+            $username,      
+            $email,            
+            $profile_image,    
+            $descripcion,
+            $id_user       
+        ]);
+    }
+
+    public function getProfileImage($id_user){
+        $sql = "SELECT img_perfil FROM usuarios WHERE id_user = ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id_user]);
+        return $stmt->fetchColumn(); 
     }
 }
 ?>

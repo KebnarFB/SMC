@@ -5,12 +5,19 @@ USE smc_db;
 # Tabla de usuarios
 CREATE TABLE usuarios (
     # Datos Iniciales del Form
-    id_cliente INT PRIMARY KEY AUTO_INCREMENT,
+    id_user INT PRIMARY KEY AUTO_INCREMENT,
     nombres VARCHAR(100) NOT NULL,
     username VARCHAR(50) NOT NULL UNIQUE,
     correo VARCHAR(100) NOT NULL UNIQUE,
     contrasena VARCHAR(255) NOT NULL
 )AUTO_INCREMENT = 101;
+
+ALTER TABLE usuarios
+ADD COLUMN img_perfil VARCHAR(255) NULL;
+
+ALTER TABLE usuarios
+ADD COLUMN descripcion VARCHAR(255) NULL;
+
 
 # Tabla clientes
 CREATE TABLE clientes (
@@ -39,4 +46,4 @@ CREATE TABLE compras (
     FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente)
 )AUTO_INCREMENT = 301;
 
-SELECT * FROM usuarios;
+DROP TABLE usuarios;

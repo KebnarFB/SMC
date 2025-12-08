@@ -5,9 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>SMC - Sistema de Gestión de Clientes</title>
         <!-- Icono para WEB -->
-        <link rel="icon" type="image/png" href="../assets/img/logo.png" />
+        <link rel="icon" type="image/png" href="/SMC/views/assets/img/logo.png" />
         <!-- Estilos CSS -->
-        <link rel="stylesheet" href="../Styles/Homepage.css" />
+        <link rel="stylesheet" href="/SMC/views/Styles/Homepage.css" />
         <!-- Lucide Icons CDN -->
         <script src="https://unpkg.com/lucide@latest"></script>
     </head>
@@ -16,15 +16,17 @@
         <header class="header">
             <div class="container">
                 <div class="header-content">
+                    <!-- Seccion del logo -->
                     <div class="logo-section">
-                        <div class="logo-box">
-                        <span class="logo-text">SMC</span>
+                        <div class="logo-img">
+                            <img src="/SMC/views/assets/img/logo.png" alt="SMC Logo" />
                         </div>
                         <span class="brand-name">SMC</span>
                     </div>
+                    <!-- Seccion de los botones -->
                     <div class="nav-buttons">
-                        <a href="login.php" class="btn btn-ghost">Iniciar Sesión</a>
-                        <a href="sing_up.html" class="btn btn-primary">Registrarse</a>
+                        <a href="index.php?page=login" class="btn btn-ghost">Iniciar Sesión</a>
+                        <a href="index.php?page=register" class="btn btn-primary">Registrarse</a>
                     </div>
                 </div>
             </div>
@@ -44,8 +46,8 @@
                         valoran la eficiencia.
                     </p>
                     <div class="hero-buttons">
-                        <a href="sing_up.html" class="btn btn-primary btn-lg">Comenzar Ahora</a>
-                        <a href="login.php" class="btn btn-outline btn-lg">Iniciar Sesión</a>
+                        <a href="index.php?page=register" class="btn btn-primary btn-lg">Comenzar Ahora</a>
+                        <a href="index.php?page=login" class="btn btn-outline btn-lg">Iniciar Sesión</a>
                     </div>
                 </div>
             </div>
@@ -283,7 +285,7 @@
                     Únete a cientos de empresas que ya confían en SMC para gestionar sus
                     clientes
                 </p>
-                <a href="sing_up.html" class="btn btn-white btn-lg"
+                <a href="index.php?page=register" class="btn btn-white btn-lg"
                     >Crear cuenta gratis</a
                 >
                 </div>
@@ -298,7 +300,9 @@
                 <div class="footer-column">
                     <div class="footer-brand">
                     <div class="logo-box">
-                        <span class="logo-text">SMC</span>
+                        <div class="logo_img">
+                            <img src="/SMC/views/assets/img/logo.png" alt="SMC Logo" />
+                        </div>
                     </div>
                     <span class="brand-name">SMC</span>
                     </div>

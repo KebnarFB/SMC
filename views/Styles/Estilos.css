@@ -89,7 +89,7 @@ body {
 }
 
 .crear:hover {
-  background-color: #45a049;
+  background: linear-gradient(50deg, #1bcf48, #6e8cf1);
   transform: translateY(-1px);
 }
 
@@ -108,4 +108,24 @@ body {
 
 .links:hover {
   text-decoration: underline;
+}
+
+.return {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.3);
+  font-family: Arial, sans-serif;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.return:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
 }

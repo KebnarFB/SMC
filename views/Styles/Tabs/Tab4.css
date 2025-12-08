@@ -1,0 +1,53 @@
+.container4suggests {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+#titleHeader {
+  display: flex;
+  justify-content: center;
+}
+
+.container4suggests {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.suggest {
+    display: flex;
+    background-color: white;
+    color: #000;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+    flex-direction: column;
+}
+
+.title_S {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.date {
+    font-size: 0.85em;
+    align-self: flex-end;
+}
+
+.User_img {
+    width: 50px;
+    height: 50px;
+    border-radius: 25%;
+    background-color: rgb(233, 221, 221);
+}
+
+.content_S {
+    font-size: 1em;
+    line-height: 1.5;
+    text-align: justify;
+    padding-top: 10px;
+}

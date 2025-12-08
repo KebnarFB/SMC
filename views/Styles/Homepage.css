@@ -1,7 +1,3 @@
-/* ===================================
-    RESET Y VARIABLES
-   =================================== */
-
 * {
     margin: 0;
     padding: 0;
@@ -51,10 +47,6 @@ a {
     color: inherit;
 }
 
-/* ===================================
-   UTILIDADES
-   =================================== */
-
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -67,10 +59,6 @@ a {
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
-
-/* ===================================
-   BOTONES
-   =================================== */
 
 .btn {
     display: inline-block;
@@ -134,10 +122,6 @@ a {
     font-size: 18px;
 }
 
-/* ===================================
-   HEADER
-   =================================== */
-
 .header {
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(12px);
@@ -160,20 +144,10 @@ a {
     gap: 12px;
 }
 
-.logo-box {
-    width: 48px;
-    height: 48px;
-    background: linear-gradient(to right, var(--emerald-400), var(--cyan-500));
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.logo-text {
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
+/*background: linear-gradient(to right, var(--emerald-400), var(--cyan-500));*/
+.logo-img img{
+    width: 55px;
+    height: 60px;
 }
 
 .brand-name {
@@ -187,10 +161,6 @@ a {
     gap: 16px;
     align-items: center;
 }
-
-/* ===================================
-   HERO SECTION
-   =================================== */
 
 .hero-section {
     padding: 96px 24px;
@@ -226,10 +196,6 @@ a {
     justify-content: center;
     align-items: center;
 }
-
-/* ===================================
-   FEATURES SECTION
-   =================================== */
 
 .features-section {
     padding: 80px 24px;
@@ -311,10 +277,6 @@ a {
     line-height: 1.6;
 }
 
-/* ===================================
-   ADVANTAGES SECTION
-   =================================== */
-
 .advantages-section {
     padding: 80px 24px;
     background: white;
@@ -367,10 +329,6 @@ a {
     line-height: 1.6;
 }
 
-/* ===================================
-   DISADVANTAGES SECTION
-   =================================== */
-
 .disadvantages-section {
     padding: 80px 24px;
 }
@@ -422,10 +380,6 @@ a {
     line-height: 1.6;
 }
 
-/* ===================================
-   CTA SECTION
-   =================================== */
-
 .cta-section {
     padding: 80px 24px;
     background: linear-gradient(to right, var(--emerald-500), var(--cyan-600));
@@ -450,10 +404,6 @@ a {
     margin-left: auto;
     margin-right: auto;
 }
-
-/* ===================================
-   FOOTER
-   =================================== */
 
 .footer {
     background: var(--slate-900);
@@ -580,9 +530,12 @@ a {
     font-size: 14px;
 }
 
-/* ===================================
-   RESPONSIVE
-   =================================== */
+.logo_img img{
+    width: 40px;
+    height: 45px;
+}
+
+/* RESPONSIVE */
 
 @media (max-width: 768px) {
     .hero-title {
