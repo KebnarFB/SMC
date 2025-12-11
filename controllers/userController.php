@@ -24,9 +24,14 @@ class userController{
         header("Location: index.php?page=login");
     }
 
+    public function getRoles(){
+        return $this->userModel->roles();
+    }
+
     public function click_Registrar(){
         $nombre = $_POST['nombres'];
         $usuario = $_POST['username'];
+        $rol = $_POST['idRole'];
         $correo = $_POST['correo'];
         $pwd = $_POST['pwd'];
         $confirm_pwd = $_POST['pwd_confirm'];
@@ -36,7 +41,7 @@ class userController{
             echo "Las contraseñas no coinciden.";
             exit;
         }else {
-            $registro = $this->userModel->registro($nombre, $usuario, $correo, $pwd);
+            $registro = $this->userModel->registro($nombre, $usuario, $correo, $pwd, $rol);
             
             if ($registro) {
                 // Éxito:
@@ -58,18 +63,30 @@ class userController{
         $datos_usuarios = $this->userModel->login($usuario_ingresado, $contrasena_plana);
 
         if ($datos_usuarios) {
-            $_SESSION['id_user'] = $datos_usuarios['id_user'];
             $_SESSION['username'] = $datos_usuarios['username'];
+            $_SESSION['id_user'] = $datos_usuarios['id_user'];
+            $_SESSION['nombres'] = $datos_usuarios['nombres'];
+            $_SESSION['correo'] = $datos_usuarios['correo'];
+            $_SESSION['descripcion'] = $datos_usuarios['descripcion'];
+            $_SESSION['idRol'] = $datos_usuarios['idRol'];
+            $_SESSION['id_empresa'] = $datos_usuarios['id_empresa'];
             $_SESSION['loggedin'] = TRUE;
 
             $id_user = $datos_usuarios['id_user'];
             $profile_image_path = $this->userModel->getProfileImage($id_user);
-            
             // Usar la ruta de la DB o un valor por defecto
             $_SESSION['img_perfil'] = $profile_image_path ?? 'views/assets/uploads/profile.png';
-            
-            header("Location: index.php?page=principal");
-            exit();
+
+            $id_rol = $datos_usuarios['idRol'] ?? 2;
+            $_SESSION['idRol'] = $id_rol;
+
+            if($id_rol == 1){
+                header("Location: index.php?page=dash");
+                exit();
+            }else{
+                header("Location: index.php?page=principal");
+                exit();
+            }
         } else {
             header("Location: index.php?page=user&error=1");
             exit();
@@ -90,10 +107,11 @@ class userController{
     }
 
     public function click_UpdateProfile($id_user) {
-        $username = $_POST['username'];
         $nombres = $_POST['nombres'];
+        $username = $_POST['username'];
         $email = $_POST['correo'];
         $descripcion = $_POST['descripcion'] ?? null;
+        $id_empresa = $_POST['id_empresa'] ?? null;
         
         $profile_image = $_SESSION['img_perfil'] ?? '/SMC/views/assets/uploads/profile.png';
         
@@ -120,7 +138,8 @@ class userController{
             $username,
             $email,
             $profile_image,
-            $descripcion
+            $descripcion,
+            $id_empresa 
         );
 
         if ($update) {
@@ -135,6 +154,17 @@ class userController{
             header("Location: index.php?page=principal&status=error");
             exit();
         }
+    }
+
+    // Tab 1 - Obtener usuarios
+    public function getUsers($id_user) {
+        return $this->userModel->obtenerUsuarios($id_user);
+    }
+
+    //Tab2 - recomendaciones
+    public function getRecommend(){
+        $reccomend = $this->userModel->obtenerRecomendaciones();
+        return $reccomend;
     }
 }
 ?>

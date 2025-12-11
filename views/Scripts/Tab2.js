@@ -13,13 +13,9 @@ function activarBuscadorClientes() {
         return;
     }
 
-    console.log("TAB2 → Buscador ACTIVADO con " + cards.length + " clientes");
-
+    console.log("TAB2 -> Buscador ACTIVADO con " + cards.length + " clientes"); 
     // Quitar acentos
-    const normalizeText = (text) =>
-        text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
-
-    // Iniciar ocultando todo
+    const normalizeText = (text) => text.normalize("NFD").replace(/(\u0300-\u036f)/g, "").toLowerCase();
     cards.forEach(card => card.style.display = "none");
 
     input.addEventListener("input", () => {

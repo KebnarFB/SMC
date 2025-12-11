@@ -55,7 +55,7 @@ body {
 }
 
 #guardar {
-  background-color: #8ca18c;
+  background-color: #3a49a1;
   color: white;
 }
 
@@ -179,6 +179,15 @@ a {
 
 .form_section input[type="text"],
 .form_section input[type="email"] {
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ced4da; /* Borde gris suave */
+  border-radius: 6px;
+  background-color: #ffffff;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#empresa{
   padding: 12px;
   font-size: 1rem;
   border: 1px solid #ced4da; /* Borde gris suave */

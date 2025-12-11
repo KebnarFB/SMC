@@ -1,48 +1,42 @@
 <?php
-require_once __DIR__ . '/../../../models/Usuarios.php';
-
-$usr = new Usuarios();
-$clientes = $usr->obtenerRecomendaciones();
+require_once '../../../controllers/userController.php';
+$usr = new userController(new Conexion());
+$recommend = $usr->getRecommend();
 ?>
 
 <div class="card-container">
-    <div class="titleAndButton">
-    </div>
-
-
     <div class="ClientsView" id="clients_list">
-        <?php foreach($clientes as $c): ?>
+        <?php foreach($recommend as $r): ?>
             <div class="ProfileSugges">
                 
                 <div class="left_card_section">
                     <div class="profile_image">
-                        <img src="/SMC/views/uploads/profile.png" style="width:100%; border-radius:20px;">
+                        <img src="/SMC/views/assets/uploads/profile.png" style="width:100%; border-radius:20px;">
+                        <?php 
+                            $profile_src = isset($_SESSION['img_perfil']) ? $_SESSION['img_perfil'] : '/SMC/views/assets/uploads/profile.png';
+                        ?>
+                        <img src="<?php echo $profile_src; ?>" alt="Perfil de usuario" style="width:100%; border-radius:20px;"/>
                     </div>
                 </div>
 
                 <div class="right_card_section">
                     <div class="sections">
-                        <h3>Nombre del cliente</h3>
-                        <p class="content_F"><?= htmlspecialchars($c['nombres']) ?></p>
-                    </div>
+                        <h3>Nombre del usuario</h3>
+                        <p class="content_F"> <?= htmlspecialchars($r['nombres']) ?> </p>
 
-                    <div class="sections">
                         <h3>Correo</h3>
-                        <p class="content_F"><?= htmlspecialchars($c['correo']) ?></p>
-                    </div>
+                        <p class="content_F"><?= htmlspecialchars($r['correo']) ?></p>
 
-
-                    <div class="sections">
-                        <h3>Dirección</h3>
-                        <p class="content_F"><?= htmlspecialchars($c['descripcion']) ?></p>
+                        <h3>Descripcion</h3>
+                        <p class="content_F"><?= htmlspecialchars($r['descripcion']) ?></p>
                     </div>
                 </div>
-
             </div>
         <?php endforeach; ?>
     </div>
 </div>
 
+<!--  
 <script>
 // Filtramos los  clientes
 document.getElementById("search_content").addEventListener("input", function() {
@@ -53,3 +47,5 @@ document.getElementById("search_content").addEventListener("input", function() {
     });
 });
 </script>
+
+-->

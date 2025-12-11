@@ -37,6 +37,21 @@
             placeholder="Máx 10 caracteres"
             required/>
 
+          <label for="idRole">Selecciona tu rol</label>
+          <select name="idRole" id="idRole" class="inputs" required>
+            <option value="">--Rol--</option>
+            <?php
+              $roles = $controller->getRoles(); 
+              foreach($roles as $rol): 
+            ?>
+              <option value="<?= $rol['id_Rol'] ?>">
+                <?= $rol['name_rol'] ?>
+              </option>
+            <?php 
+            endforeach; 
+            ?>
+          </select>
+
           <label for="correo">Correo Electrónico</label>
           <input
             id="correo"

@@ -7,11 +7,19 @@ function activateFileInput() {
 }
 
 function submitCombinedForms(event) {
+    //descripcion
     const descriptionField = document.getElementById('description_field');
     const hiddenDescription = document.getElementById('hidden_descripcion');
+    // empresa
+    const field_idEmpresa = document.getElementById('empresa');
+    const hidden_idEmpresa = document.getElementById('hidden_idEmpresa');
     const profileForm = document.getElementById('profileForm');
 
     hiddenDescription.value = descriptionField.value;
+    hidden_idEmpresa.value = field_idEmpresa.value;
+
+    console.log('Valor del select:', document.getElementById('empresa').value);
+    console.log('Valor del hidden:', document.getElementById('hidden_idEmpresa').value)
     profileForm.submit();
 }
 

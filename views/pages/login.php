@@ -17,6 +17,12 @@
             <h1>Inicio de sesion</h1>
         </div>
 
+        <?php
+            if (isset($_GET['error']) && $_GET['error'] == 1) {
+                echo '<p class="message-error">Usuario o contraseña incorrectos. Inténtalo de nuevo.</p>';
+            }
+        ?>
+
         <form id="form" class="form-content" method="POST" action="index.php?page=user&action=click_Login">
             <div class="input-group">
                 <label for="usuario">Ingrese su usuario</label>

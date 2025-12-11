@@ -9,12 +9,19 @@ class Usuarios{
         $this -> pdo = $conexion -> pdo;
     }
 
-    public function registro($nombre, $usuario, $correo, $password){
+    public function roles(){
+        $sql = "SELECT id_Rol, name_rol FROM roles";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);      
+    }
+
+    public function registro($nombre, $usuario, $correo, $password, $id_rol){
         try{
             $pwd_hash = password_hash($password, PASSWORD_DEFAULT);
-            $sql = "INSERT INTO usuarios (nombres, username, correo, contrasena) VALUES (?, ?, ?, ?)";
+            $sql = "INSERT INTO usuarios (nombres, username, correo, contrasena, idRol) VALUES (?, ?, ?, ?, ?)";
             $stmt = $this -> pdo -> prepare($sql);
-            $stmt -> execute([$nombre, $usuario, $correo, $pwd_hash]);
+            $stmt -> execute([$nombre, $usuario, $correo, $pwd_hash, $id_rol]);
             return true;
         }catch(PDOexception $e){
             return false;
@@ -22,7 +29,7 @@ class Usuarios{
     }
 
     public function login($usuario, $password){
-        $sql = "SELECT id_user, username, contrasena FROM usuarios 
+        $sql = "SELECT id_user, nombres, username, correo, contrasena, descripcion, idRol FROM usuarios 
                 WHERE username = ? ";
         $stmt = $this -> pdo -> prepare($sql);
         $stmt -> execute([$usuario]);
@@ -44,15 +51,21 @@ class Usuarios{
         return $stmt -> execute([$id_user]);
     }
 
-    public function updateProfile($id_user, $nombres,  $username, $email, $profile_image, $descripcion){
-        $sql = "UPDATE usuarios SET nombres=?, username=?, correo=?, img_perfil=?, descripcion=? WHERE id_user=?";
+    public function updateProfile($id_user, $nombres,  $username, $email, $profile_image, $descripcion, $id_empresa){
+        $sql = "UPDATE usuarios SET nombres=?, username=?, correo=?, img_perfil=?, descripcion=?, id_empresa = ? WHERE id_user=?";
         $stmt = $this -> pdo -> prepare($sql);
+
+        $id_company = NULL;
+        if (!empty($id_empresa)) {
+            $id_company = (int)$id_empresa; 
+        }
         return $stmt->execute([
             $nombres,         
             $username,      
             $email,            
             $profile_image,    
             $descripcion,
+            $id_company,
             $id_user       
         ]);
     }
@@ -64,14 +77,14 @@ class Usuarios{
         return $stmt->fetchColumn(); 
     }
 
-    // TAB2 - Obtener clientes
-public function obtenerRecomendaciones() {
-    $sql = "SELECT nombres, username, correo, img_perfil, descripcion
-            FROM usuarios";
-    $stmt = $this->pdo->prepare($sql);
-    $stmt->execute();
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
+    //Tab 1 - Obtener datos de usuarios
+    public function obtenerUsuarios($username_excluido) {
+        $sql = "SELECT id_user, nombres, username, correo, img_perfil, descripcion
+                FROM usuarios  WHERE id_user != ? ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$username_excluido]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 
     // TAB3
     public function obtenerDatosTab3() {
@@ -81,13 +94,15 @@ public function obtenerRecomendaciones() {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    //tab2 - Obtener todos los clientes
-    public function getClientes() {
-    $sql = "SELECT * FROM clientes";
-    $stmt = $this->pdo->prepare($sql);
-    $stmt->execute();
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
+    // TAB3 - Obtener recomendaciones
+    public function obtenerRecomendaciones() {
+        $sql = "SELECT id_user , nombres , decripcion, img_perfil
+                FROM clientes";
+        $stmt = $this->pdo->prepare($sql);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    
 } 
 
 ?>

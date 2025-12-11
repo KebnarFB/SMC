@@ -1,6 +1,6 @@
 <?php 
 require_once __DIR__ . "/../models/connection.php";
-
+require_once __DIR__ . "/userController.php";
 class registerController {
     private $conexion; 
 
@@ -9,7 +9,8 @@ class registerController {
     }
 
     public function index(){
-        require_once __DIR__ . '/../views/pages/sing_up.html';
+        $controller = new userController($this->conexion);
+        require_once __DIR__ . '/../views/pages/sing_up.php';
     }
 }
 ?>

@@ -3,7 +3,7 @@ const btnConfirmar = document.getElementById('btnConfirmar');
 const countdownSpan = document.getElementById('countdown');
 
 let countdownInterval;
-const initialTime = 3;
+const initialTime = 5;
 
 function abrirModal(event) {
     if (event) {

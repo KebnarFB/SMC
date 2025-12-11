@@ -30,7 +30,7 @@ if (!isset($_SESSION['id_user'])) {
       <div class="user-profile">
         <?php 
           // Obtener el nombre de usuario de la sesión
-          $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Usuario';
+          $username = isset($_SESSION['nombres']) ? $_SESSION['nombres'] : 'Nombre';
           echo "<span class='user'>Hola, $username</span>";
         ?>
         
@@ -43,7 +43,7 @@ if (!isset($_SESSION['id_user'])) {
               
               <img src="<?php echo $profile_src; ?>" alt="Perfil de usuario" class="profile-icon"/>
               <ul class="submenu">
-                <li><a href="index.php?page=profile">Ajustes</a></li>
+                <li><a href="index.php?page=profile">Perfil</a></li>
                 <li><a href="index.php?page=logout">Cerrar Sesión</a></li>
               </ul>
             </li>
@@ -57,7 +57,7 @@ if (!isset($_SESSION['id_user'])) {
     <nav class="menu">
       <div class="main-container">
         <!-- Tab1 -->
-        <a href="#home" class="options" id="home" data-tab="/SMC/views/pages/Tabs/Tab1.html">
+        <a href="#home" class="options" id="home" data-tab="/SMC/views/pages/Tabs/Tab1.php">
           <img src="/SMC/views/assets/tabs/Menu.png" class="menu-icon" />
           <span class="menu-text">Inicio</span>
         </a>
@@ -72,7 +72,7 @@ if (!isset($_SESSION['id_user'])) {
           <span class="menu-text">Recomendaciones</span>
         </a>
         <!-- Tab4-->
-        <a href="#comments" class="options" id="comments" data-tab="/SMC/views/pages/Tabs/Tab4.html">
+        <a href="#comments" class="options" id="comments" data-tab="/SMC/views/pages/Tabs/Tab4.php">
           <img src="/SMC/views/assets/tabs/Comments.png" alt="Comentarios" class="menu-icon"/>
           <span class="menu-text">Comentarios</span>
         </a>
@@ -82,18 +82,10 @@ if (!isset($_SESSION['id_user'])) {
     <!-- articulo -->
     <article class="main" id="main-content-area"></article>
 
-    <!-- modal -->
-
-
-    <!--Barra de el lado derecho-->
-    <aside class="right_bar">Contactos</aside>
-
-    <!--Barra de el lado izquierdo-->
-    <aside class="left_bar">Sidebar izquierdo</aside>
-
     <!--  JavaScripts -->
     <script src="/SMC/views/scripts/Principal.js"></script>
     <script src="/SMC/views/scripts/Tab2.js"></script>
+    <script src="/SMC/views/scripts/modal_Tab2.js"></script>
 
   </body>
 </html>

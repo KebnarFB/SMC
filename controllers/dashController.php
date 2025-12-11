@@ -1,5 +1,5 @@
 <?php
-class PrincipalController {
+class DashController {
     private $conexion; 
     private $userModel;
 
@@ -12,9 +12,8 @@ class PrincipalController {
             header("Location: index.php?page=home");
             exit();
         }else{
-            require_once __DIR__ . '/../views/pages/Principal.php';
+            require_once __DIR__ . '/../views/pages/dashboard.php';
         }
     }
-
 }
 ?>
