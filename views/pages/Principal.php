@@ -83,10 +83,12 @@ if (!isset($_SESSION['id_user'])) {
     <article class="main" id="main-content-area"></article>
 
     <!--  JavaScripts -->
-    <script src="/SMC/views/scripts/Principal.js"></script>
+  <script src="/SMC/views/Scripts/Principal.js"></script>
     <script src="/SMC/views/scripts/Tab2.js"></script>
     <script src="/SMC/views/scripts/modal_Tab2.js"></script>
-
+    <script src="/SMC/views/scripts/Tab5.js"></script>
+    <script src="/SMC/views/scripts/Tab4.js"></script>
+  <script src="/SMC/views/scripts/Tab1.js"></script>
   </body>
 </html>
 

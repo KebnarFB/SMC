@@ -20,13 +20,27 @@ class Clientes{
         }
     }
 
-    //tab2 - Obtener todos los clientes
+    //tab2 - Obtener todos los clientes (aqui voy a modificarla para los likes.)
     public function consultarClientes() {
-        $sql = "SELECT nombre_cliente, telefono, correo , id_empresa FROM clientes";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
+    $sql = "SELECT id_cliente, nombre_cliente, telefono, correo, id_empresa FROM clientes";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+    
+// Método para obtener clientes ordenados por likes
+public function getClientsByLikes() {
+    $sql = "SELECT c.*,
+                (SELECT COUNT(*) FROM likes l WHERE l.id_cliente = c.id_cliente) AS total_likes
+            FROM clientes c
+            ORDER BY total_likes DESC";
+
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
 }
 ?>
 

@@ -39,8 +39,36 @@ class empresaController{
         exit;
     }
 
-    public function consultarEmpresas(){
-        return  $this->companyModel->consultar();
+
+
+   public function consultarEmpresas() {
+
+    $empresas = [];
+
+    if (!isset($this->conexion)) {
+        return $empresas; // evita errores si no hay conexión
     }
+
+    $sql = "SELECT id_empresa, nombre_empresa, comentarios FROM empresa";
+    $result = $this->conexion->query($sql);
+
+    if (!$result) {
+        return $empresas; // evita errores si la consulta falla
+    }
+
+    while ($fila = $result->fetch_assoc()) {
+        $fila['comentarios'] = $fila['comentarios'] ?? "";
+        $empresas[] = $fila;
+    }
+
+    return $empresas;
+}
+
+public function getAllComments() {
+    return $this->model->getComments();
+}
+
+
+
 }
 ?>

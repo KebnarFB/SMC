@@ -47,5 +47,10 @@ class ClientController{
         $get = $this->clientModel->consultarClientes();
         return $get;
     }
+
+    // Método para obtener clientes ordenados por likes (delegado al modelo)
+    public function getClientsByLikes() {
+        return $this->clientModel->getClientsByLikes();
+    }
 }
 ?>

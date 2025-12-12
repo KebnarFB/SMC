@@ -1,36 +1,64 @@
-console.log("Tab2.js cargado");
+console.log("Tab2.js cargado correctamente.");
 
-// Esperar a que el contenido del TAB2 esté insertado en el DOM
-function activarBuscadorClientes() {
-    console.log("TAB2 → Intentando activar buscador...");
+
+if (window._tab2Loaded) {
+    console.log("Tab2.js -> Ya estaba cargado. Cancelado.");
+} else {
+    window._tab2Loaded = true;
+}
+
+/*Inicializar TAB2 cuando el contenido esté listo*/
+function iniciarTab2() {
+    console.log("TAB2 → Buscando elementos...");
 
     const input = document.getElementById("search_content");
-    const cards = document.querySelectorAll(".cliente_card");
 
-    if (!input || cards.length === 0) {
-        console.log("TAB2 → Elementos aún no disponibles, reintentando...");
-        setTimeout(activarBuscadorClientes, 300);
+    if (!input) {
+        console.log("TAB2 → Input no listo, reintentando...");
+        setTimeout(iniciarTab2, 300);
         return;
     }
 
-    console.log("TAB2 -> Buscador ACTIVADO con " + cards.length + " clientes"); 
-    // Quitar acentos
-    const normalizeText = (text) => text.normalize("NFD").replace(/(\u0300-\u036f)/g, "").toLowerCase();
-    cards.forEach(card => card.style.display = "none");
+    const cards = document.querySelectorAll(".cliente_card");
+    const likeButtons = document.querySelectorAll(".btn-like");
+
+    console.log(
+        `TAB2 → Elementos encontrados → Cards: ${cards.length} | Likes: ${likeButtons.length}`
+    );
+
+    /* ACTIVAR BUSCADOR*/
+    const normalizeText = (t) =>
+        t.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
     input.addEventListener("input", () => {
         const text = normalizeText(input.value);
 
-        cards.forEach(card => {
-            const filter = normalizeText(card.dataset.filter);
-
-            if (text.length > 0 && filter.includes(text)) {
-                card.style.display = "block";
-            } else {
-                card.style.display = "none";
-            }
+        cards.forEach((card) => {
+            const filtro = normalizeText(card.dataset.filter);
+            card.style.display = filtro.includes(text) ? "block" : "none";
         });
     });
+
+        /*ACTIVAR BOTONES LIKE*/
+    likeButtons.forEach((btn) => {
+        btn.addEventListener("click", function () {
+            const id = this.dataset.id;
+            console.log("LIKE detectado en cliente ID:", id);
+
+            fetch("/SMC/models/likeCliente.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: "id_cliente=" + id,
+            })
+                .then((r) => r.text())
+                .then((resp) => {
+                    console.log("RESPUESTA LIKE:", resp);
+                    alert(resp);
+                });
+        });
+    });
+
+    console.log("TAB2 → Completamente inicializado.");
 }
 
-setTimeout(activarBuscadorClientes, 300);
+setTimeout(iniciarTab2, 300);

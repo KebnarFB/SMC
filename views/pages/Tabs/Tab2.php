@@ -16,7 +16,7 @@
     <div class="search-wrapper">
         <input type="search" id="search_content" class="search_bar" placeholder="Buscar cliente...">
     </div>
-
+    
     <button onclick="abrirModal(event)" class="abrirModal">Agregar Cliente</button>
 </div>
 
@@ -28,6 +28,7 @@
             <h3>Agregar Cliente</h3>
             <button onclick="cerrarModal()" class="cerrarModal">X</button>
         </div>
+
         <!-- Formulario para agregar el cliente -->
         <form class="modal-form" method="POST" action="index.php?page=client" >
             <label for="empresa">Empresa</label>
@@ -75,11 +76,13 @@
             <p> <strong>Correo: </strong> <?= $cliente['correo']?> </p>
             <p> <strong>Telefono: </strong> <?= $cliente['telefono']?> </p>
             <p> <strong>Empresa: </strong> <?= $cliente['id_empresa']?> </p>
+
+            <!--  BOTÓN LIKE -->
+            </button>
+
         </div>
     <?php endforeach; 
         endif;
     ?>
 </div>
 </html>
-
-
