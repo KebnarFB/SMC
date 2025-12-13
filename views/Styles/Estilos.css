@@ -5,7 +5,7 @@
 }
 
 body {
-  background: linear-gradient(50deg, #1bcf48, #6e8cf1);
+  background: rgb(150, 225, 150);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,9 +14,9 @@ body {
 }
 
 .message-error {
-  color: red; 
+  color: red;
   text-align: center;
-} 
+}
 
 .signup-container {
   max-width: 450px;
@@ -68,7 +68,7 @@ body {
   transition: border-color 0.3s ease;
 }
 
-.inputs:focus + label{
+.inputs:focus+label {
   border-color: #4caf50;
   outline: none;
   box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
@@ -89,7 +89,6 @@ body {
 }
 
 .crear:hover {
-  background: linear-gradient(50deg, #1bcf48, #6e8cf1);
   transform: translateY(-1px);
 }
 

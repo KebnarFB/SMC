@@ -1,61 +1,70 @@
 document.addEventListener('DOMContentLoaded', () => {
+
     const contentArea = document.getElementById('main-content-area');
     const tabs = document.querySelectorAll('.options');
 
-    //   CONTROL PARA EVITAR DUPLOS
+    // CONTROL PARA EVITAR DUPLICADOS
     const loadedScripts = new Set();
 
     function loadScriptOnce(path) {
-        if (loadedScripts.has(path)) {
-            console.log("Script ya cargado →", path);
+
+        // Convertir siempre a ruta ABSOLUTA
+        const fullPath = "/" + path.replace(/^\/+/, ""); 
+
+        if (loadedScripts.has(fullPath)) {
+            console.log("Script ya cargado →", fullPath);
             return;
         }
 
         const s = document.createElement("script");
-        s.src = path;
+        s.src = fullPath;
         s.defer = true;
+
         document.body.appendChild(s);
 
-        loadedScripts.add(path);
-        console.log("Script cargado →", path);
+        loadedScripts.add(fullPath);
+        console.log("Script cargado →", fullPath);
     }
 
-    //   CARGA DE TABS
+    // CARGA DE TABS
     async function loadTabContent(tabElement) {
         const tabFile = tabElement.getAttribute('data-tab');
 
         if (!tabFile) {
-            console.error('El elemento de la pestaña no tiene el atributo data-tab.');
+            console.error('El elemento de la pestaña no tiene data-tab.');
             return;
         }
 
+        const fullTabPath = "/" + tabFile.replace(/^\/+/, "");
+
         try {
-            const response = await fetch(tabFile);
+            const response = await fetch(fullTabPath);
 
             if (!response.ok) {
-                throw new Error(`Error al cargar la pestaña: ${response.status} ${response.statusText}`);
+                throw new Error(`Error al cargar la pestaña: ${response.status}`);
             }
 
             const htmlContent = await response.text();
             contentArea.innerHTML = htmlContent;
 
-            //   CARGA DINÁMICA DE SCRIPTS SEGÚN EL TAB
+            // CARGA DINÁMICA DE JS PARA CADA TAB
 
             if (tabFile.includes("Tab1.php")) {
-                loadScriptOnce("/SMC/views/Scripts/Tab1.js");
+                loadScriptOnce("views/Scripts/Tab1.js");
             }
 
             if (tabFile.includes("Tab2.php")) {
-                window.tab2_iniciado = false; 
-                loadScriptOnce("/SMC/views/Scripts/Tab2.js");
+                window.tab2_iniciado = false;
+                loadScriptOnce("views/Scripts/Tab2.js");
+                loadScriptOnce("views/Scripts/modal_Tab2.js");
             }
 
             if (tabFile.includes("Tab4.php")) {
-                loadScriptOnce("/SMC/views/Scripts/Tab4.js");
+                loadScriptOnce("views/Scripts/Tab4.js");
             }
 
             if (tabFile.includes("Tab5.php")) {
-                loadScriptOnce("/SMC/views/Scripts/Tab5.js");
+                loadScriptOnce("views/Scripts/Tab5.js");
             }
 
         } catch (error) {
@@ -65,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    //   EVENTOS DE PESTAÑAS
+    // EVENTOS DE PESTAÑAS
     tabs.forEach(tab => {
         tab.addEventListener('click', (e) => {
             e.preventDefault();
@@ -78,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // CARGAR EL PRIMER TAB AL ABRIR
+    // CARGAR EL PRIMER TAB AL INICIAR
     if (tabs.length > 0) {
         tabs[0].classList.add('active');
         loadTabContent(tabs[0]);

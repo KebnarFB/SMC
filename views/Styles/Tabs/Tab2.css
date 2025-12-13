@@ -1,281 +1,381 @@
-/* Diseño del buscador y boton */
+/* Definición de colores base */
+:root {
+    --primary-color: #63B963; 
+    --hover-color: #d8fdd5;
+    --text-color: #333;
+    --secondary-text-color: #555;
+    --card-bg-color: white;
+    --card-hover-shadow: rgba(0, 0, 0, 0.2);
+    --border-color: #e0e0e0;
+}
+
+.ClientsView {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* =======================================================
+   DISEÑO DE BUSCADOR Y BOTÓN "AGREGAR CLIENTE"
+   ======================================================= */
 .contenido {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 10px;
-  width: 100%;
-  box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 15px; /* Ajuste para móvil */
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .search-wrapper {
-  width: 100%; 
-  display: flex;
-  justify-content: center;
+    width: 95%;
+    display: flex;
+    justify-content: center;
 }
 
 .search_bar {
-  width: 95%; 
-  padding: 12px 15px;
-  margin-bottom: 15px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  box-sizing: border-box; 
-  font-size: 1em;
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 1em;
 }
-
-.cliente_card {
-  background-color: white;
-  border-radius: 5px;
-  box-shadow: -7px 3px 10px 0px rgba(0, 0, 0, 0.75);
-  padding: 15px 0;
-}
-
 
 .abrirModal {
-  padding: 10px 15px;
-  margin-top: 15px;
-  background: linear-gradient(90deg, #6c7bff 0%, #2ecc71 100%);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 14px; 
-  font-weight: bold;
-  letter-spacing: 0.5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  width: 95%; 
-  max-width: 300px; 
+    /* Usando el color primario de la aplicación y tamaño mediano */
+    padding: 10px 20px;
+    margin-top: 15px;
+    background: var(--primary-color);
+    color: white; /* Texto blanco para contraste */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    width: 80%; /* Mediano */
+    max-width: 200px; /* Mediano */
 }
 
 .abrirModal:hover {
-  background: linear-gradient(90deg, #2ecc71 0%, #6c7bff 100%);
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-  transform: translateY(-2px);
+    box-shadow: 0 6px 10px var(--card-hover-shadow);
+    transform: translateY(-2px);
+    background-color: var(--hover-color);
+    color: var(--text-color);
 }
 
 .abrirModal:active {
-  transform: translateY(0);
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
+    transform: translateY(0);
 }
 
-/* Estilos base del Modal */
+/* =======================================================
+   ESTILOS DE TARJETAS DE CLIENTES (.cliente_card)
+   ======================================================= */
+.cliente_card {
+    padding: 20px; /* Aumento de padding para mejor estética */
+    border-radius: 15px; /* Borde más redondeado */
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    overflow: hidden;
+    flex: 1 1 100%; /* Por defecto ocupa todo el ancho en móvil */
+}
+
+.cliente_card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px var(--card-hover-shadow);
+}
+
+.cliente_card h3 {
+    color: var(--primary-color); /* Color de la aplicación */
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    border-bottom: 2px solid var(--hover-color);
+    padding-bottom: 5px;
+}
+
+.cliente_card p {
+    margin-bottom: 5px;
+    font-size: 1em;
+    color: var(--text-color);
+    line-height: 1.4;
+    word-break: break-all; /* Para correos o teléfonos largos */
+}
+
+.cliente_card p strong {
+    color: var(--secondary-text-color);
+    display: inline-block;
+    min-width: 80px; /* Asegura alineación */
+    font-weight: bold;
+}
+
+/* =======================================================
+   ESTILOS BASE DE MODAL
+   ======================================================= */
 .modal {
-  display: none; 
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal-content {
-  background-color: #fefefe;
-  margin: 10% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  border-radius: 8px;
-  width: 90%; 
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 8px;
+    width: 90%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.modal-header{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.modal-header h3{
-  display: flex;
-  text-align: center;
+.modal-header h3 {
+    display: flex;
+    text-align: center;
 }
 
-.cerrarModal{
-  background-color: #4CAF50;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 18px;
-  margin-top: 20px;
-  transition: background-color 0.3s ease;
+.cerrarModal {
+    background: var(--primary-color);
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
 }
 
 .cerrarModal:hover {
-  background-color: #45a049;
+    background-color: #45a049;
 }
 
-/* Estilos del formulario del modal */
 .modal-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 label {
-  font-weight: bold;
-  color: #333;
-  margin-top: 5px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 5px;
 }
 
 .modal-input, select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  font-size: 16px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
 }
 
 select#id_empresa {
-  appearance: none;
-  background-color: white;
-  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%20172.9L146.2%2032.1%205.4%20172.9c-2.2%202.2-5.1%203.3-8.3%203.3s-6.1-1.1-8.3-3.3c-4.4-4.4-4.4-11.4%200-15.8L137.9%207.7c4.4-4.4%2011.4-4.4%2015.8%200l138.5%20138.5c4.4%204.4%204.4%2011.4%200%2015.8-4.4%204.4-11.4%204.4-15.8%200z%22%20transform%3D%22rotate(180%20146.2%20146.2)%22%2F%3E%3C%2Fsvg%3E');
-  background-repeat: no-repeat;
-  background-position: right 10px top 50%;
-  background-size: 12px auto;
-  padding-right: 30px;
+    appearance: none;
+    background-color: white;
+    /* El SVG se mantiene por necesidad, pero sin comentarios */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%20172.9L146.2%2032.1%205.4%20172.9c-2.2%202.2-5.1%203.3-8.3%203.3s-6.1-1.1-8.3-3.3c-4.4-4.4-4.4-11.4%200-15.8L137.9%207.7c4.4-4.4%2011.4-4.4%2015.8%200l138.5%20138.5c4.4%204.4%204.4%2011.4%200%2015.8-4.4%204.4-11.4%204.4-15.8%200z%22%20transform%3D%22rotate(180%20146.2%20146.2)%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 12px auto;
+    padding-right: 30px;
 }
 
-.modal-button{
-  background-color: #4CAF50;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 18px;
-  margin-top: 20px;
-  transition: background-color 0.3s ease;
+.modal-button {
+    background: var(--primary-color);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
 }
 
 .modal-button:hover {
-  background-color: #45a049;
+    background-color: #45a049;
 }
 
-/* --- Responsive --- */
-/* !Mobile */
-@media (max-width: 599px){
-  /*----*/
-  .contenido {
-    display: flex;
-    align-items: center;
-    padding: 15px 30px;
-    gap: 5px;
-  }
+/* =================================
+   MEDIA QUERIES - RESPONSIVE DESIGN
+   ================================= */
 
-  .search-wrapper {
+/* !Mobile (max-width: 599px) */
+@media (max-width: 599px) {
+    /* Buscador y Botón */
+    .contenido {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+        gap: 10px;
+    }
 
-    width: 100%; 
-    justify-content: center;
-  }
-  
-  .search_bar {
-    width: 100%;
-    margin-bottom: 0;
-    font-size: 1.1em;
-  }
+    .search-wrapper {
+        width: 100%;
+        justify-content: center;
+    }
 
-  .abrirModal {
-    width: auto;
-    max-width: none;
-    font-size: 16px;
-    margin-top: 0;
-  }
-  /*---*/
-  .modal-content {
-    width: 70%;
-    margin: 8% auto;
-  }
+    .search_bar {
+        width: 95%;
+        margin-bottom: 0;
+        font-size: 1.1em;
+    }
 
-  .modal-input, select,label {
-    font-size: 17px;
-  }
+    .abrirModal {
+        width: 75%;
+        max-width: 180px;
+        font-size: 0.9rem;
+        margin-top: 0;
+    }
+
+    /* Tarjetas de Clientes */
+    .ClientsView {
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .cliente_card {
+        padding: 15px;
+        border-radius: 10px;
+        flex: 1 1 100%;
+    }
+
+    .cliente_card h3 {
+        font-size: 1.3em;
+    }
+
+    .cliente_card p {
+        font-size: 0.9em;
+    }
+
+    /* Modal */
+    .modal-content {
+        width: 85%;
+        margin: 10% auto;
+    }
+
+    .modal-input, select, label {
+        font-size: 16px;
+    }
 }
 
-/* !Tablet */
-@media ( (min-width: 600px) and (max-width: 899px) ) {
-  /*----*/
-  .contenido {
-    flex-direction: row; 
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-  }
+/* !Tablet (min-width: 600px and max-width: 899px) */
+@media ((min-width: 600px) and (max-width: 899px)) {
+    /* Buscador y Botón */
+    .contenido {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 30px;
+    }
 
-  .search-wrapper {
-    width: 60%; 
-    justify-content: flex-start;
-  }
-  
-  .search_bar {
-    width: 100%;
-    margin-bottom: 0;
-    font-size: 1.1em;
-  }
+    .search-wrapper {
+        width: 65%;
+        justify-content: flex-start;
+    }
 
-  .abrirModal {
-    width: auto;
-    max-width: none;
-    font-size: 16px;
-    margin-top: 0;
-  }
-  /*---*/
-  .modal-content {
-    width: 70%;
-    margin: 8% auto;
-  }
+    .search_bar {
+        width: 100%;
+        margin-bottom: 0;
+        font-size: 1.1em;
+    }
 
-  .modal-input, select,label {
-    font-size: 17px;
-  }
+    .abrirModal {
+        width: auto;
+        max-width: 180px;
+        font-size: 0.95rem;
+        margin-top: 0;
+    }
+
+    /* Tarjetas de Clientes */
+    .cliente_card {
+        flex: 0 0 calc(50% - 10px); /* Dos tarjetas por fila */
+        padding: 25px;
+    }
+    
+    .cliente_card h3 {
+        font-size: 1.4em;
+    }
+
+    /* Modal */
+    .modal-content {
+        width: 70%;
+        margin: 8% auto;
+    }
 }
 
-/* !Desktop */
+/* !Desktop (min-width: 900px) */
 @media (min-width: 900px) {
-  /* vista del del buscador  */
-  .contenido {
-    flex-direction: row; 
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-  }
+    /* Buscador y Botón */
+    .contenido {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 30px;
+    }
 
-  .search-wrapper {
-    width: 60%; 
-    justify-content: flex-start;
-  }
-  
-  .search_bar {
-    width: 100%;
-    margin-bottom: 0;
-    font-size: 1.1em;
-  }
+    .search-wrapper {
+        width: 60%;
+        justify-content: flex-start;
+    }
 
-  .abrirModal {
-    width: auto;
-    max-width: none;
-    font-size: 16px;
-    margin-top: 0;
-  }
+    .search_bar {
+        width: 100%;
+        margin-bottom: 0;
+        font-size: 1.1em;
+    }
 
-  /* vista del modal  */
-  .modal-content {
-    width: 400px; 
-    margin: 5% auto;
-  }
-  .modal-content {
-    padding: 30px;
-  }
+    .abrirModal {
+        width: auto;
+        max-width: 200px;
+        font-size: 1rem;
+        margin-top: 0;
+    }
 
-  .modal-button {
-    padding: 10px 18px;
-  }
+    /* Tarjetas de Clientes */
+    .cliente_card {
+        flex: 0 0 calc(33.33% - 13.33px); /* Tres tarjetas por fila */
+        padding: 30px;
+        border-radius: 20px;
+    }
+    
+    .cliente_card h3 {
+        font-size: 1.6em;
+    }
+
+    /* Modal */
+    .modal-content {
+        width: 400px;
+        margin: 5% auto;
+        padding: 30px;
+    }
+
+    .modal-button {
+        padding: 10px 18px;
+    }
 }

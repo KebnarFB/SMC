@@ -72,14 +72,11 @@ h2 {
 }
 
 .btn-success {
-    background-color: #4CAF50; 
-    color: white;
+     background: rgb(170, 237, 170);
+    color: black;
     margin-top: 15px;
 }
 
-.btn-success:hover {
-    background-color: #45a049;
-}
 
 /* --- Estilos de la Tabla --- */
 .table-responsive {

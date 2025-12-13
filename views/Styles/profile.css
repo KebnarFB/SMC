@@ -31,7 +31,7 @@ body {
 /*Encabezado*/
 .header {
   grid-area: header;
-  background: linear-gradient(50deg, #1bcf48, #6e8cf1);
+  background: rgb(122, 236, 122);
   display: grid;
   grid-template-columns: min-content auto min-content;
   align-items: center;
@@ -55,8 +55,7 @@ body {
 }
 
 #guardar {
-  background-color: #3a49a1;
-  color: white;
+  background-color: rgb(122, 236, 122);
 }
 
 #go_back {

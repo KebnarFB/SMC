@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Crear cuenta</title>
-    <link rel="icon" type="image/png" href="/SMC/views/assets/img/logo.png" />
+    <link rel="icon" type="image/png" href="views/assets/img/logo.png" />
 
-    <link rel="stylesheet" href="/SMC/views/styles/Toast.css" />
-    <link rel="stylesheet" href="/SMC/views/styles/Estilos.css" />
+    <link rel="stylesheet" href="views/Styles/Toast.css" />
+    <link rel="stylesheet" href="views/Styles/Estilos.css" />
   </head>
 
   <body>
@@ -90,6 +90,6 @@
     </div>
 
     <div class="content-toast" id="content-toast"></div>
-    <script src="/SMC/views/Scripts/Toast.js"></script>
+    <script src="views/Scripts/Toast.js"></script>
   </body>
 </html>

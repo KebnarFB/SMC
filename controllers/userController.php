@@ -106,7 +106,6 @@ class userController {
     }
 
     public function click_UpdateProfile($id_user) {
-
         $nombres     = $_POST['nombres'];
         $username    = $_POST['username'];
         $email       = $_POST['correo'];
@@ -149,7 +148,15 @@ class userController {
             $_SESSION['correo']     = $email;
             $_SESSION['img_perfil'] = $profile_image;
 
-            header("Location: index.php?page=principal&status=success");
+           $id_tipo_usuario = $_SESSION['idRol'] ?? null; // Asegúrate de que este valor exista
+
+            if ($id_tipo_usuario == 1) {
+                header("Location: index.php?page=dash&status=success");
+            } elseif ($id_tipo_usuario == 2) {
+                header("Location: index.php?page=principal&status=success");
+            } else {
+                header("Location: index.php?page=principal&status=success");
+            }
             exit();
         } 
 

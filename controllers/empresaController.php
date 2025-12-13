@@ -68,6 +68,10 @@ public function getAllComments() {
     return $this->model->getComments();
 }
 
+public function obtenerEmpresas(){
+    return $this->companyModel->consultar();
+}
+
 
 
 }

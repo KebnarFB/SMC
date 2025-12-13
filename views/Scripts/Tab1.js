@@ -1,4 +1,4 @@
-// File: /SMC/views/Scripts/Tab1.js
+// File: /views/Scripts/Tab1.js
 console.log("Tab1.js cargado.");
 
 if (!window.tab1LikeHandlerAdded) {
@@ -22,7 +22,7 @@ function tab1LikeHandler(e) {
         if (btn.dataset.busy === "1") return;
         btn.dataset.busy = "1";
 
-        fetch("/SMC/models/like_user.php", {
+        fetch("/models/like_user.php", {
             method: "POST",
             headers: {"Content-Type": "application/x-www-form-urlencoded"},
             body: "id_liked=" + encodeURIComponent(id)

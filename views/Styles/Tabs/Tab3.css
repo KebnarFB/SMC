@@ -1,296 +1,212 @@
-/* Estilos generales */
+/* Definición del color primario (Verde de tu aplicación) */
+:root {
+    --primary-color: #63B963; /* Verde brillante de la barra superior/tabs */
+    --highlight-color: #5cb85c; /* Un verde fuerte, similar al botón de Like */
+}
 
+/* Estilos generales */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 .card-container {
     background-color: whitesmoke;
-}
-
-.titleAndButton {
+    width: 100%;
+    min-height: 100vh;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-    padding: 0 25px;
+    flex-direction: column;
 }
 
-.buttons {
-    background-color: white;
-    border: none;
-    padding: 12px 40px;
-    border-radius: 10px;
-    font-size: 1rem;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+/* Título Usuarios Recomendados */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    font-size: 1.8rem;
+    color: #333;
 }
 
-.buttons:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    background-color: #d8fdd5;
+/* Contenedor de la lista de recomendaciones */
+.ClientsView {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
+/* Tarjeta individual de recomendación */
 .ProfileSugges {
     background-color: white;
     border-radius: 30px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra mejorada */
     display: flex;
+    flex-direction: column;
     gap: 20px;
-    margin-bottom: 20px;
-}
-
-.left_card_section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-}
-
-.profile_image {
-    background-color: whitesmoke;
-    border-radius: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.comments_button {
-    background-color: whitesmoke;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
-    cursor: pointer;
+    padding: 30px;
+    width: 100%;
     transition: all 0.3s ease;
+    border: 1px solid #eee;
 }
 
-.comments_button:hover {
-    background-color: #d8fdd5;
+.ProfileSugges:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.30);
 }
 
-.right_card_section {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.title_F {
-    margin-bottom: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.username {
-    font-size: 15px;
-}
-
+/* Secciones internas (Nombre, Correo, Descripción, Likes) */
 .sections {
-    background-color: whitesmoke;
+    background-color: #f7f7f7; /* Fondo un poco más claro */
     border-radius: 20px;
     padding: 20px 25px;
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
+/* Estilo para los títulos (Nombre, Correo, Descripción, Likes recibidos) */
 .sections h3 {
+    font-size: 1.1rem;
+    margin: 0 0 5px 0;
+    color: var(--primary-color); /* Color de la página para los títulos */
+    font-weight: bold;
+    border-bottom: 2px solid #ddd; /* Línea sutil debajo del título */
+    padding-bottom: 3px;
+}
+
+/* Estilo general para los valores */
+.sections p {
     font-size: 1rem;
-    margin: 0 0 10px 0;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    color: #444;
+    word-break: break-all; /* CLAVE: Evita que el correo se desborde */
 }
 
-.content_F {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    text-align: justify;
+/* --- ESTILO ESPECÍFICO PARA DESTACAR LOS LIKES RECIBIDOS --- */
+
+/* 1. Seleccionamos el último h3 (Likes recibidos) */
+.sections h3:last-of-type {
+    color: #333;
+    border-bottom: none;
+    margin-bottom: 0;
 }
 
-/* Móvil */
-@media (max-width: 599px) {
-    .card-container {
-        padding: 15px 10px;
-    }
-
-    .titleAndButton {
-        flex-direction: column;
-        gap: 15px;
-        align-items: stretch;
-    }
-
-    .titleAndButton h2 {
-        font-size: 1.5rem;
-        text-align: center;
-    }
-
-    .buttons {
-        width: 100%;
-        padding: 12px 20px;
-    }
-
-    .footer {
-        display: none;
-    }
-
-    .search_bar {
-        width: 90%;
-        height: 4%;
-        text-align: center;
-        border-radius: 15px;
-    }
-
-    .ClientsView {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        padding: 10px;
-    }
-
-    .ProfileSugges {
-        display: flex;
-        flex-direction: column;
-        padding: 20px;
-    }
-
-    .left_card_section {
-        width: 100%;
-        min-width: unset;
-    }
-
-    .profile_image {
-        width: 150px;
-        height: 150px;
-    }
-
-    .comments_button {
-        width: 150px;
-    }
-
-    .right_card_section {
-        width: 100%;
-    }
-
-    .sections {
-        padding: 15px 20px;
-    }
-
-    .title_F {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
-    }
+/* 2. Estilo para el número de Likes (el contenido del último p) */
+.sections p:last-of-type {
+    font-size: 1.5rem; /* Tamaño más grande */
+    font-weight: 900; /* Extra bold */
+    color: var(--highlight-color); /* Color verde fuerte/destacado */
+    text-align: center; /* Centrar el número */
+    padding: 5px 0 0 0;
+    margin-bottom: 0;
 }
 
-/* Tablet */
-@media (min-width: 600px) and (max-width: 899px) {
-    .card-container {
-        padding: 20px 15px;
-    }
+/* =================================
+   MEDIA QUERIES - RESPONSIVE DESIGN
+   ================================= */
 
-    .titleAndButton h2 {
-        font-size: 1.75rem;
-    }
-
-    .left_bar {
-        display: none;
-    }
-
-    .footer {
-        display: none;
-    }
-
-    .search_bar {
-        width: 80%;
-        height: 4%;
-        text-align: center;
-        border-radius: 10px;
-    }
-
-    .ClientsView {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 15px;
-        padding: 15px;
-    }
-
-    .ProfileSugges {
-        display: flex;
-        flex-direction: column;
-        padding: 25px;
-    }
-
-    .left_card_section {
-        min-width: 160px;
-    }
-
-    .profile_image {
-        width: 160px;
-        height: 160px;
-    }
-
-    .comments_button {
-        width: 160px;
-    }
-
-    .title_F {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-    }
-}
-
-/* Computadora */
-@media (min-width: 900px) {
-    .card-container {
-        padding: 30px 50px;
-    }
-
-    .titleAndButton h2 {
+/* Desktop / Pantallas grandes ( >= 1024px ) */
+@media (min-width: 1024px) {
+    h2 {
         font-size: 2rem;
     }
 
-    .search_bar {
-        width: 60%;
-        height: 5%;
-        text-align: center;
-        border-radius: 10px;
-        font-size: 1rem;
-    }
-
     .ClientsView {
-        display: grid;
-        gap: 20px;
-        padding: 20px;
+        padding: 30px;
+        gap: 30px;
     }
 
     .ProfileSugges {
-        display: flex;
-        flex-direction: row;
-        padding: 30px;
+        padding: 40px;
     }
 
-    .left_card_section {
-        min-width: 180px;
+    .sections h3 {
+        font-size: 1.2rem;
     }
 
-    .profile_image {
-        width: 180px;
-        height: 180px;
+    .sections p {
+        font-size: 1.05rem;
     }
 
-    .comments_button {
-        width: 180px;
-    }
-
-    .title_F {
-        display: flex;
-        align-items: center;
-        gap: 15px;
+    .sections p:last-of-type {
+        font-size: 1.8rem;
     }
 }
 
-.search_bar {
-    border-radius: 30px;
-    font-size: 1em;
+/* Tablet ( >= 768px and < 1024px ) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    h2 {
+        font-size: 1.9rem;
+    }
+
+    .ClientsView {
+        padding: 25px;
+    }
+
+    .ProfileSugges {
+        padding: 35px;
+    }
+
+    .sections h3 {
+        font-size: 1.15rem;
+    }
+
+    .sections p {
+        font-size: 1rem;
+    }
+
+    .sections p:last-of-type {
+        font-size: 1.6rem;
+    }
+}
+
+/* Mobile ( < 768px ) */
+@media (max-width: 767px) {
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    .ClientsView {
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .ProfileSugges {
+        border-radius: 20px;
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .sections {
+        border-radius: 15px;
+        padding: 15px 20px;
+    }
+
+    .sections h3 {
+        font-size: 1rem;
+        margin-bottom: 3px;
+        border-bottom-width: 1px;
+    }
+
+    .sections p {
+        font-size: 0.9rem;
+    }
+    
+    .sections p:last-of-type {
+        font-size: 1.3rem;
+        padding-top: 3px;
+    }
 }

@@ -1,14 +1,10 @@
 console.log("Tab4.js cargado correctamente.");
 
-// ==============================
 // PREVENIR MULTIPLES LISTENERS
-// ==============================
-
-// Evita duplicados: solo registra si NO existe
 if (!window.tab4ListenerAdded) {
 
     document.addEventListener("click", publicarComentarioHandler);
-    window.tab4ListenerAdded = true;  // Marcamos que YA se añadió
+    window.tab4ListenerAdded = true;
 
     console.log("Tab4.js → Listener agregado correctamente");
 } else {
@@ -16,14 +12,12 @@ if (!window.tab4ListenerAdded) {
 }
 
 
-// ==============================
 // FUNCIÓN PRINCIPAL DE EVENTOS
-// ==============================
 function publicarComentarioHandler(e) {
 
-    // ----------------------------
-    // PUBLICAR COMENTARIO
-    // ----------------------------
+    // ================================
+    //       PUBLICAR COMENTARIO
+    // ================================
     if (e.target.id === "btnPublicarComentario") {
 
         console.log("Click detectado en Publicar Comentario");
@@ -35,7 +29,7 @@ function publicarComentarioHandler(e) {
             return;
         }
 
-        fetch("/SMC/controllers/agregarComentario.php", {
+        fetch("controllers/agregarComentario.php", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: "comentario=" + encodeURIComponent(txt)
@@ -49,19 +43,20 @@ function publicarComentarioHandler(e) {
 
                 alert("Comentario agregado.");
 
-                // Recarga SOLO el TAB4, NO la página completa
+                // Recarga SOLO el TAB4
                 document.querySelector('.options[data-tab*="Tab4.php"]').click();
 
-                // limpiar textarea
                 document.getElementById("nuevoComentario").value = "";
+            } else {
+                alert("Error: " + res);
             }
         });
     }
 
 
-    // ----------------------------
-    // EDITAR
-    // ----------------------------
+    // ================================
+    //       ABRIR MODAL EDITAR
+    // ================================
     if (e.target.classList.contains("btn-edit-comment")) {
 
         document.getElementById("editId").value = e.target.dataset.id;
@@ -70,22 +65,21 @@ function publicarComentarioHandler(e) {
         document.getElementById("editModal").style.display = "flex";
     }
 
-    // ----------------------------
     // CERRAR MODAL
-    // ----------------------------
     if (e.target.id === "closeEdit") {
         document.getElementById("editModal").style.display = "none";
     }
 
-    // ----------------------------
-    // GUARDAR EDICIÓN
-    // ----------------------------
+
+    // ================================
+    //         GUARDAR EDICIÓN
+    // ================================
     if (e.target.id === "saveEdit") {
 
         const id = document.getElementById("editId").value;
         const comentario = document.getElementById("editText").value;
 
-        fetch("/SMC/controllers/actualizarComentario.php", {
+        fetch("controllers/actualizarComentario.php", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: "id=" + id + "&comentario=" + encodeURIComponent(comentario)
@@ -95,21 +89,24 @@ function publicarComentarioHandler(e) {
 
             if (res === "OK") {
                 alert("Comentario editado.");
-                document.querySelector('.options[data-tab*="Tab4.php"]').click();
+                document.querySelector('.options[data-tab*=\"Tab4.php\"]').click();
+            } else {
+                alert("Error: " + res);
             }
         });
     }
 
-    // ----------------------------
-    // ELIMINAR
-    // ----------------------------
+
+    // ================================
+    //         ELIMINAR COMENTARIO
+    // ================================
     if (e.target.classList.contains("btn-delete-comment")) {
 
         if (!confirm("¿Eliminar este comentario?")) return;
 
         const id = e.target.dataset.id;
 
-        fetch("/SMC/controllers/eliminarComentario.php", {
+        fetch("controllers/eliminarComentario.php", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: "id=" + id
@@ -120,6 +117,8 @@ function publicarComentarioHandler(e) {
             if (res === "OK") {
                 alert("Comentario eliminado.");
                 e.target.closest("tr").remove();
+            } else {
+                alert("Error: " + res);
             }
         });
     }

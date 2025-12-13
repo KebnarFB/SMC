@@ -8,14 +8,17 @@ $pdo = $conexion->pdo;
 /* OBTENER COMENTARIOS */
 try {
     $sql = "SELECT 
-                c.id_comentario,
-                c.id_usuario,
-                u.nombres AS autor_nombre,
-                c.comentario,
-                c.fecha
-            FROM comentarios c
-            LEFT JOIN usuarios u ON u.id_user = c.autor_id
-            ORDER BY c.fecha DESC";
+    c.id_comentario,
+    c.id_usuario,
+    u.nombres AS autor_nombre,
+    e.nombre_empresa,
+    c.comentario,
+    c.fecha
+FROM comentarios c
+LEFT JOIN usuarios u ON u.id_user = c.autor_id
+LEFT JOIN empresa e ON u.id_empresa = e.id_empresa
+ORDER BY c.fecha DESC;
+";
 
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
@@ -29,7 +32,7 @@ $isAdmin = !empty($_SESSION['idRol']) && $_SESSION['idRol'] == 1;
 ?>
 
 <div class="admin-panel-container">
-    <h2 id="titleHeader">Comentarios acerca de su negocio</h2>
+    <h2 id="titleHeader">Comentarios acerca de la empresa</h2>
 
     <!--PUBLICAR COMENTARIO-->
     <div class="admin-card" style="margin-bottom:25px;">
@@ -47,15 +50,18 @@ $isAdmin = !empty($_SESSION['idRol']) && $_SESSION['idRol'] == 1;
         </button>
     </div>
 
-    <!--TABLA DE COMENTARIOS-->
-    <div class="admin-card">
-        <h3>Comentarios Recientes</h3>
+<!-- TABLA DE COMENTARIOS -->
+<div class="admin-card">
+    <h3>Comentarios Recientes</h3>
+
+    <!-- CONTENEDOR RESPONSIVO DE LA TABLA -->
+    <div class="tabla-responsive">
 
         <table class="admin-table">
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>ID Usuario</th>
+                    <th>Empresa</th>
                     <th>Autor</th>
                     <th>Comentario</th>
                     <th>Fecha</th>
@@ -70,7 +76,7 @@ $isAdmin = !empty($_SESSION['idRol']) && $_SESSION['idRol'] == 1;
                 <?php foreach ($comentarios as $c): ?>
                     <tr>
                         <td><?= htmlspecialchars($c['id_comentario']) ?></td>
-                        <td><?= htmlspecialchars($c['id_usuario']) ?></td>
+<td><?= htmlspecialchars($c['nombre_empresa'] ?? 'Sin empresa') ?></td>
                         <td><?= htmlspecialchars($c['autor_nombre']) ?></td>
                         <td><?= htmlspecialchars($c['comentario']) ?></td>
                         <td><?= htmlspecialchars($c['fecha']) ?></td>

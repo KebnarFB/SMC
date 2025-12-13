@@ -7,7 +7,7 @@ $descripcion = isset($_SESSION['descripcion']) ? $_SESSION['descripcion'] : '';
 $current_image = $_SESSION['img_perfil'];
 
 //instancia para acceder a las empresas
-$empresas = $controller->consultarEmpresas();
+$empresas = $controller->obtenerEmpresas();
 
 //varaiable  para saber si es admin o usuario 
 $rol_user = (isset($_SESSION['idRol']) && $_SESSION['idRol'] == 1);
@@ -25,16 +25,16 @@ if ($rol_user) {
     <meta charset = "UTF-8">
     <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
     <title>Perfil de usuario</title>
-    <link rel = "icon" type = "image/png" href = "/SMC/views/assets/img/logo.png" alt = "logo" />
-    <link rel = "stylesheet" href = "/SMC/views/Styles/profile.css">
+    <link rel = "icon" type = "image/png" href = "views/assets/img/logo.png" alt = "logo" />
     <!-- Estilos del modal -->
-    <link rel="stylesheet" href="/SMC/views/Styles/modalProfile.css">
+    <link rel="stylesheet" href="views/Styles/profile.css">
+    <link rel="stylesheet" href="views/Styles/modalProfile.css">
 </head>
 
 <body class = "Design_P">
 <!--Aqui va todo el apartado del heaeder-->
     <header class = "header">
-        <a class = "buttons" id = "go_back" href="<?= $enlace_regreso; ?>" >Regresar</a>
+        <a class = "buttons" id = "go_back" href="<?=$enlace_regreso;?>" >Regresar</a>
         <div class = "item" id = "title">
             <?php 
                 // Obtener el nombre de usuario de la sesión
@@ -130,8 +130,8 @@ if ($rol_user) {
         </div>
     </div>
 
-    <script src="/SMC/views/scripts/modal.js"></script>
-    <script src="/SMC/views/scripts/profile.js"></script>
+    <script src="views/Scripts/modal.js"></script>
+    <script src="views/Scripts/profile.js"></script>
 </body>
 
 </html>

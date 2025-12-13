@@ -6,9 +6,9 @@
     <!--Asignamos un titulo para esta pagina-->
     <title>Inicio de sesion</title>
     <!-- Icono para WEB -->
-    <link rel="icon" type="image/png" href="/SMC/views/assets/img/logo.png" />
+    <link rel="icon" type="image/png" href="views/assets/img/logo.png" />
     <!--Ponemos estilos externos-->
-    <link rel="stylesheet" href="/SMC/views/styles/Estilos.css">
+    <link rel="stylesheet" href="views/Styles/Estilos.css">
 </head>
 <body>
     <a href="index.php?page=home" class="return">Regresar</a>

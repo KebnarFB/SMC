@@ -5,7 +5,7 @@
     $controller = new empresaController(new Conexion());
     $controllerC = new ClientController(new Conexion());
     //utilizamos sus metodos mediante variables
-    $empresas = $controller->consultarEmpresas();
+    $empresas = $controller->obtenerEmpresas();
     $clientes = $controllerC->getClientes();
 ?>
 <!DOCTYPE html>
@@ -76,13 +76,7 @@
             <p> <strong>Correo: </strong> <?= $cliente['correo']?> </p>
             <p> <strong>Telefono: </strong> <?= $cliente['telefono']?> </p>
             <p> <strong>Empresa: </strong> <?= $cliente['id_empresa']?> </p>
-
-            <!--  BOTÓN LIKE -->
-            </button>
-
         </div>
-    <?php endforeach; 
-        endif;
-    ?>
+    <?php endforeach; endif; ?>
 </div>
 </html>

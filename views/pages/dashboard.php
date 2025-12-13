@@ -12,15 +12,15 @@ if (!isset($_SESSION['id_user'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SMC</title>
     <!--Agregamos un logo a la pagina-->
-    <link rel="icon" type="image/png" href="/SMC/views/assets/img/logo.png" alt="logo" />
+    <link rel="icon" type="image/png" href="views/assets/img/logo.png" alt="logo" />
     <!-- Ponemos estilos externos -->
-    <link rel="stylesheet" href="/SMC/views/Styles/Principal.css" />
+    <link rel="stylesheet" href="views/Styles/Principal.css" />
     <!-- Estilos de los tabs -->
-    <link rel="stylesheet" href="/SMC/views/Styles/Tabs/Tab1.css">
-    <link rel="stylesheet" href="/SMC/views/Styles/Tabs/Tab2.css">
-    <link rel="stylesheet" href="/SMC/views/Styles/Tabs/Tab3.css">
-    <link rel="stylesheet" href="/SMC/views/Styles/Tabs/Tab4.css">
-    <link rel="stylesheet" href="/SMC/views/Styles/Tabs/Tab5.css">
+    <link rel="stylesheet" href="views/Styles/Tabs/Tab1.css">
+    <link rel="stylesheet" href="views/Styles/Tabs/Tab2.css">
+    <link rel="stylesheet" href="views/Styles/Tabs/Tab3.css">
+    <link rel="stylesheet" href="views/Styles/Tabs/Tab4.css">
+    <link rel="stylesheet" href="views/Styles/Tabs/Tab5.css">
 </head>
 
 <body class="Design">
@@ -39,7 +39,7 @@ if (!isset($_SESSION['id_user'])) {
             <ul>
                 <li class="has-submenu">
                 <?php 
-                    $profile_src = isset($_SESSION['img_perfil']) ? $_SESSION['img_perfil'] : '/SMC/views/assets/uploads/profile.png';
+                    $profile_src = isset($_SESSION['img_perfil']) ? $_SESSION['img_perfil'] : 'views/assets/uploads/profile.png';
                 ?>
                 
                 <img src="<?php echo $profile_src; ?>" alt="Perfil" class="profile-icon"/>
@@ -57,28 +57,32 @@ if (!isset($_SESSION['id_user'])) {
     <nav class="menu">
         <div class="main-container">
             <!-- Tab1 -->
-            <a href="#home" class="options" id="inicio" data-tab="/SMC/views/pages/Tabs/Tab1.php">
-                <img src="/SMC/views/assets/tabs/Menu.png" class="menu-icon" />
+            <a href="#home" class="options" id="inicio" data-tab="views/pages/Tabs/Tab1.php">
+                <img src="views/assets/tabs/Menu.png" class="menu-icon" />
                 <span class="menu-text">Inicio</span>
             </a>
+            
             <!-- Tab2 -->
-            <a href="#clients" class="options" id="clients" data-tab="/SMC/views/pages/Tabs/Tab2.php">
-                <img src="/SMC/views/assets/tabs/Clients.png" class="menu-icon" />
+            <a href="#clients" class="options" id="clients" data-tab="views/pages/Tabs/Tab2.php">
+                <img src="views/assets/tabs/Clients.png" class="menu-icon" />
                 <span class="menu-text">Clientes</span>
             </a>
+            
             <!-- Tab3 -->
-            <a href="#recommend" class="options" id="recommend" data-tab="/SMC/views/pages/Tabs/Tab3.php">
-                <img src="/SMC/views/assets/tabs/Recommends.png" class="menu-icon"/>
+            <a href="#recommend" class="options" id="recommend" data-tab="views/pages/Tabs/Tab3.php">
+                <img src="views/assets/tabs/Recommends.png" class="menu-icon"/>
                 <span class="menu-text">Recomendaciones</span>
             </a>
-            <!-- Tab4-->
-            <a href="#comments" class="options" id="comments" data-tab="/SMC/views/pages/Tabs/Tab4.php">
-                <img src="/SMC/views/assets/tabs/Comments.png" alt="Comentarios" class="menu-icon"/>
+            
+            <!-- Tab4 -->
+            <a href="#comments" class="options" id="comments" data-tab="views/pages/Tabs/Tab4.php">
+                <img src="views/assets/tabs/Comments.png" alt="Comentarios" class="menu-icon"/>
                 <span class="menu-text">Comentarios</span>
             </a>
-            <!-- Tab5-->
-            <a href="#admin" class="options" id="admin" data-tab="/SMC/views/pages/Tabs/Tab5.php">
-                <img src="/SMC/views/assets/tabs/admin.png" alt="Admin" class="menu-icon"/>
+            
+            <!-- Tab5 -->
+            <a href="#admin" class="options" id="admin" data-tab="views/pages/Tabs/Tab5.php">
+                <img src="views/assets/tabs/admin.png" alt="Admin" class="menu-icon"/>
                 <span class="menu-text">Administración</span>
             </a>
         </div>
@@ -86,15 +90,16 @@ if (!isset($_SESSION['id_user'])) {
 
     <!-- articulo -->
     <article class="main" id="main-content-area"></article>
-
+    
     <!--  JavaScripts -->
-    <script src="/SMC/views/scripts/Principal.js"></script>
-    <script src="/SMC/views/scripts/Tab2.js"></script>
-    <script src="/SMC/views/scripts/modal_Tab2.js"></script>
-    <script src="/SMC/views/scripts/Tab4.js"></script>
-    <script src="/SMC/views/scripts/Tab1.js"></script>
+    <script src="views/Scripts/Principal.js" defer></script>
+    <script src="views/Scripts/Tab1.js" defer></script>
+    <script src="views/Scripts/Tab2.js" defer></script>
+    <script src="views/Scripts/modal_Tab2.js" defer></script>
+    <script src="views/Scripts/Tab4.js" defer></script>
+    <script src="views/Scripts/Tab5.js" defer></script>
+
 
 
 </body>
 </html>
-
