@@ -14,7 +14,7 @@ $usuarios = $controller->getUsers($_SESSION['id_user']);
         <?php
             $nombre = htmlspecialchars($usuario['nombres']);
             $correo = htmlspecialchars($usuario['correo']);
-            $img_perfil = $usuario['img_perfil'] ?: 'views/assets/uploads/profile.png';
+            $img_perfil = $usuario['img_perfil'] ?: 'views/assets/img/profile.png';
             $descripcion = htmlspecialchars($usuario['descripcion'] ?? '');
             $total_likes = $usuario['total_likes'] ?? 0;
         ?>
@@ -32,7 +32,7 @@ $usuarios = $controller->getUsers($_SESSION['id_user']);
 
             <!-- Botón Like -->
             <button class="btn-like" data-id="<?= $usuario['id_user'] ?>">
-                <img src="/views/assets/img/like.png" alt="like" class="img-like">
+                <img src="/views/assets/img/like.png" alt="like" class="img-like" >
             </button>
 
 

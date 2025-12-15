@@ -8,7 +8,7 @@
     <!-- Icono para WEB -->
     <link rel="icon" type="image/png" href="views/assets/img/logo.png" />
     <!--Ponemos estilos externos-->
-    <link rel="stylesheet" href="views/Styles/Estilos.css">
+    <link rel="stylesheet" href="views/styles/Estilos.css">
 </head>
 <body>
     <a href="index.php?page=home" class="return">Regresar</a>

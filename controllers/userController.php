@@ -75,7 +75,7 @@ class userController {
             $_SESSION['loggedin']   = TRUE;
 
             $profile_image_path = $this->userModel->getProfileImage($datos_usuarios['id_user']);
-            $_SESSION['img_perfil'] = $profile_image_path ?? 'views/assets/uploads/profile.png';
+            $_SESSION['img_perfil'] = $profile_image_path ?? 'views/assets/img/profile.png';
 
             if($_SESSION['idRol'] == 1){
                 header("Location: index.php?page=dash");

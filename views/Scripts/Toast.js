@@ -70,8 +70,8 @@ const agregarToast = ({ tipo, titulo, descripcion, autoClose }) => {
 
     //Iconos
     const iconos = {
-        Exito: '<img src="/SMC/views/assets/img/success.png" class="img-icon">',
-        Error: '<img src= "/SMC/views/assets/img/error.png" class="img-icon">'
+        Exito: '<img src="/views/assets/img/success.png" class="img-icon">',
+        Error: '<img src= "/views/assets/img/error.png" class="img-icon">'
     };
 
     //Plantilla
@@ -90,7 +90,7 @@ const agregarToast = ({ tipo, titulo, descripcion, autoClose }) => {
     
     <button class="btn_close"> 
         <div class="icono">
-            <img src="/SMC/views/assets/img/close.png" class="img-btn">
+            <img src="/views/assets/img/close.png" class="img-btn">
         </div>
     </button> `;
 

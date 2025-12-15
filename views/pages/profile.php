@@ -4,7 +4,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : '';
 $nombres = isset($_SESSION['nombres']) ? $_SESSION['nombres'] : '';
 $email = isset($_SESSION['correo']) ? $_SESSION['correo'] : '';
 $descripcion = isset($_SESSION['descripcion']) ? $_SESSION['descripcion'] : '';
-$current_image = $_SESSION['img_perfil'];
+$current_image = $_SESSION['img_perfil'] ? $_SESSION['img_perfil'] : 'views/assets/img/profile.png';
 
 //instancia para acceder a las empresas
 $empresas = $controller->obtenerEmpresas();
@@ -27,8 +27,8 @@ if ($rol_user) {
     <title>Perfil de usuario</title>
     <link rel = "icon" type = "image/png" href = "views/assets/img/logo.png" alt = "logo" />
     <!-- Estilos del modal -->
-    <link rel="stylesheet" href="views/Styles/profile.css">
-    <link rel="stylesheet" href="views/Styles/modalProfile.css">
+    <link rel="stylesheet" href="views/styles/profile.css">
+    <link rel="stylesheet" href="views/styles/modalProfile.css">
 </head>
 
 <body class = "Design_P">
@@ -36,11 +36,7 @@ if ($rol_user) {
     <header class = "header">
         <a class = "buttons" id = "go_back" href="<?=$enlace_regreso;?>" >Regresar</a>
         <div class = "item" id = "title">
-            <?php 
-                // Obtener el nombre de usuario de la sesión
-                $username = isset($_SESSION['nombres']) ? $_SESSION['nombres'] : 'Nombre';
-                echo "<h1>$username</h1>";
-            ?>
+            <h1><?php echo $nombres;?></h1>
         </div>
     </header>
 
@@ -58,10 +54,7 @@ if ($rol_user) {
             <div class="profile_section">
                 <div class="container_image">
                     <div class="user_image" id="upload_area" onclick="activateFileInput()">
-                        <?php 
-                            
-                        ?>
-                        <img id="preview-img" src="<?php echo $current_image; ?> " alt="Imagen de perfil">
+                        <img id="preview-img" src="<?php echo $current_image; ?> " alt="perfil">
                         <p id="placeholder_text">Haz clic aquí para subir una imagen</p>
                     </div>
                 </div>
@@ -69,13 +62,13 @@ if ($rol_user) {
             <!--En esta parte se declara el form donde el usuario agrega sus datos-->
             <div class = "form_section">
                 <label for="name_user">Nombre de usuario: </label>
-                <input type = "text" id="name_user" name="username" value=<?php echo $username?> >
+                <input type = "text" id="name_user" name="username" value=<?php echo $username;?> >
 
                 <label for="name">Nombres</label>
-                <input type = "text" id="name" name="nombres" value=<?php echo $nombres?>>
+                <input type = "text" id="name" name="nombres" value=<?php echo $nombres;?>>
 
                 <label for="user_email">Correo:</label>
-                <input type = "email" id = "user_email" name="correo" value=<?php echo $email?>>
+                <input type = "email" id = "user_email" name="correo" value=<?php echo $email;?>>
 
                 <!-- Inputs ocultos -->
                 <input type="hidden"  id="hidden_descripcion" name="descripcion">
@@ -94,7 +87,7 @@ if ($rol_user) {
         <form id="descriptionForm">
             <div class="description">
 
-                <label for="empresa">Empresa a la perteneces*</label>
+                <label for="empresa">Empresa a la que perteneces</label>
                 <select name="id_empresa" id="empresa" required>
                     <option value="">-- Empresas --</option>
                     <?php foreach($empresas as $empresa):
@@ -106,7 +99,7 @@ if ($rol_user) {
                 </select>
 
                 <label for="description_field">Agrega una descripción:</label>
-                <textarea id="description_field" rows="4"> <?php echo $descripcion?> </textarea>
+                <textarea id="description_field" rows="4"> <?php echo $descripcion;?> </textarea>
             </div>
         </form>
     </aside>
@@ -130,8 +123,8 @@ if ($rol_user) {
         </div>
     </div>
 
-    <script src="views/Scripts/modal.js"></script>
-    <script src="views/Scripts/profile.js"></script>
+    <script src="views/scripts/modal.js"></script>
+    <script src="views/scripts/profile.js"></script>
 </body>
 
 </html>

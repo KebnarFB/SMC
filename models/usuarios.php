@@ -95,24 +95,21 @@ class Usuarios {
         $sql = "SELECT id_user, nombres, username, correo, img_perfil, descripcion
                 FROM usuarios
                 WHERE id_user != ?";
-
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$id_user_excluir]);
-
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-     /*TAB 3 - RECOMENDACIONES*/
-public function obtenerUsuariosPorLikes(){
-    $sql = "SELECT u.*,
-            (SELECT COUNT(*) FROM likes_usuarios l WHERE l.id_liked = u.id_user) AS total_likes
-            FROM usuarios u
-            ORDER BY total_likes DESC";
-
-    $stmt = $this->pdo->prepare($sql);
-    $stmt->execute();
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
+    /*TAB 3 - RECOMENDACIONES*/
+    public function obtenerUsuariosPorLikes(){
+        $sql = "SELECT u.*,
+                (SELECT COUNT(*) FROM likes_usuarios l WHERE l.id_liked = u.id_user) AS total_likes
+                FROM usuarios u
+                ORDER BY total_likes DESC";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 
 }
 ?>

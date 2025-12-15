@@ -1,33 +1,51 @@
+/* Definición de colores base */
+:root {
+  --primary-color: #4caf50;
+  --primary-light: rgb(150, 225, 150);
+  --secondary-color: #333;
+  --text-label: #555;
+  --text-link: #4caf50;
+  --card-bg: #ffffff;
+  --border-color: #ccc;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Estilo del cuerpo (fondo y centrado principal) */
 body {
-  background: rgb(150, 225, 150);
+  background: var(--primary-light);
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; /* Centrado horizontal */
+  align-items: center; /* Centrado vertical por defecto */
   min-height: 100vh;
   margin: 0;
+  padding: 20px;
 }
 
 .message-error {
   color: red;
   text-align: center;
+  margin-bottom: 10px;
 }
 
+/* --- CONTENEDORES PRINCIPALES (Login y Registro) --- */
 .signup-container {
+  /* Usado por ambos en tu HTML */
   max-width: 450px;
-  margin: 40px auto;
+  width: 100%;
   padding: 30px;
-  background-color: #ffffff;
+  background-color: var(--card-bg);
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   font-family: Arial, sans-serif;
+  margin: 0;
 }
 
+/* --- Encabezados y Contenido (Mismos estilos) --- */
 .signup-header {
   text-align: center;
   margin-bottom: 25px;
@@ -37,7 +55,7 @@ body {
 
 .signup-header h1 {
   font-size: 1.8em;
-  color: #333;
+  color: var(--secondary-color);
   margin-bottom: 5px;
 }
 
@@ -54,30 +72,40 @@ body {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
-  color: #555;
+  color: var(--text-label);
   font-size: 0.9em;
 }
 
 .inputs {
   width: 100%;
   padding: 12px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   box-sizing: border-box;
   font-size: 1em;
   transition: border-color 0.3s ease;
 }
 
-.inputs:focus+label {
-  border-color: #4caf50;
+.inputs:focus {
+  border-color: var(--primary-color);
   outline: none;
   box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
 }
 
-.crear {
+select.inputs {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%20172.9L146.2%2032.1%205.4%20172.9c-2.2%202.2-5.1%203.3-8.3%203.3s-6.1-1.1-8.3-3.3c-4.4-4.4-4.4-11.4%200-15.8L137.9%207.7c4.4-4.4%2011.4-4.4%2015.8%200l138.5%20138.5c4.4%204.4%204.4%2011.4%200%2015.8-4.4%204.4-11.4%204.4-15.8%200z%22%20transform%3D%22rotate(180%20146.2%20146.2)%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px auto;
+  padding-right: 30px;
+}
+
+/* --- BOTÓN PRINCIPAL --- */
+.botones {
   width: 100%;
   padding: 15px;
-  background-color: #4caf50;
+  background-color: var(--primary-color);
   color: white;
   font-size: 1.1em;
   font-weight: bold;
@@ -88,11 +116,14 @@ body {
   margin-top: 10px;
 }
 
-.crear:hover {
+.botones:hover {
+  background-color: #43a047;
   transform: translateY(-1px);
 }
 
-.login-link {
+/* --- Enlaces (Login/Register link) --- */
+.login-link,
+.register-link {
   text-align: center;
   margin-top: 20px;
   font-size: 0.9em;
@@ -100,7 +131,7 @@ body {
 }
 
 .links {
-  color: #4caf50;
+  color: var(--text-link);
   text-decoration: none;
   font-weight: bold;
 }
@@ -109,6 +140,7 @@ body {
   text-decoration: underline;
 }
 
+/* --- BOTÓN DE REGRESO/VOLVER --- */
 .return {
   position: absolute;
   top: 20px;
@@ -117,14 +149,93 @@ body {
   text-decoration: none;
   font-size: 1em;
   font-weight: bold;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(99, 185, 99, 0.8);
   font-family: Arial, sans-serif;
   padding: 8px 12px;
-  border-radius: 6px;
-  transition: background-color 0.3s ease;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.1s;
+  z-index: 10;
 }
 
 .return:hover {
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #fff;
+  background-color: var(--primary-color);
+  transform: translateY(-1px);
+}
+
+/* =================================
+   MEDIA QUERIES - RESPONSIVE DESIGN
+   ================================= */
+
+/* !Mobile (max-width: 599px) */
+@media (max-width: 599px) {
+  body {
+    /* Para formularios cortos como Login, mantener centrado vertical (align-items: center) */
+    align-items: center;
+    padding-top: 20px; /* Reducimos el padding superior */
+  }
+
+  .signup-container {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    /* Quitamos el margin: 0 auto; ya que flexbox lo centra */
+    margin: 0;
+  }
+
+  .signup-header h1 {
+    font-size: 1.6em;
+  }
+
+  .inputs {
+    padding: 10px;
+    font-size: 0.95em;
+  }
+
+  .botones {
+    padding: 12px;
+    font-size: 1em;
+  }
+
+  .return {
+    top: 15px;
+    left: 15px;
+    padding: 8px 12px;
+    font-size: 0.9em;
+  }
+}
+
+/* !Tablet (min-width: 600px and max-width: 899px) */
+@media (min-width: 600px) and (max-width: 899px) {
+  .signup-container {
+    max-width: 400px;
+    padding: 35px;
+  }
+
+  .signup-header h1 {
+    font-size: 1.7em;
+  }
+}
+
+/* !Desktop (min-width: 900px) */
+@media (min-width: 900px) {
+  body {
+    align-items: center;
+  }
+
+  .signup-container {
+    max-width: 450px;
+    padding: 40px;
+  }
+
+  .signup-header h1 {
+    font-size: 1.9em;
+  }
+
+  .botones {
+    padding: 16px;
+  }
+
+  .return {
+    background: var(--primary-color);
+  }
 }

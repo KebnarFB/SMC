@@ -3,6 +3,8 @@ if (!isset($_SESSION['id_user'])) {
     header("Location: index.php?page=home");
     exit; 
 }
+$profile_src = isset($_SESSION['img_perfil']) ? $_SESSION['img_perfil'] : 'views/assets/img/profile.png';
+$username = isset($_SESSION['nombres']) ? $_SESSION['nombres'] : 'Nombre';
 ?>
 
 <!DOCTYPE html>
@@ -14,13 +16,13 @@ if (!isset($_SESSION['id_user'])) {
     <!--Agregamos un logo a la pagina-->
     <link rel="icon" type="image/png" href="views/assets/img/logo.png" alt="logo" />
     <!-- Ponemos estilos externos -->
-    <link rel="stylesheet" href="views/Styles/Principal.css" />
+    <link rel="stylesheet" href="views/styles/Principal.css" />
     <!-- Estilos de los tabs -->
-    <link rel="stylesheet" href="views/Styles/Tabs/Tab1.css">
-    <link rel="stylesheet" href="views/Styles/Tabs/Tab2.css">
-    <link rel="stylesheet" href="views/Styles/Tabs/Tab3.css">
-    <link rel="stylesheet" href="views/Styles/Tabs/Tab4.css">
-    <link rel="stylesheet" href="views/Styles/Tabs/Tab5.css">
+    <link rel="stylesheet" href="views/styles/Tabs/Tab1.css">
+    <link rel="stylesheet" href="views/styles/Tabs/Tab2.css">
+    <link rel="stylesheet" href="views/styles/Tabs/Tab3.css">
+    <link rel="stylesheet" href="views/styles/Tabs/Tab4.css">
+    <link rel="stylesheet" href="views/styles/Tabs/Tab5.css">
 </head>
 
 <body class="Design">
@@ -29,19 +31,12 @@ if (!isset($_SESSION['id_user'])) {
         <h1>SMC</h1>
 
         <div class="user-profile">
-            <?php 
-            // Obtener el nombre de usuario de la sesión
-            $username = isset($_SESSION['nombres']) ? $_SESSION['nombres'] : 'Nombre';
-                echo "<span class='user'>Hola, $username</span>";
-            ?>
+            <span class='user'>Hola, <?php echo $username;?> </span>
+
             
             <div class="profile">
             <ul>
                 <li class="has-submenu">
-                <?php 
-                    $profile_src = isset($_SESSION['img_perfil']) ? $_SESSION['img_perfil'] : 'views/assets/uploads/profile.png';
-                ?>
-                
                 <img src="<?php echo $profile_src; ?>" alt="Perfil" class="profile-icon"/>
                 <ul class="submenu">
                     <li><a href="index.php?page=profile">Perfil</a></li>
@@ -92,14 +87,11 @@ if (!isset($_SESSION['id_user'])) {
     <article class="main" id="main-content-area"></article>
     
     <!--  JavaScripts -->
-    <script src="views/Scripts/Principal.js" defer></script>
-    <script src="views/Scripts/Tab1.js" defer></script>
-    <script src="views/Scripts/Tab2.js" defer></script>
-    <script src="views/Scripts/modal_Tab2.js" defer></script>
-    <script src="views/Scripts/Tab4.js" defer></script>
-    <script src="views/Scripts/Tab5.js" defer></script>
-
-
-
+    <script src="views/scripts/Principal.js" defer></script>
+    <script src="views/scripts/modal_Tab2.js" defer></script>
+    <script src="views/scripts/Tab1.js" defer></script>
+    <script src="views/scripts/Tab2.js" defer></script>
+    <script src="views/scripts/Tab4.js" defer></script>
+    <script src="views/scripts/Tab5.js" defer></script>
 </body>
 </html>

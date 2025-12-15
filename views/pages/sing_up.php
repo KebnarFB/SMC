@@ -1,3 +1,7 @@
+<?php 
+$roles = $controller->getRoles(); 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,8 +10,8 @@
     <title>Crear cuenta</title>
     <link rel="icon" type="image/png" href="views/assets/img/logo.png" />
 
-    <link rel="stylesheet" href="views/Styles/Toast.css" />
-    <link rel="stylesheet" href="views/Styles/Estilos.css" />
+    <link rel="stylesheet" href="views/styles/Toast.css" />
+    <link rel="stylesheet" href="views/styles/Estilos.css" />
   </head>
 
   <body>
@@ -40,10 +44,7 @@
           <label for="idRole">Selecciona tu rol</label>
           <select name="idRole" id="idRole" class="inputs" required>
             <option value="">--Rol--</option>
-            <?php
-              $roles = $controller->getRoles(); 
-              foreach($roles as $rol): 
-            ?>
+            <?php foreach($roles as $rol): ?>
               <option value="<?= $rol['id_Rol'] ?>">
                 <?= $rol['name_rol'] ?>
               </option>
@@ -90,6 +91,6 @@
     </div>
 
     <div class="content-toast" id="content-toast"></div>
-    <script src="views/Scripts/Toast.js"></script>
+    <script src="views/scripts/Toast.js"></script>
   </body>
 </html>
